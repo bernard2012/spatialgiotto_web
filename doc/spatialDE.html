@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: spatialDE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for spatialDE {Giotto}"><tr><td>spatialDE {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>spatialDE</h2>
+
+<h3>Description</h3>
+
+<p>Compute spatial variable genes with spatialDE method
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+spatialDE(
+  gobject = NULL,
+  expression_values = c("raw", "normalized", "scaled", "custom"),
+  size = c(4, 2, 1),
+  color = c("blue", "green", "red"),
+  sig_alpha = 0.5,
+  unsig_alpha = 0.5,
+  python_path = NULL,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "SpatialDE"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>Giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>size</code></td>
+<td>
+<p>size of plot</p>
+</td></tr>
+<tr valign="top"><td><code>color</code></td>
+<td>
+<p>low/medium/high color scheme for plot</p>
+</td></tr>
+<tr valign="top"><td><code>sig_alpha</code></td>
+<td>
+<p>alpha value for significance</p>
+</td></tr>
+<tr valign="top"><td><code>unsig_alpha</code></td>
+<td>
+<p>alpha value for unsignificance</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>specify specific path to python if required</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from all_plots_save_function()</p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is a wrapper for the SpatialDE method implemented in the ...
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list of data.frames with results and plot (optional)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    spatialDE(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

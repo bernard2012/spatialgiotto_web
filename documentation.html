@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Documentations for Giotto</title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable", content="yes">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/prism.css">
+<link rel="stylesheet" href="css/giotto.css">
+
+<script src="js/bootstrap.4.1.0.min.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/prism.js"></script>
+<script src="js/giotto.js"></script>
+</head>
+
+
+<body data-spy="scroll" data-target="#nex2" data-offset="80">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Giotto</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+        </ul>
+     </div>
+   </nav>
+
+
+   <div class="container-fluid">
+     <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentation2.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.dataset.html">
+                            Analyzer dataset tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analyzer.documentation.html">
+                            Analyzer R usage manual
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="live.demo.html">
+                            Viewer live demo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.viewer.setup2.html">
+                            Viewer setup tutorial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html">
+                            Viewer usage manual
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Giotto Viewer: Usage Manual</h1>
+            </div>
+            <nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+              <ul class="nav nav-pills">
+			    <li class="nav-item">
+				  <a class="nav-link active" href="#s_copy_js_css">giotto_copy_js_css</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_setup_image">giotto_setup_image</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_step1_modify_json">giotto_step1_modify_json</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_setup_viewer">giotto_setup_viewer</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_step1_setup">smfish_step1_setup</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_read_config">smfish_read_config</a>
+				</li>
+			</ul>
+		  </nav>
+
+<h4 id="s_copy_js_css">giotto_copy_js_css</h4>
+
+<pre><code class="language-bash">~/.local/bin/giotto_copy_js_css 
+usage: giotto_copy_js_css [-h] --output OUTPUT_DIR
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>--output</code></td>
+<td>Output directory where the js, css files are copied to. This will create a js folder and a css folder in the output. It will copy the required js files of the website, such as jquery.js, bootstrap.js, and other files into the output folder.</td>
+</tbody>
+</table>
+
+<h4 id="s_setup_image">giotto_setup_image</h4>
+This tool will generate a template json file that defines the image processing and other viewer preparation steps.
+<pre><code class="language-bash">~/.local/bin/giotto_setup_image 
+usage: giotto_setup_image [-h] --require-stitch {y,n} --image {y,n}
+                          --image-multi-channel {y,n} --segmentation {y,n}
+                          --multi-fov {y,n} --output-json OUTPUT
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>--require-stitch</code></td>
+<td>Will there be stitching step required for the images, coordinates, and segmentation ROIs? (y/n)</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--image</code></td>
+<td>Will there be images involved? (y/n) If no images are involved, and --require-stitch=y, then stitching will be performed on coordinates and segmentations (if available).</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--image-multi-channel</code></td>
+<td>Are images multi-channel? (y/n) TIF images are supported</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--segmentation</code></td>
+<td>Will there be segmentation files? (y/n) Need to be ROI format</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--multi-fov</code></td>
+<td>Will there be multiple fields of view? (y/n) Sometimes also called positions. </td>
+</tr>
+<tr>
+<td style="width:20%"><code>--output-json</code></td>
+<td>Output json file </td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="s_step1_modify_json">giotto_step1_modify_json</h4>
+Usually runs after the giotto_setup_image step where a template json has been created.
+This tool fills in the information in the json template.
+
+<pre><code class="language-bash">~/.local/bin/giotto_step1_modify_json 
+usage: giotto_step1_modify_json [-h] --input INPUT_JSON
+                                [--add-image ADD_IMAGE]
+                                [--change-positions POSITIONS [POSITIONS ...]]
+                                [--change-stain-ids STAINIDS [STAINIDS ...]]
+                                [--change-offset OFFSET]
+                                [--change-segmentation SEGMENTATION]
+                                [--rotate-clockwise-image {90,180,270}]
+                                [--scale-image SCALE [SCALE ...]]
+                                [--flip-image {horizontal,vertical}] --output
+                                OUTPUT_JSON
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>--input</code></td>
+<td>Input json file, or output file of giotto_setup_image.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--add-image</code></td>
+<td>TIF image(s). Can be a single image or a set of images (following a naming rule). Need to be TIF format. For a set of images, specify as "pos[POSITION].tif" where [POSITION] (spelled as it is) is a universal field for position ID in the file name. This will fill in the <b>decouple_tiff</b> section of the <a href="test.json">input json file</a></td>
+</tr>
+<tr>
+<td style="width:20%"><code>--change-positions</code></td>
+<td>Integers. The set of position IDs for the [POSITION] field in the filename. Anywhere [POSITION] appears in the file name (for example "pos[POSITION].tif") will be replaced with the actual position IDs. For example "--change-positions 0 1 2 3" will represent the files "pos0.tif", "pos1.tif", "pos2.tif", "pos3.tif".
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--change-stain-ids</code></td>
+<td>Integers. The set of channel IDs of the multi-channel TIF image(s) to be processed. For example, channel 0 may be Nissl channel; channel 1 may be the DAPI; channel 2 may be polyA. Then --change-stain-ids 0 1 2.
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--change-offset</code></td>
+<td>Offset file. Required of stitching. Will change the "offset" key in "stitch_image" section, "stitch_coord", "stitch_segmentation_roi" sections of the <a href="test.json">input json file</a>. Example <a href="offset.txt">offset file</a> (tab-separated).
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--change-segmentation</code></td>
+<td>Segmentation roi zip file(s). One zip file for one position (or fov). For multiple files, can use the [POSITION] tag. For example, "RoiSet_Pos[POSITION]_real.zip". Inside each zip are a set of roi files (one roi per cell). 
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--rotate-clockwise-image</code></td>
+<td>Rotation (degrees). One of 90, 180, 270. Will change the "rotate_image" section of the input json file. Note, it will change the "rotate_coord", "rotate_segmentation" sections of the input json file as well.
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--scale-image</code></td>
+<td>Scale factor. For example, 2 means that image(s) will be up-scaled 200%. Note, it will change the "scale_coord", "scale_segmentation" sections of the input json file as well. 
+<td>
+</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--output</code></td>
+<td>Json file to which changes are saved.
+<td>
+</td>
+</tbody>
+</table>
+
+
+<h4 id="s_setup_viewer">giotto_setup_viewer</h4>
+
+<pre><code class="language-bash">~/.local/bin/giotto_setup_viewer 
+usage: giotto_setup_viewer [-h] --num-panel {2,4,6,8} --input-preprocess-json
+                           FILE_PREPROCESS
+                           [--input-annotation-list ANNOT_LIST] --output-json
+                           OUTPUT --panel-1
+                           {PanelPhysical,PanelTsne,PanelPhysicalSimple,PanelPhysical10X}
+                           --panel-2
+                           {PanelPhysical,PanelTsne,PanelPhysicalSimple,PanelPhysical10X}
+                           [--panel-3 {PanelPhysical,PanelTsne,PanelPhysicalSimple,PanelPhysical10X}]
+                           [--panel-4 {PanelPhysical,PanelTsne,PanelPhysicalSimple,PanelPhysical10X}]
+                           [otherpanels [otherpanels ...]]
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>--num_panel</code></td>
+<td>Integer. 2, 4, 6, or 8.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--input-preprocess-json</code></td>
+<td>Json file. Output of giotto_step1_modify_json.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--input-annotation-list</code></td>
+<td>File. A list of annotation files. File format: two column. First column: annotation file (without .txt). Second column: name of annotation. <a href="annotation_num_list.txt">Example</a></td>
+</tr>
+<tr>
+<td style="width:20%"><code>--panel-1</code></td>
+<td>PanelPhysical / PanelTsne / PanelPhysicalSimple / PanelPhysical10X.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--panel-2</code></td>
+<td>PanelPhysical / PanelTsne / PanelPhysicalSimple / PanelPhysical10X.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--panel-3</code></td>
+<td>PanelPhysical / PanelTsne / PanelPhysicalSimple / PanelPhysical10X.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--panel-4</code></td>
+<td>PanelPhysical / PanelTsne / PanelPhysicalSimple / PanelPhysical10X.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>--output-json</code></td>
+<td>Output file</td>
+</tr>
+</tbody>
+</table>
+
+Details of the panel:
+<ul>
+<li>PanelPhysical:
+Cells in the physical space. Requires cell coordinates, cell segmentations, staining images, gene expression, cell annotations.
+</li>
+<li>PanelTsne:
+Cells in the expression space. Can be TSNE or UMAP. Requires cell coordinates in TSNE/UMAP space, gene expression, cell annotations.
+</li>
+<li>PanelPhysicalSimple:
+Variation of PanelPhysical except cell segmentations, staining images are not required. Cells represented as circles.
+</li>
+<li>PanelPhysical10X:
+Variation of PanelPhysical that is designed for 10X Visium platform. Requires the raw H&amp;E staining image.
+</li>
+</ul>
+<br>
+
+
+<h4 id="s_step1_setup">smfish_step1_setup</h4>
+This tool will execute the set of actions specified in the step1 json file (generated by giotto_setup_image and modified by giotto_step1_modify_json).
+<pre><code class="language-bash">~/.local/bin/smfish_step1_setup 
+usage: smfish_step1_setup [-h] -c CONFIG
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>-c</code></td>
+<td>Json file. Final finished json file from giotto_step1_modify_json.</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+<h4 id="s_read_config">smfish_read_config</h4>
+This tool will execute the set of actions specified in the step2 json file (from giotto_setup_viewer). Then it will create the website files (css, js, html) for the created viewer instance.
+<pre><code class="language-bash">~/.local/bin/smfish_read_config 
+usage: smfish_read_config [-h] -c CONFIG -o OUTPUT_JS -p OUTPUT_HTML -q
+                          OUTPUT_CSS
+</code></pre>
+
+Required parameters:
+<table class="table">
+<tbody>
+<tr>
+<td style="width:20%"><code>-c</code></td>
+<td>Json file. Final finished step2 json file from giotto_setup_viewer.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>-o</code></td>
+<td>Output js file.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>-p</code></td>
+<td>Output html file.</td>
+</tr>
+<tr>
+<td style="width:20%"><code>-q</code></td>
+<td>Output css file.</td>
+</tr>
+</tbody>
+</table>
+</main>
+
+
+</div>
+</div>
+</body>
+</html>
+

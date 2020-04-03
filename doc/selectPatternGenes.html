@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: selectPatternGenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for selectPatternGenes {Giotto}"><tr><td>selectPatternGenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>selectPatternGenes</h2>
+
+<h3>Description</h3>
+
+<p>Select genes correlated with spatial patterns
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+selectPatternGenes(
+  spatPatObj,
+  dimensions = 1:5,
+  top_pos_genes = 10,
+  top_neg_genes = 10,
+  min_pos_cor = 0.5,
+  min_neg_cor = -0.5,
+  return_top_selection = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>spatPatObj</code></td>
+<td>
+<p>Output from detectSpatialPatterns</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions</code></td>
+<td>
+<p>dimensions to identify correlated genes for.</p>
+</td></tr>
+<tr valign="top"><td><code>top_pos_genes</code></td>
+<td>
+<p>Top positively correlated genes.</p>
+</td></tr>
+<tr valign="top"><td><code>top_neg_genes</code></td>
+<td>
+<p>Top negatively correlated genes.</p>
+</td></tr>
+<tr valign="top"><td><code>min_pos_cor</code></td>
+<td>
+<p>Minimum positive correlation score to include a gene.</p>
+</td></tr>
+<tr valign="top"><td><code>min_neg_cor</code></td>
+<td>
+<p>Minimum negative correlation score to include a gene.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Data.table with genes associated with selected dimension (PC).
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    selectPatternGenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

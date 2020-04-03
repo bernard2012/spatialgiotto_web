@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: cellProximityBarplot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cellProximityBarplot {Giotto}"><tr><td>cellProximityBarplot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cellProximityBarplot</h2>
+
+<h3>Description</h3>
+
+<p>Create barplot from cell-cell proximity scores
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cellProximityBarplot(
+  gobject,
+  CPscore,
+  min_orig_ints = 5,
+  min_sim_ints = 5,
+  p_val = 0.05,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "cellProximityBarplot"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>CPscore</code></td>
+<td>
+<p>CPscore, output from cellProximityEnrichment()</p>
+</td></tr>
+<tr valign="top"><td><code>min_orig_ints</code></td>
+<td>
+<p>filter on minimum original cell-cell interactions</p>
+</td></tr>
+<tr valign="top"><td><code>min_sim_ints</code></td>
+<td>
+<p>filter on minimum simulated cell-cell interactions</p>
+</td></tr>
+<tr valign="top"><td><code>p_val</code></td>
+<td>
+<p>p-value</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function creates a barplot that shows the  spatial proximity
+enrichment or depletion of cell type pairs.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot barplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    cellProximityBarplot(CPscore)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

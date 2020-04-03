@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plotCCcomDotplot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotCCcomDotplot {Giotto}"><tr><td>plotCCcomDotplot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plotCCcomDotplot</h2>
+
+<h3>Description</h3>
+
+<p>Plots dotplot for ligand-receptor communication scores in cell-cell interactions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotCCcomDotplot(
+  gobject,
+  comScores,
+  selected_LR = NULL,
+  selected_cell_LR = NULL,
+  show_LR_names = TRUE,
+  show_cell_LR_names = TRUE,
+  cluster_on = c("PI", "LR_expr", "log2fc"),
+  cor_method = c("pearson", "kendall", "spearman"),
+  aggl_method = c("ward.D", "ward.D2", "single", "complete", "average", "mcquitty",
+    "median", "centroid"),
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "plotCCcomDotplot"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>comScores</code></td>
+<td>
+<p>communinication scores from <code>exprCellCellcom</code> or <code>spatCellCellcom</code></p>
+</td></tr>
+<tr valign="top"><td><code>selected_LR</code></td>
+<td>
+<p>selected ligand-receptor combinations</p>
+</td></tr>
+<tr valign="top"><td><code>selected_cell_LR</code></td>
+<td>
+<p>selected cell-cell combinations for ligand-receptor combinations</p>
+</td></tr>
+<tr valign="top"><td><code>show_LR_names</code></td>
+<td>
+<p>show ligand-receptor names</p>
+</td></tr>
+<tr valign="top"><td><code>show_cell_LR_names</code></td>
+<td>
+<p>show cell-cell names</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_on</code></td>
+<td>
+<p>values to use for clustering of cell-cell and ligand-receptor pairs</p>
+</td></tr>
+<tr valign="top"><td><code>cor_method</code></td>
+<td>
+<p>correlation method used for clustering</p>
+</td></tr>
+<tr valign="top"><td><code>aggl_method</code></td>
+<td>
+<p>agglomeration method used by hclust</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return plotting object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>show</code></td>
+<td>
+<p>values to show on heatmap</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plotCCcomDotplot(CPGscores)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

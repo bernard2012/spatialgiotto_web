@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">10X Visium brain dataset </h1>
+			</div>
+
+<!--
+<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Data loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_subset">Spatial subsets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_dist">Spatial distr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotate_clust">Annotate clusters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_analyses_paper">Analyses (paper)</a>
+    </li>
+  </ul>
+</nav>
+-->
+<p>The Visium brain data to run this tutorial can be found <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Adult_Mouse_Brain">here</a></p>
+
+<h4>Giotto global instructions</h4>
+
+<pre><code class="language-R">library(Giotto)
+## create instructions
+## instructions allow us to automatically save all plots into a chosen results folder
+## Here we will not automatically save plots, for an example see the visium kidney dataset
+## We will only set the python path which is needed for certain analyses
+my_python_path = &quot;/your/python/path/python&quot;
+results_folder = &#39;/your/results/path/&#39;
+instrs = createGiottoInstructions(python_path = my_python_path)
+</code></pre>
+
+<h4>part 1: Data input</h4>
+
+<p><a href="https://www.10xgenomics.com/spatial-transcriptomics/">10X genomics</a> recently launched a new platform to obtain spatial expression data using a Visium Spatial Gene Expression slide.</p>
+
+<p><img src="figures/visium.brain/visium_technology.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## expression and cell location
+## expression data
+data_dir = &quot;path/to/Visum_data/&quot;
+data_path = paste0(data_dir,&#39;raw_feature_bc_matrix/&#39;)
+raw_matrix = get10Xmatrix(path_to_data = data_path, gene_column_index = 2) # gene symbol is in the 2nd column
+## spatial locations and metadata
+spatial_locations = fread(paste0(data_dir,&#39;spatial/tissue_positions_list.csv&#39;))
+spatial_locations = spatial_locations[match(colnames(raw_matrix), V1)]
+colnames(spatial_locations) = c(&#39;barcode&#39;, &#39;in_tissue&#39;, &#39;array_row&#39;, &#39;array_col&#39;, &#39;col_pxl&#39;, &#39;row_pxl&#39;)
+</code></pre>
+
+<p>High resolution png from original tissue.<br/>
+<img src="figures/visium.brain/mouse_brain_highres.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 2: Create Giotto object &amp; process data</h4>
+
+<pre><code class="language-R">## create
+## we need to reverse the column pixel column (col_pxl) to get the same .jpg image as provided by 10X
+visium_brain &lt;- createGiottoObject(raw_exprs = raw_matrix,
+                                    spatial_locs = spatial_locations[,.(row_pxl,-col_pxl)],
+                                    instructions = instrs,
+                                    cell_metadata = spatial_locations[,.(in_tissue, array_row, array_col)])
+## check metadata
+pDataDT(visium_brain)
+## compare in tissue with provided jpg
+spatPlot(gobject = visium_brain,  point_size = 2,
+           cell_color = &#39;in_tissue&#39;, cell_color_code = c(&#39;0&#39; = &#39;lightgrey&#39;, &#39;1&#39; = &#39;blue&#39;))
+</code></pre>
+
+<p>Spots labeled according to whether they were covered by tissue or not:<br/>
+<img src="figures/visium.brain/1_in_tissue.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## subset on spots that were covered by brain tissue
+metadata = pDataDT(visium_brain)
+in_tissue_barcodes = metadata[in_tissue == 1]$cell_ID
+visium_brain = subsetGiotto(visium_brain, cell_ids = in_tissue_barcodes)
+## filter genes and cells
+visium_brain &lt;- filterGiotto(gobject = visium_brain,
+                              expression_threshold = 1,
+                              gene_det_in_min_cells = 50,
+                              min_det_genes_per_cell = 1000,
+                              expression_values = c(&#39;raw&#39;),
+                              verbose = T)
+## normalize
+visium_brain &lt;- normalizeGiotto(gobject = visium_brain, scalefactor = 6000, verbose = T)
+## add gene &amp; cell statistics
+visium_brain &lt;- addStatistics(gobject = visium_brain)
+## visualize
+# location of spots
+spatPlot(gobject = visium_brain,  point_size = 2)
+</code></pre>
+
+<p>Spots after subsetting and filtering:<br/>
+<img src="figures/visium.brain/1_spatial_locations.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># number of genes per spot
+spatPlot(gobject = visium_brain, cell_color = &#39;nr_genes&#39;, color_as_factor = F,  point_size = 2)
+</code></pre>
+
+<p>Overlay with number of genes detected per spot:<br/>
+<img src="figures/visium.brain/1_nr_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 3: dimension reduction</h4>
+
+<pre><code class="language-R">## highly variable genes (HVG)
+visium_brain &lt;- calculateHVG(gobject = visium_brain)
+</code></pre>
+
+<p>highly variable genes:<br/>
+<img src="figures/visium.brain/2_HVGplot.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## select genes based on HVG and gene statistics, both found in gene metadata
+gene_metadata = fDataDT(visium_brain)
+featgenes = gene_metadata[hvg == &#39;yes&#39; &amp; perc_cells &gt; 3 &amp; mean_expr_det &gt; 0.4]$gene_ID
+## run PCA on expression values (default)
+visium_brain &lt;- runPCA(gobject = visium_brain, genes_to_use = featgenes, scale_unit = F)
+# significant PCs
+signPCA(visium_brain, genes_to_use = featgenes, scale_unit = F)
+</code></pre>
+
+<p>screeplot to determine number of Principal Components to keep:<br/>
+<img src="figures/visium.brain/2_screeplot.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># plot PCA
+plotPCA(gobject = visium_brain)
+</code></pre>
+
+<p>PCA:<br/>
+<img src="figures/visium.brain/2_PCA_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## run UMAP 
+visium_brain &lt;- runUMAP(visium_brain, dimensions_to_use = 1:10)
+plotUMAP(gobject = visium_brain)
+</code></pre>
+
+<p>UMAP: 
+<img src="figures/visium.brain/2_UMAP_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## run tSNE
+visium_brain &lt;- runtSNE(visium_brain, dimensions_to_use = 1:10)
+plotTSNE(gobject = visium_brain)
+</code></pre>
+
+<p>tSNE: 
+<img src="figures/visium.brain/2_tSNE_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 4:  cluster</h4>
+
+<pre><code class="language-R">## sNN network (default)
+visium_brain &lt;- createNearestNetwork(gobject = visium_brain, dimensions_to_use = 1:10, k = 15)
+## Leiden clustering
+visium_brain &lt;- doLeidenCluster(gobject = visium_brain, resolution = 0.4, n_iterations = 1000)
+# default cluster result name from doLeidenCluster = &#39;leiden_clus&#39;
+plotUMAP(gobject = visium_brain, cell_color = &#39;leiden_clus&#39;, show_NN_network = T, point_size = 2)
+</code></pre>
+
+<p>Leiden clustering:<br/>
+<img src="figures/visium.brain/3_UMAP_leiden.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 5: co-visualize</h4>
+
+<pre><code class="language-R"># leiden clustering results
+spatDimPlot(gobject = visium_brain, cell_color = &#39;leiden_clus&#39;,
+            dim_point_size = 1.5, spat_point_size = 1.5)
+</code></pre>
+
+<p>Co-visualzation:
+<img src="figures/visium.brain/4_covis_leiden.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># number of genes detected per spot
+spatDimPlot(gobject = visium_brain, cell_color = &#39;nr_genes&#39;, color_as_factor = F,
+            dim_point_size = 1.5, spat_point_size = 1.5)
+</code></pre>
+
+<p>Co-visualzation overlaid with number of genes detected:<br/>
+<img src="figures/visium.brain/4_nr_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># zoom-in on Dentate Gyrus by subsetting giotto object based on spatial coordinates/locations
+DG_subset = subsetGiottoLocs(visium_brain, x_max = 6500, x_min = 3000, y_max = -2500, y_min = -5500, return_gobject = T)
+spatDimPlot(gobject = DG_subset, cell_color = &#39;leiden_clus&#39;, spat_point_size = 5)
+</code></pre>
+
+<p>Zoom-in on Dentate Gyrus:<br/>
+<img src="figures/visium.brain/4_zoom_dentate_gyrus.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 6: cell type marker gene detection</h4>
+
+<h4>Gini marker genes</h4>
+
+<pre><code class="language-R">## gini ##
+## ---- ##
+gini_markers_subclusters = findMarkers_one_vs_all(gobject = visium_brain,
+                                                  method = &#39;gini&#39;,
+                                                  expression_values = &#39;normalized&#39;,
+                                                  cluster_column = &#39;leiden_clus&#39;,
+                                                  min_genes = 20,
+                                                  min_expr_gini_score = 0.5,
+                                                  min_det_gini_score = 0.5)
+# violinplot
+topgenes_gini = gini_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes
+violinPlot(visium_brain, genes = unique(topgenes_gini), cluster_column = &#39;leiden_clus&#39;,
+           strip_text = 8, strip_position = &#39;right&#39;)
+</code></pre>
+
+<p>Gini:</p>
+
+<ul>
+<li>violinplot:
+<img src="figures/visium.brain/5_violinplot_gini.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<pre><code class="language-R"># cluster heatmap
+topgenes_gini = gini_markers_subclusters[, head(.SD, 2), by = &#39;cluster&#39;]$genes
+my_cluster_order = c(5, 13, 7, 2, 1, 10, 14, 6, 12, 9, 3, 4 , 8, 11, 15)
+plotMetaDataHeatmap(visium_brain, selected_genes = topgenes_gini, custom_cluster_order = my_cluster_order,
+                    metadata_cols = c(&#39;leiden_clus&#39;), x_text_size = 10, y_text_size = 10)
+</code></pre>
+
+<ul>
+<li>Heatmap clusters:
+<img src="figures/visium.brain/5_metaheatmap_gini.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<pre><code class="language-R"># umap plots
+dimGenePlot2D(visium_brain, expression_values = &#39;scaled&#39;,
+              genes = gini_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes,
+              cow_n_col = 3, point_size = 1,
+              genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0)
+</code></pre>
+
+<ul>
+<li>UMAPs:
+<img src="figures/visium.brain/5_gini_umap.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<h4>Scran marker genes</h4>
+
+<pre><code class="language-R">scran_markers_subclusters = findMarkers_one_vs_all(gobject = visium_brain,
+                                                   method = &#39;scran&#39;,
+                                                   expression_values = &#39;normalized&#39;,
+                                                   cluster_column = &#39;leiden_clus&#39;)
+# violinplot
+topgenes_scran = scran_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes
+violinPlot(visium_brain, genes = unique(topgenes_scran), cluster_column = &#39;leiden_clus&#39;,
+           strip_text = 8, strip_position = &#39;right&#39;)
+</code></pre>
+
+<p>Scran:</p>
+
+<ul>
+<li>violinplot:
+<img src="figures/visium.brain/5_violinplot_scran.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<pre><code class="language-R"># cluster heatmap
+topgenes_scran = scran_markers_subclusters[, head(.SD, 2), by = &#39;cluster&#39;]$genes
+plotMetaDataHeatmap(visium_brain, selected_genes = topgenes_scran, custom_cluster_order = my_cluster_order,
+                    metadata_cols = c(&#39;leiden_clus&#39;))
+</code></pre>
+
+<ul>
+<li>Heatmap clusters:
+<img src="figures/visium.brain/5_metaheatmap_scran.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<pre><code class="language-R"># umap plots
+dimGenePlot2D(visium_brain, expression_values = &#39;scaled&#39;,
+              genes = scran_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes,
+              cow_n_col = 3, point_size = 1,
+              genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0)
+</code></pre>
+
+<ul>
+<li>UMAPs:
+<img src="figures/visium.brain/5_scran_umap.png" class="img-fluid" style="max-width:50%"></img></li>
+</ul>
+
+<h4>part 7: cell-type annotation</h4>
+
+<p>Visium spatial transcriptomics does not provide single-cell resolution, making cell type annotation a harder problem. Giotto provides 3 ways to calculate enrichment of specific cell-type signature gene list:    </p>
+
+<ul>
+<li>PAGE<br/></li>
+<li>rank<br/></li>
+<li>hypergeometric test<br/></li>
+</ul>
+
+<p>To generate the cell-type specific gene lists for the mouse brain data we used cell-type specific gene sets as identified in <a href="https://www.mousebrain.org">Zeisel, A. et al. Molecular Architecture of the Mouse Nervous System</a></p>
+
+<p><img src="figures/visium.brain/clusters_Zeisel.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">
+# known markers for different mouse brain cell types:
+# Zeisel, A. et al. Molecular Architecture of the Mouse Nervous System. Cell 174, 999-1014.e22 (2018).
+## cell type signatures ##
+## combination of all marker genes identified in Zeisel et al
+brain_sc_markers = fread(&#39;/path/to/Visium_data/Brain_data/sig_matrix.txt&#39;) # file don&#39;t exist in data folder
+sig_matrix = as.matrix(brain_sc_markers[,-1]); rownames(sig_matrix) = brain_sc_markers$Event
+## enrichment tests 
+visium_brain = createSpatialEnrich(visium_brain, sign_matrix = sig_matrix, enrich_method = &#39;PAGE&#39;) #default = &#39;PAGE&#39;
+## heatmap of enrichment versus annotation (e.g. clustering result)
+cell_types = colnames(sig_matrix)
+plotMetaDataCellsHeatmap(gobject = visium_brain,
+                         metadata_cols = &#39;leiden_clus&#39;,
+                         value_cols = cell_types,
+                         spat_enr_names = &#39;PAGE&#39;,x_text_size = 8, y_text_size = 8)
+</code></pre>
+
+<p><img src="figures/visium.brain/6_heatmap_PAGE.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## spatial enrichment results for all cell type signatures ##
+cell_types_subset = colnames(sig_matrix)[1:10]
+spatCellPlot(gobject = visium_brain, spat_enr_names = &#39;PAGE&#39;,
+             cell_annotation_values = cell_types_subset,
+             cow_n_col = 4,coord_fix_ratio = NULL, point_size = 0.75)
+</code></pre>
+
+<p><img src="figures/visium.brain/6_PAGE_spatplot_1_10.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">cell_types_subset = colnames(sig_matrix)[11:20]
+spatCellPlot(gobject = visium_brain, spat_enr_names = &#39;PAGE&#39;,
+             cell_annotation_values = cell_types_subset,
+             cow_n_col = 4,coord_fix_ratio = NULL, point_size = 0.75)
+</code></pre>
+
+<p><img src="figures/visium.brain/6_PAGE_spatplot_11_20.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## spatial and dimension reduction visualization with
+spatDimCellPlot(gobject = visium_brain, spat_enr_names = &#39;PAGE&#39;,
+                cell_annotation_values = c(&#39;Cortex_hippocampus&#39;, &#39;Granule_neurons&#39;, &#39;di_mesencephalon_1&#39;, &#39;Oligo_dendrocyte&#39;,&#39;Vascular&#39;),
+                cow_n_col = 1, spat_point_size = 1, plot_alignment = &#39;horizontal&#39;)
+</code></pre>
+
+<p>Co-visualization for selected subset:<br/>
+<img src="figures/visium.brain/6_PAGE_spatdimplot.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## visualize individual spatial enrichments
+spatDimPlot(gobject = visium_brain,
+            spat_enr_names = &#39;PAGE&#39;,
+            cell_color = &#39;Cortex_hippocampus&#39;, color_as_factor = F,
+            spat_show_legend = T, dim_show_legend = T,
+            gradient_midpoint = 0, 
+            dim_point_size = 1.5, spat_point_size = 1.5)
+</code></pre>
+
+<p><img src="figures/visium.brain/6_PAGE_spatdimplot_cortex_hc.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">spatDimPlot(gobject = visium_brain,
+            spat_enr_names = &#39;PAGE&#39;,
+            cell_color = &#39;Granule_neurons&#39;, color_as_factor = F,
+            spat_show_legend = T, dim_show_legend = T,
+            gradient_midpoint = 0, 
+            dim_point_size = 1.5, spat_point_size = 1.5
+
+</code></pre>
+
+<p><img src="figures/visium.brain/6_PAGE_spatdimplot_gc.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 8: spatial grid</h4>
+
+<pre><code class="language-R"># create spatial grid
+visium_brain &lt;- createSpatialGrid(gobject = visium_brain,
+                                   sdimx_stepsize = 400,
+                                   sdimy_stepsize = 400,
+                                   minimum_padding = 0)
+spatPlot(visium_brain, cell_color = &#39;leiden_clus&#39;, show_grid = T,
+         grid_color = &#39;red&#39;, spatial_grid_name = &#39;spatial_grid&#39;)
+</code></pre>
+
+<p><img src="figures/visium.brain/7_grid.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 9: spatial network</h4>
+
+<pre><code class="language-R"># create spatial network
+visium_brain &lt;- createSpatialNetwork(gobject = visium_brain, method = &#39;kNN&#39;, k = 5, maximum_distance_knn = 400, name = &#39;spatial_network&#39;)
+spatPlot(gobject = visium_brain, show_network = T, point_size = 1,
+         network_color = &#39;blue&#39;, spatial_network_name = &#39;spatial_network&#39;)
+</code></pre>
+
+<p><img src="figures/visium.brain/8_spatial_network_k5.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 10: spatial genes</h4>
+
+<pre><code class="language-R">## kmeans binarization
+kmtest = binSpect(visium_brain, calc_hub = T, hub_min_int = 5,
+                  spatial_network_name = &#39;spatial_network&#39;)
+spatGenePlot(visium_brain, expression_values = &#39;scaled&#39;,
+             genes = kmtest$genes[1:6], cow_n_col = 2, point_size = 1,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0)
+</code></pre>
+
+<p><img src="figures/visium.brain/9_spatial_genes_km.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## rank binarization
+ranktest = binSpect(visium_brain, bin_method = &#39;rank&#39;, calc_hub = T, hub_min_int = 5,
+                  spatial_network_name = &#39;spatial_network&#39;)
+spatGenePlot(visium_brain, expression_values = &#39;scaled&#39;,
+             genes = ranktest$genes[1:6], cow_n_col = 2, point_size = 1,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0)
+</code></pre>
+
+<p><img src="figures/visium.brain/9_spatial_genes_rank.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## silhouette
+spatial_genes = silhouetteRank(gobject = visium_brain,
+                               expression_values = &#39;scaled&#39;,
+                               rbp_p=0.95, examine_top=0.3)
+spatGenePlot(visium_brain, expression_values = &#39;scaled&#39;,
+             genes = spatial_genes$genes[1:6], cow_n_col = 2, point_size = 1,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0)
+</code></pre>
+
+<p><img src="figures/visium.brain/9_spatial_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 11: HMRF domains</h4>
+
+<pre><code class="language-R"># spatial genes
+my_spatial_genes &lt;- spatial_genes[1:100]$genes
+# do HMRF with different betas
+hmrf_folder = paste0(results_folder,&#39;/&#39;,&#39;11_HMRF/&#39;)
+if(!file.exists(hmrf_folder)) dir.create(hmrf_folder, recursive = T)
+HMRF_spatial_genes = doHMRF(gobject = visium_brain, expression_values = &#39;scaled&#39;,
+                            spatial_genes = my_spatial_genes,
+                            k = 12,
+                            betas = c(0, 0.5, 6), 
+                            output_folder = paste0(hmrf_folder, &#39;/&#39;, &#39;Spatial_genes/SG_topgenes_k12_scaled&#39;))
+## view results of HMRF
+for(i in seq(0, 3, by = 0.5)) {
+  viewHMRFresults2D(gobject = visium_brain,
+                    HMRFoutput = HMRF_spatial_genes,
+                    k = 12, betas_to_view = i,
+                    point_size = 2)
+}
+## alternative way to add all HMRF results 
+#results = writeHMRFresults(gobject = ST_test,
+#                           HMRFoutput = HMRF_spatial_genes,
+#                           k = 12, betas_to_view = seq(0, 3, by = 0.5))
+#ST_test = addCellMetadata(ST_test, new_metadata = results, by_column = T, column_cell_ID = &#39;cell_ID&#39;)
+## add HMRF of interest to giotto object
+visium_brain = addHMRF(gobject = visium_brain,
+                        HMRFoutput = HMRF_spatial_genes,
+                        k = 12, betas_to_add = c(0, 0.5),
+                        hmrf_name = &#39;HMRF&#39;)
+</code></pre>
+
+<pre><code class="language-R"># b = 0.5
+spatPlot(gobject = visium_brain, cell_color = &#39;HMRF_k12_b.0.5&#39;, point_size = 2)
+
+</code></pre>
+
+<p><img src="figures/visium.brain/10_HMRF_k12_b.0.5.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>Export and create Giotto Viewer</h4>
+
+<h4>1. Export Giotto results to a specificied directory</h4>
+
+<ul>
+<li>export spot/cell annotations<br/></li>
+<li>export dimension reduction coordinates (umap, tsne, &hellip;)<br/></li>
+<li>export expression data<br/></li>
+</ul>
+
+<p>This function will create a directory that, together with the 10X provided .tiff file,
+can be used to create an interactive Giotto Viewer</p>
+
+<pre><code class="language-R"># select annotations, reductions and expression values to view in Giotto Viewer
+viewer_folder = paste0(results_folder, &#39;/&#39;, &#39;mouse_visium_brain_viewer&#39;)
+exportGiottoViewer(gobject = visium_brain,
+                   output_directory = viewer_folder,
+                   spat_enr_names = &#39;PAGE&#39;, 
+                   factor_annotations = c(&#39;in_tissue&#39;,
+                                          &#39;leiden_clus&#39;,
+                                          &#39;HMRF_k12_b.1&#39;),
+                   numeric_annotations = c(&#39;nr_genes&#39;,
+                                           &#39;Granule_neurons&#39;),
+                   dim_reductions = c(&#39;tsne&#39;, &#39;umap&#39;),
+                   dim_reduction_names = c(&#39;tsne&#39;, &#39;umap&#39;),
+                   expression_values = &#39;scaled&#39;,
+                   expression_rounding = 2,
+                   overwrite_dir = T)
+</code></pre>
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: showSpatialCorGenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for showSpatialCorGenes {Giotto}"><tr><td>showSpatialCorGenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>showSpatialCorGenes</h2>
+
+<h3>Description</h3>
+
+<p>Shows and filters spatially correlated genes
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+showSpatialCorGenes(
+  spatCorObject,
+  use_clus_name = NULL,
+  selected_clusters = NULL,
+  genes = NULL,
+  min_spat_cor = 0.5,
+  min_expr_cor = NULL,
+  min_cor_diff = NULL,
+  min_rank_diff = NULL,
+  show_top_genes = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>spatCorObject</code></td>
+<td>
+<p>spatial correlation object</p>
+</td></tr>
+<tr valign="top"><td><code>use_clus_name</code></td>
+<td>
+<p>cluster information to show</p>
+</td></tr>
+<tr valign="top"><td><code>selected_clusters</code></td>
+<td>
+<p>subset of clusters to show</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>subset of genes to show</p>
+</td></tr>
+<tr valign="top"><td><code>min_spat_cor</code></td>
+<td>
+<p>filter on minimum spatial correlation</p>
+</td></tr>
+<tr valign="top"><td><code>min_expr_cor</code></td>
+<td>
+<p>filter on minimum single-cell expression correlation</p>
+</td></tr>
+<tr valign="top"><td><code>min_cor_diff</code></td>
+<td>
+<p>filter on minimum correlation difference (spatial vs expression)</p>
+</td></tr>
+<tr valign="top"><td><code>min_rank_diff</code></td>
+<td>
+<p>filter on minimum correlation rank difference (spatial vs expression)</p>
+</td></tr>
+<tr valign="top"><td><code>show_top_genes</code></td>
+<td>
+<p>show top genes per gene</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with filtered information
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    showSpatialCorGenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

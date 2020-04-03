@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: adjustGiottoMatrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for adjustGiottoMatrix {Giotto}"><tr><td>adjustGiottoMatrix {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>adjustGiottoMatrix</h2>
+
+<h3>Description</h3>
+
+<p>normalize and/or scale expresion values of Giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+adjustGiottoMatrix(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  batch_columns = NULL,
+  covariate_columns = NULL,
+  return_gobject = TRUE,
+  update_slot = c("custom")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>batch_columns</code></td>
+<td>
+<p>metadata columns that represent different batch (max = 2)</p>
+</td></tr>
+<tr valign="top"><td><code>covariate_columns</code></td>
+<td>
+<p>metadata columns that represent covariates to regress out</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>update_slot</code></td>
+<td>
+<p>expression slot that will be updated (default = custom)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function implements the <code> limma::removeBatchEffect</code> function to
+remove known batch effects and to adjust expression values according to provided covariates.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    adjustGiottoMatrix(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

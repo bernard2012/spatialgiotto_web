@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: clusterSpatialCorGenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for clusterSpatialCorGenes {Giotto}"><tr><td>clusterSpatialCorGenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>clusterSpatialCorGenes</h2>
+
+<h3>Description</h3>
+
+<p>Cluster based on spatially correlated genes
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+clusterSpatialCorGenes(
+  spatCorObject,
+  name = "spat_clus",
+  hclust_method = "ward.D",
+  k = 10,
+  return_obj = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>spatCorObject</code></td>
+<td>
+<p>spatial correlation object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for spatial clustering results</p>
+</td></tr>
+<tr valign="top"><td><code>hclust_method</code></td>
+<td>
+<p>method for hierarchical clustering</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of clusters to extract</p>
+</td></tr>
+<tr valign="top"><td><code>return_obj</code></td>
+<td>
+<p>return spatial correlation object (spatCorObject)</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>spatCorObject or cluster results
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    clusterSpatialCorGenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

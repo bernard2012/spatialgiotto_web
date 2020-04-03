@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="giotto.html">
+							Main page <span class="sr-only">(current)</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Welcome </h1>
+			</div>
+
+The Giotto package consists of two modules, Giotto Analyzer and Viewer, which provide tools to process, analyze and visualize single-cell spatial expression data. The underlying framework is generalizable to virtually all currently available spatial datasets. We recently demonstrated the general applicability on 10 different datasets created by 9 different state-of-the-art spatial technologies, including in situ hybridization (seqFISH+, merFISH, osmFISH), sequencing (Slide-seq, Visium, STARmap) and imaging-based multiplexing/proteomics (CyCIF, MIBI, CODEX). These technologies differ in terms of resolution (single cell vs multiple cells), spatial dimension (2D vs 3D), molecular modality (protein vs RNA), and throughput (number of cells and genes). 
+
+<br>Reference:
+<br>
+Ruben Dries*, Qian Zhu* et al. Giotto, a pipeline for integrative analysis and visualization of single-cell spatial transcriptomic data. <a href="https://www.biorxiv.org/content/10.1101/701680v1">Biorxiv doi.org/10.1101/701680</a>.
+
+
+<br><br>
+<img src="figures/overview_datasets.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img>
+
+<br><br>
+
+<a class="btn btn-primary" href="giotto.dataset.html">Browse tutorials</a> to see the capabilities of the Analyzer in analyzing diverse spatial datasets from various technologies.
+
+<br><br>
+<a class="btn btn-primary" href="live.demo.html">Click for a live demo of the Viewer</a> to see how the interactive Giotto Viewer visualizes spatial datasets.
+
+<br><br>
+<a class="btn btn-primary" href="giotto.install.2.html">Test-drive Giotto</a> by downloading a docker image, or by installing Giotto natively. <a href="giotto.install.docker.html">Docker image</a>, <a href="giotto.install.2.html">Installation</a>, <a href="giotto.download.html">Download</a>
+
+<br><br>
+
+<h4>Development</h4>
+
+<h5>Giotto Analyzer</h5>
+<a href="https://rubd.github.io/Giotto/">rubd.github.io/Giotto</a>
+<br>
+<a href="https://github.com/RubD/Giotto">github.com/RubD/Giotto</a>
+
+<h5>Giotto Viewer</h5>
+<a href="http://spatial.rc.fas.harvard.edu/giotto-viewer/">spatial.rc.fas.harvard.edu/giotto-viewer</a>
+<br>
+<a href="https://pypi.org/project/giotto-viewer/">pypi.org/project/giotto-viewer/</a>
+<br>
+<a href="https://pypi.org/project/smfish-image-processing/">pypi.org/project/smfish-image-processing/</a>
+<br>
+
+<br><br>
+
+Giotto analyzer created by Ruben Dries. Giotto viewer created by Qian Zhu. 2020 - All rights reserved. GC Yuan laboratory.
+<br><br>
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

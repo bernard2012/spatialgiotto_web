@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: stitchFieldCoordinates</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for stitchFieldCoordinates {Giotto}"><tr><td>stitchFieldCoordinates {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>stitchFieldCoordinates</h2>
+
+<h3>Description</h3>
+
+<p>Helper function to stitch field coordinates together to form one complete picture
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+stitchFieldCoordinates(
+  location_file,
+  offset_file,
+  cumulate_offset_x = F,
+  cumulate_offset_y = F,
+  field_col = "Field of View",
+  X_coord_col = "X",
+  Y_coord_col = "Y",
+  reverse_final_x = F,
+  reverse_final_y = T
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>location_file</code></td>
+<td>
+<p>location dataframe with X and Y coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>offset_file</code></td>
+<td>
+<p>dataframe that describes the offset for each field (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>cumulate_offset_x</code></td>
+<td>
+<p>(boolean) Do the x-axis offset values need to be cumulated?</p>
+</td></tr>
+<tr valign="top"><td><code>cumulate_offset_y</code></td>
+<td>
+<p>(boolean) Do the y-axis offset values need to be cumulated?</p>
+</td></tr>
+<tr valign="top"><td><code>field_col</code></td>
+<td>
+<p>column that indicates the field within the location_file</p>
+</td></tr>
+<tr valign="top"><td><code>X_coord_col</code></td>
+<td>
+<p>column that indicates the x coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>Y_coord_col</code></td>
+<td>
+<p>column that indicates the x coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>reverse_final_x</code></td>
+<td>
+<p>(boolean) Do the final x coordinates need to be reversed?</p>
+</td></tr>
+<tr valign="top"><td><code>reverse_final_y</code></td>
+<td>
+<p>(boolean) Do the final y coordinates need to be reversed?</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Stitching of fields:
+</p>
+
+<ul>
+<li><p>1. have cell locations: at least 3 columns: field, X, Y
+</p>
+</li>
+<li><p>2. create offset file: offset file has 3 columns: field, x_offset, y_offset
+</p>
+</li>
+<li><p>3. create new cell location file by stitching original cell locations with stitchFieldCoordinates
+</p>
+</li>
+<li><p>4. provide new cell location file to <code>createGiottoObject</code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Updated location dataframe with new X ['X_final'] and Y ['Y_final'] coordinates
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    stitchFieldCoordinates(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

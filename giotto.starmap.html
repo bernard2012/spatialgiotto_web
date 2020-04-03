@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">STARmap dataset </h1>
+			</div>
+
+<!--
+<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Data loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_subset">Spatial subsets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_dist">Spatial distr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotate_clust">Annotate clusters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_analyses_paper">Analyses (paper)</a>
+    </li>
+  </ul>
+</nav>
+-->
+
+<p>The STARmap data to run this tutorial can be found <a href="https://github.com/RubD/spatial-datasets/tree/master/data/2018_starmap_3D_cortex">here</a></p>
+
+<h4>Giotto global instructions</h4>
+
+<pre><code class="language-R"># this example works with Giotto v.0.3.0
+library(Giotto)
+## create instructions
+## instructions allow you to automatically save all plots into a chosen results folder
+## Here we will not automatically save plots, for an example see the seqFISH+ or Visium dataset
+## instructions allow us to automatically save all plots into a chosen results folder
+my_python_path = &quot;/your/python/path/python&quot;
+results_folder = &#39;/your/results/path/&#39;
+instrs = createGiottoInstructions(python_path = my_python_path,
+                                  show_plot = T,
+                                  return_plot = F,
+                                  save_plot = F)
+</code></pre>
+
+<h4>part 1: Data input</h4>
+
+<p><a href="https://science.sciencemag.org/content/361/6400/eaat5691">Wang et al.</a> created a 3D spatial expression dataset consisting of 28 genes from 32,845 single cells acquired over multiple rounds in visual cortex STARmap volumes.</p>
+
+<p>
+<img src="figures/starmap/starmap_cortex_image_summary.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">## A. expression and cell location
+data_dir = &#39;/path/to/data/STARmap_3D/&#39;
+expr = read.table(paste0(data_dir, &#39;/&#39;, &#39;count_matrix/STARmap_3D_data_expression.txt&#39;))
+cell_loc = read.table(paste0(data_dir, &#39;/&#39;, &#39;cell_locations/STARmap_3D_data_cell_locations.txt&#39;))
+</code></pre>
+
+<hr/>
+
+<h4>part 2: Create Giotto object &amp; process data</h4>
+
+<pre><code class="language-R">## create
+STAR_test &lt;- createGiottoObject(raw_exprs = expr, spatial_locs = cell_loc, instructions = instrs)
+## filter raw data
+# pre-test filter parameters
+filterDistributions(STAR_test, detection = &#39;genes&#39;)
+filterDistributions(STAR_test, detection = &#39;cells&#39;)
+filterCombinations(STAR_test, expression_thresholds = c(1, 1,2), gene_det_in_min_cells = c(20000, 20000, 30000), min_det_genes_per_cell = c(10, 20, 25))
+# filter
+STAR_test &lt;- filterGiotto(gobject = STAR_test,
+                          gene_det_in_min_cells = 20000,
+                          min_det_genes_per_cell = 20)
+## normalize
+STAR_test &lt;- normalizeGiotto(gobject = STAR_test, scalefactor = 10000, verbose = T)
+STAR_test &lt;- addStatistics(gobject = STAR_test)
+STAR_test &lt;- adjustGiottoMatrix(gobject = STAR_test, expression_values = c(&#39;normalized&#39;),
+                                batch_columns = NULL, covariate_columns = c(&#39;nr_genes&#39;, &#39;total_expr&#39;),
+                                return_gobject = TRUE,
+                                update_slot = c(&#39;custom&#39;))
+## visualize
+# 3D
+spatPlot3D(gobject = STAR_test,point_size = 2)
+</code></pre>
+
+<p>
+<img src="figures/starmap/1_spatial_locations.png" alt=""/>
+ </p>
+
+<h4>part 3: dimension reduction</h4>
+
+<pre><code class="language-R">STAR_test &lt;- calculateHVG(gobject = STAR_test, method = &#39;cov_groups&#39;, 
+                          zscore_threshold = 0.5, nr_expression_groups = 3,show_plot = T)
+</code></pre>
+
+<p>
+<img src="figures/starmap/2_hvg.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">STAR_test &lt;- runPCA(gobject = STAR_test, genes_to_use = NULL, scale_unit = F)
+signPCA(STAR_test)
+</code></pre>
+
+<p>
+<img src="figures/starmap/3_pca_scree_plot.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">STAR_test &lt;- runUMAP(STAR_test, dimensions_to_use = 1:8, n_components = 3, n_threads = 4)
+plotUMAP_3D(gobject = STAR_test)
+</code></pre>
+
+<p>
+<img src="figures/starmap/4_umap.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 4: cluster</h4>
+
+<pre><code class="language-R">## sNN network (default)
+STAR_test &lt;- createNearestNetwork(gobject = STAR_test, dimensions_to_use = 1:8, k = 15)
+## Leiden clustering
+STAR_test &lt;- doLeidenCluster(gobject = STAR_test, resolution = 0.2, n_iterations = 100,
+                             name = &#39;leiden_0.2&#39;)
+
+plotUMAP_3D(gobject = STAR_test, cell_color = &#39;leiden_0.2&#39;,show_center_label = F)
+
+</code></pre>
+
+<p>
+<img src="figures/starmap/5_leiden_0.2.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 5: co-visualize</h4>
+
+<pre><code class="language-R">spatDimPlot3D(gobject = STAR_test,
+               cell_color = &#39;leiden_0.2&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/6_covisualize_leiden_0.2.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 6: differential expression</h4>
+
+<pre><code class="language-R">markers = findMarkers_one_vs_all(gobject = STAR_test,
+                                 method = &#39;gini&#39;,
+                                 expression_values = &#39;normalized&#39;,
+                                 cluster_column = &#39;leiden_0.2&#39;,
+                                  min_expr_gini_score = 2,
+                                  min_det_gini_score = 2,
+                                 min_genes = 5, rank_score = 2)
+markers[, head(.SD, 2), by = &#39;cluster&#39;]
+# violinplot
+violinPlot(STAR_test, genes = unique(markers$genes), cluster_column = &#39;leiden_0.2&#39;,
+           strip_position = &quot;right&quot;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/violinplot.png" alt=""/>
+ </p>
+
+<pre><code class="language-R"># cluster heatmap
+plotMetaDataHeatmap(STAR_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;leiden_0.2&#39;))
+</code></pre>
+
+<p>
+<img src="figures/starmap/7_heatmap_leiden_0.2.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 7: cell-type annotation</h4>
+
+<pre><code class="language-R">## general cell types
+clusters_cell_types_cortex = c(&#39;excit&#39;,&#39;excit&#39;,&#39;excit&#39;, &#39;inh&#39;, &#39;excit&#39;,
+                               &#39;other&#39;, &#39;other&#39;, &#39;other&#39;, &#39;inh&#39;, &#39;inh&#39;)
+names(clusters_cell_types_cortex) = c(1:10)
+STAR_test = annotateGiotto(gobject = STAR_test, annotation_vector = clusters_cell_types_cortex,
+                           cluster_column = &#39;leiden_0.2&#39;, name = &#39;general_cell_types&#39;)
+plotMetaDataHeatmap(STAR_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;general_cell_types&#39;))
+</code></pre>
+
+<p>
+<img src="figures/starmap/8_general_cell_type.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">## detailed cell types
+clusters_cell_types_cortex = c(&#39;L5&#39;,&#39;L4&#39;,&#39;L2/3&#39;, &#39;PV&#39;, &#39;L6&#39;,
+                               &#39;Astro&#39;, &#39;Olig1&#39;, &#39;Olig2&#39;, &#39;Calretinin&#39;, &#39;SST&#39;)
+names(clusters_cell_types_cortex) = c(1:10)
+STAR_test = annotateGiotto(gobject = STAR_test, annotation_vector = clusters_cell_types_cortex,
+                           cluster_column = &#39;leiden_0.2&#39;, name = &#39;cell_types&#39;)
+plotUMAP_3D(STAR_test, cell_color = &#39;cell_types&#39;, point_size = 1.5,show_center_label = F)
+</code></pre>
+
+<p>
+<img src="figures/starmap/9_cell_type_umap.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">plotMetaDataHeatmap(STAR_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;cell_types&#39;),custom_cluster_order = c(&quot;Calretinin&quot;, &quot;SST&quot;, &quot;L4&quot;, &quot;L2/3&quot;, &quot;PV&quot;, &quot;L5&quot;, &quot;L6&quot;, &quot;Astro&quot;, &quot;Olig2&quot;, &quot;Olig1&quot;))
+
+</code></pre>
+
+<p>
+<img src="figures/starmap/10_cluster_annotation_heatmap.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 8: co-visualize cell types</h4>
+
+<pre><code class="language-R"># create consistent color code
+mynames = unique(pDataDT(STAR_test)$cell_types)
+mycolorcode = Giotto:::getDistinctColors(n = length(mynames))
+names(mycolorcode) = mynames
+spatDimPlot3D(gobject = STAR_test,
+               cell_color = &#39;cell_types&#39;,show_center_label = F)
+</code></pre>
+
+<p>
+<img src="figures/starmap/12_cell_type_co_vis.png" alt=""/> 
+ </p>
+
+<hr/>
+
+<h4>part 9: visualize gene expression</h4>
+
+<pre><code class="language-R">dimGenePlot3D(STAR_test, expression_values = &#39;scaled&#39;,
+                  genes = &quot;Rorb&quot;,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+spatGenePlot3D(STAR_test, 
+                  expression_values = &#39;scaled&#39;,
+                  genes = &quot;Rorb&quot;,
+                  show_other_cells = F,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/Rorb_dim_plot.png" alt=""/>
+<img src="figures/starmap/Rorb_spat_plot.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">dimGenePlot3D(STAR_test, expression_values = &#39;scaled&#39;,
+                  genes = &quot;Pcp4&quot;,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+spatGenePlot3D(STAR_test, 
+                  expression_values = &#39;scaled&#39;,
+                  genes = &quot;Pcp4&quot;,
+                  show_other_cells = F,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/Pcp4_dim_plot.png" alt=""/>
+<img src="figures/starmap/Pcp4_spat_plot.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">dimGenePlot3D(STAR_test, expression_values = &#39;scaled&#39;,
+                  genes = &quot;Cux2&quot;,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+spatGenePlot3D(STAR_test, 
+                  expression_values = &#39;scaled&#39;,
+                  genes = &quot;Cux2&quot;,
+                  show_other_cells = F,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/Cux2_dim_plot.png" alt=""/>
+<img src="figures/starmap/Cux2_spat_plot.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">dimGenePlot3D(STAR_test, expression_values = &#39;scaled&#39;,
+                  genes = &quot;Ctgf&quot;,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+spatGenePlot3D(STAR_test, 
+                  expression_values = &#39;scaled&#39;,
+                  genes = &quot;Ctgf&quot;,
+                  show_other_cells = F,
+                  genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/Ctgf_dim_plot.png" alt=""/>
+<img src="figures/starmap/Ctgf_spat_plot.png" alt=""/>
+ </p>
+
+<hr/>
+
+<h4>part 10: virtual cross section</h4>
+
+<pre><code class="language-R">STAR_test &lt;- createSpatialNetwork(gobject = STAR_test)
+STAR_test = createCrossSection(STAR_test,method=&quot;equation&quot;,equation=c(0,1,0,600),extend_ratio = 0.6)
+</code></pre>
+
+<pre><code class="language-R">insertCrossSectionSpatPlot3D(STAR_test, cell_color = &#39;cell_types&#39;, axis_scale = &#39;cube&#39;,
+           point_size = 2,
+           cell_color_code = mycolorcode)
+insertCrossSectionGenePlot3D(STAR_test, expression_values = &#39;scaled&#39;,axis_scale = &quot;cube&quot;,
+                  genes = &quot;Slc17a7&quot;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/insert_cross_section_cell_types.png" alt=""/>
+<img src="figures/starmap/insert_cross_section_Slc17a7.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">crossSectionPlot(STAR_test,
+                 point_size = 2,
+                 cell_color = &quot;cell_types&quot;,cell_color_code = mycolorcode)
+crossSectionPlot3D(STAR_test,
+                   point_size = 2, cell_color = &quot;cell_types&quot;, 
+                              cell_color_code = mycolorcode,axis_scale = &quot;cube&quot;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/cross_section_spat.png" alt=""/>
+<img src="figures/starmap/cross_section_spat3d.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">crossSectionGenePlot(STAR_test,
+                     genes = &quot;Slc17a7&quot;,
+                     point_size = 2,
+                     cow_n_col = 1.5,
+                     expression_values = &#39;scaled&#39;)
+crossSectionGenePlot3D(STAR_test,
+                       point_size = 2,
+                       genes = c(&quot;Slc17a7&quot;),
+                       expression_values = &#39;scaled&#39;)
+</code></pre>
+
+<p>
+<img src="figures/starmap/Slc17a7_cross_section_gene.png" alt=""/>
+<img src="figures/starmap/Slc17a7_cross_section_gene3d.png" alt=""/>
+ </p>
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

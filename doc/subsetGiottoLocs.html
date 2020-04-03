@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: subsetGiottoLocs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for subsetGiottoLocs {Giotto}"><tr><td>subsetGiottoLocs {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>subsetGiottoLocs</h2>
+
+<h3>Description</h3>
+
+<p>subsets Giotto object based on spatial locations
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+subsetGiottoLocs(
+  gobject,
+  x_max = NULL,
+  x_min = NULL,
+  y_max = NULL,
+  y_min = NULL,
+  z_max = NULL,
+  z_min = NULL,
+  return_gobject = T,
+  verbose = FALSE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>x_max</code></td>
+<td>
+<p>maximum x-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>x_min</code></td>
+<td>
+<p>minimum x-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>y_max</code></td>
+<td>
+<p>maximum y-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>y_min</code></td>
+<td>
+<p>minimum y-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>z_max</code></td>
+<td>
+<p>maximum z-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>z_min</code></td>
+<td>
+<p>minimum z-coordinate</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>return Giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>if return_gobject = FALSE, then a filtered combined metadata data.table will be returned
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    subsetGiottoLocs(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

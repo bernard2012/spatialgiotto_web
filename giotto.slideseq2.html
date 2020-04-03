@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">slideSeq Dataset - Part 2. Clustering and Spatial Domains </h1>
+			</div>
+			<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a> -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_genes">Spatial genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_hmrf">Spatial domains</a>
+    </li>
+  </ul>
+</nav>
+
+<!--<div data-spy="scroll" data-target="#nex2" data-offset="0">-->
+
+<h4 id="s_clustering">Clustering analysis</h4>
+
+<pre><code class="language-R">library(Giotto)
+#data loading
+bead_positions <- fread(file="2019_slideseq_cerebellum/cell_locations/BeadLocationsForR.csv")
+expr_matrix<-fread(file="2019_slideseq_cerebellum/raw_data/MappedDGEForR.csv")
+expr_mat = as.matrix(expr_matrix[,-1]);rownames(expr_mat) = expr_matrix$Row
+Slide_test <- createGiottoObject(raw_exprs = expr_mat, spatial_locs = bead_positions[,.(xcoord, ycoord)])
+
+#normal giotto steps
+#filtering of genes and cells, removal of mitochondrial genes
+filterCombinations(Slide_test, expression_thresholds = c(1, 1), gene_det_in_min_cells = c(20, 20, 20), min_det_genes_per_cell = c(20, 32, 100))
+visPlot(gobject = Slide_test, point_size=0.5)
+Slide_test<-filterGiotto(gobject=Slide_test, gene_det_in_min_cells=20, min_det_genes_per_cell=20)
+non_mito_genes = grep(pattern = 'mt-', Slide_test@gene_ID, value = T, invert = T)
+non_mito_or_blood_genes = grep(pattern = 'Hb[ab]', non_mito_genes, value = T, invert = T)
+Slide_test = subsetGiotto(gobject = Slide_test, gene_ids = non_mito_or_blood_genes)
+visPlot(gobject = Slide_test, point_size=0.5)
+dim(Slide_test@raw_exprs)
+
+#dimensional reduction
+Slide_test <- normalizeGiotto(gobject = Slide_test, scalefactor = 10000, verbose = T)
+Slide_test <- addStatistics(gobject = Slide_test)
+Slide_test <- calculateHVG(gobject = Slide_test, method = 'cov_groups', zscore_threshold = 0.5, nr_expression_groups = 10)
+gene_metadata = fDataDT(Slide_test)
+featgenes = gene_metadata[hvg == 'yes' & perc_cells > 0.5 & mean_expr_det > 1]$gene_ID
+featgenes
+featgenes = gene_metadata[hvg == 'yes']$gene_ID
+featgenes
+Slide_test <- runPCA(gobject = Slide_test, expression_values = 'custom', genes_to_use = featgenes, scale_unit = F)
+Slide_test <- adjustGiottoMatrix(gobject = Slide_test, expression_values = c('normalized'), batch_columns = NULL, covariate_columns = c('nr_genes', 'total_expr'),  return_gobject = TRUE, update_slot = c('custom'))
+Slide_test <- runPCA(gobject = Slide_test, expression_values = 'custom', genes_to_use = featgenes, scale_unit = F)
+signPCA(Slide_test, genes_to_use = featgenes, scale_unit = F, scree_ylim = c(0,0.3))
+plotPCA(gobject=Slide_test)
+Slide_test <- runUMAP(Slide_test, dimensions_to_use=1:9, n_components=2)
+plotUMAP(gobject=Slide_test, point_size=1)
+
+#leiden clustering
+Slide_test<-createNearestNetwork(gobject=Slide_test, dimensions_to_use=1:9, k=20)
+Slide_test<-doLeidenCluster(gobject=Slide_test, resolution=0.5, n_iterations=10, name="leiden", python_path="/n/app/python/3.6.0/bin/python3")
+plotUMAP(gobject=Slide_test, cell_color="leiden", point_size=1, plot_method="ggplot")
+plotMetaDataHeatmap(Slide_test, expression_values="custom", metadata_cols=c("leiden"))
+markers_scarn=findMarkers_one_vs_all(gobject=Slide_test, method="scran", expression_values="normalized", cluster_column="leiden", min_genes=5)
+markergenes_scran = unique(markers_scarn[, head(.SD, 8), by="cluster_ID"][["gene_ID"]])
+plotMetaDataHeatmap(Slide_test, expression_values="normalized", metadata_cols=c("leiden"), selected_genes=markergenes_scran)
+</code></pre>
+<br>
+Filtering (filterCombinations)
+<br>
+<img src="figures/slideSeq.2/slideseq.filterComb.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+After genes and cells filtering, visPlot
+<br>
+<img src="figures/slideSeq.2/slideseq.2.visPlot.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+calculateHVG
+<br>
+<img src="figures/slideSeq.2/slideseq.calculateHVG.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+significant PCs (signPCA)
+<br>
+<img src="figures/slideSeq.2/slideseq.signPCA.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotUMAP
+<br>
+<img src="figures/slideSeq.2/slideseq.umap.1.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+Leiden clustering
+<br>
+<img src="figures/slideSeq.2/slideseq.umap.2.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotMetaHeatmap
+<br>
+<img src="figures/slideSeq.2/slideseq.plotmetadataheatmap.normalized.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+
+<h4 id="s_spatial_genes">Spatial analysis</h4>
+
+<pre><code class="language-R">spatial_genes<-calculate_spatial_genes_python(gobject=Slide_test, expression_values="norm", python_path="/n/app/python/3.6.0/bin/python3", rbp_p=0.95, examine_top=0.05)
+Slide_test<-createSpatialNetwork(gobject=Slide_test, k=7, maximum_distance=100, minimum_k=1)
+visPlot(gobject=Slide_test, show_network=T, sdimx="sdimx", sdimy="sdimy", point_size=1, network_color="blue")
+</code></pre>
+<br>
+Top spatial genes
+<br>
+<img src="figures/slideSeq.2/slideseq.top.spatial.genes.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+createSpatialNetwork
+<br>
+<img src="figures/slideSeq.2/slideseq.createspatialnetwork.k7.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+Spatial expression patterns of a few top genes
+<br>
+<img src="figures/slideSeq.2/slideseq.spatial.marker.genes.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+<br>
+
+<h4 id="s_hmrf">Spatial domains (Hidden markov random field, HMRF)</h4>
+
+<pre><code class="language-R">#select top 250 genes from spatial_genes
+sp<-spatial_genes[1:250]
+
+#start HMRF
+HMRF<-doHMRF(gobject=Slide_test, expression_values="normalized", spatial_genes=sp, k=20, betas=c(0,1,20), output_folder="result_k20", python_path="/n/app/python/3.6.0/bin/python3", zscore="rowcol", tolerance=1e-5)
+
+#add HMRF results
+source("~/addHMRF.R")
+Slide_test<-addHMRF2(gobject=Slide_test, name="test",betas=c(0,1.0,20), betas_to_add=c(0, 10, 11, 14), hmrf_name="hmrf", python_path="/n/app/python/3.6.0/bin/python3", output_data="result_k20/result.spatial.zscore", k=20)
+visPlot(gobject=Slide_test, cell_color="hmrf_k20_b.14", point_size=2)
+visPlot(gobject=Slide_test, cell_color="hmrf_k20_b.0", point_size=2)
+
+#cluster relationship
+showClusterHeatmap(gobject=Slide_test, cluster_column="hmrf_k20_b.14")
+
+#visualize selected clusters
+visPlot(gobject = Slide_test, plot_method = 'ggplot', sdimx = 'sdimx', sdimy = 'sdimy', cell_color = 'hmrf_k20_b.14', point_size=2, select_cell_groups = c(1, 12, 3, 7, 8))
+visPlot(gobject = Slide_test, plot_method = 'ggplot', sdimx = 'sdimx', sdimy = 'sdimy', cell_color = 'hmrf_k20_b.14', point_size=2, select_cell_groups = c(10, 19))
+visPlot(gobject = Slide_test, plot_method = 'ggplot', sdimx = 'sdimx', sdimy = 'sdimy', cell_color = 'hmrf_k20_b.14', point_size=2, select_cell_groups = c(14, 16, 4, 5, 9))
+visPlot(gobject = Slide_test, plot_method = 'ggplot', sdimx = 'sdimx', sdimy = 'sdimy', cell_color = 'hmrf_k20_b.14', point_size=2, select_cell_groups = c(15, 17, 18))
+visPlot(gobject = Slide_test, plot_method = 'ggplot', sdimx = 'sdimx', sdimy = 'sdimy', cell_color = 'hmrf_k20_b.14', point_size=2, select_cell_groups = c(11, 13, 2, 20, 6))
+</code></pre>
+
+<br>
+visPlot (HMRF, k20, b14)
+<br>
+<img src="figures/slideSeq.2/2020-01-05.09-45-51.slideseq.small.hmrf.b14.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (No spatial clustering, purely clustering based on expression)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b0.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+showClusterHeatmap
+<br>
+<img src="figures/slideSeq.2/slideseq.k20.b0.clusterheatmap.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (selected HMRF clusters 1 12 3 7 8)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b14.select.cells.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (selected HMRF clusters 10 19)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b14.select.cells.2.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (selected HMRF clusters 14 16 4 5 9)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b14.select.cells.3.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (selected HMRF clusters 15 17 18)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b14.select.cells.4.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+visPlot (selected HMRF clusters 11 13 2 20 6)
+<br>
+<img src="figures/slideSeq.2/slideseq.hmrf.b14.select.cells.5.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

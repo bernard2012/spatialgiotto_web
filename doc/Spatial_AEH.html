@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Spatial_AEH</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for Spatial_AEH {Giotto}"><tr><td>Spatial_AEH {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Spatial_AEH</h2>
+
+<h3>Description</h3>
+
+<p>calculate automatic expression histology with spatialDE method
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+Spatial_AEH(
+  gobject = NULL,
+  results = NULL,
+  pattern_num = 5,
+  l = 1.05,
+  show_AEH = T,
+  sdimx = NULL,
+  sdimy = NULL,
+  point_size = 3,
+  point_alpha = 1,
+  low_color = "blue",
+  mid_color = "white",
+  high_color = "red",
+  midpoint = 0,
+  python_path = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>Giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>results</code></td>
+<td>
+<p>output from spatial_DE</p>
+</td></tr>
+<tr valign="top"><td><code>pattern_num</code></td>
+<td>
+<p>the number of gene expression patterns</p>
+</td></tr>
+<tr valign="top"><td><code>show_AEH</code></td>
+<td>
+<p>show AEH plot</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>specify specific path to python if required</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description.
+</p>
+
+
+<h3>Value</h3>
+
+<p>a list or a dataframe of SVs
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    Spatial_AEH(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

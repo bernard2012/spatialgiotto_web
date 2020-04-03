@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plot_point_layer_ggplot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plot_point_layer_ggplot {Giotto}"><tr><td>plot_point_layer_ggplot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plot_point_layer_ggplot</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells in point layer according to dimension reduction coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plot_point_layer_ggplot(
+  ggobject,
+  annotated_DT_selected,
+  annotated_DT_other,
+  cell_color = NULL,
+  color_as_factor = T,
+  cell_color_code = NULL,
+  cell_color_gradient = c("blue", "white", "red"),
+  gradient_midpoint = 0,
+  gradient_limits = NULL,
+  select_cell_groups = NULL,
+  select_cells = NULL,
+  point_size = 1,
+  point_border_col = "black",
+  point_border_stroke = 0.1,
+  show_cluster_center = F,
+  show_center_label = T,
+  center_point_size = 4,
+  center_point_border_col = "black",
+  center_point_border_stroke = 0.1,
+  label_size = 4,
+  label_fontface = "bold",
+  edge_alpha = NULL,
+  show_other_cells = T,
+  other_cell_color = "lightgrey",
+  other_point_size = 0.5,
+  show_legend = T
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>annotated_DT_selected</code></td>
+<td>
+<p>annotated data.table of selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>annotated_DT_other</code></td>
+<td>
+<p>annotated data.table of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color</code></td>
+<td>
+<p>color for cells (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>color_as_factor</code></td>
+<td>
+<p>convert color column to factor</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_code</code></td>
+<td>
+<p>named vector with colors</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_gradient</code></td>
+<td>
+<p>vector with 3 colors for numeric data</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_midpoint</code></td>
+<td>
+<p>midpoint for color gradient</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_limits</code></td>
+<td>
+<p>vector with lower and upper limits</p>
+</td></tr>
+<tr valign="top"><td><code>select_cell_groups</code></td>
+<td>
+<p>select subset of cells/clusters based on cell_color parameter</p>
+</td></tr>
+<tr valign="top"><td><code>select_cells</code></td>
+<td>
+<p>select subset of cells based on cell IDs</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>show_cluster_center</code></td>
+<td>
+<p>plot center of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>show_center_label</code></td>
+<td>
+<p>plot label of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>center_point_size</code></td>
+<td>
+<p>size of center points</p>
+</td></tr>
+<tr valign="top"><td><code>label_size</code></td>
+<td>
+<p>size of labels</p>
+</td></tr>
+<tr valign="top"><td><code>label_fontface</code></td>
+<td>
+<p>font of labels</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha</code></td>
+<td>
+<p>column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>show_other_cells</code></td>
+<td>
+<p>display not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_cell_color</code></td>
+<td>
+<p>color of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_point_size</code></td>
+<td>
+<p>size of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plot_point_layer_ggplot(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

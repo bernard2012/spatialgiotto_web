@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: dimGenePlot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dimGenePlot {Giotto}"><tr><td>dimGenePlot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>dimGenePlot</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells and gene expression according to dimension reduction coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dimGenePlot(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes = NULL,
+  dim_reduction_to_use = "umap",
+  dim_reduction_name = "umap",
+  dim1_to_use = 1,
+  dim2_to_use = 2,
+  show_NN_network = F,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  network_color = "lightgray",
+  edge_alpha = NULL,
+  scale_alpha_with_expression = FALSE,
+  point_shape = c("border", "no_border"),
+  point_size = 1,
+  genes_high_color = "red",
+  genes_mid_color = "white",
+  genes_low_color = "blue",
+  point_border_col = "black",
+  point_border_stroke = 0.1,
+  midpoint = 0,
+  show_legend = T,
+  legend_text = 8,
+  background_color = "white",
+  axis_text = 8,
+  axis_title = 8,
+  cow_n_col = 2,
+  cow_rel_h = 1,
+  cow_rel_w = 1,
+  cow_align = "h",
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "dimGenePlot"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to show</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>dimension reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>dim1_to_use</code></td>
+<td>
+<p>dimension to use on x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim2_to_use</code></td>
+<td>
+<p>dimension to use on y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>show_NN_network</code></td>
+<td>
+<p>show underlying NN network</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use, if show_NN_network = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha</code></td>
+<td>
+<p>column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>scale_alpha_with_expression</code></td>
+<td>
+<p>scale expression with ggplot alpha parameter</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>midpoint</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>cow_n_col</code></td>
+<td>
+<p>cowplot param: how many columns</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_h</code></td>
+<td>
+<p>cowplot param: relative height</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_w</code></td>
+<td>
+<p>cowplot param: relative width</p>
+</td></tr>
+<tr valign="top"><td><code>cow_align</code></td>
+<td>
+<p>cowplot param: how to align</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>parameters for cowplot::save_plot()</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>dimGenePlot3D</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    dimGenePlot(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: filterDistributions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for filterDistributions {Giotto}"><tr><td>filterDistributions {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>filterDistributions</h2>
+
+<h3>Description</h3>
+
+<p>show gene or cell distribution after filtering on expression threshold
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+filterDistributions(
+  gobject,
+  expression_values = c("raw", "normalized", "scaled", "custom"),
+  expression_threshold = 1,
+  detection = c("genes", "cells"),
+  plot_type = c("histogram", "violin"),
+  nr_bins = 30,
+  fill_color = "lightblue",
+  scale_axis = "identity",
+  axis_offset = 0,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "filterDistributions"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>expression_threshold</code></td>
+<td>
+<p>threshold to consider a gene expressed</p>
+</td></tr>
+<tr valign="top"><td><code>detection</code></td>
+<td>
+<p>consider genes or cells</p>
+</td></tr>
+<tr valign="top"><td><code>plot_type</code></td>
+<td>
+<p>type of plot</p>
+</td></tr>
+<tr valign="top"><td><code>nr_bins</code></td>
+<td>
+<p>number of bins for histogram plot</p>
+</td></tr>
+<tr valign="top"><td><code>fill_color</code></td>
+<td>
+<p>fill color for plots</p>
+</td></tr>
+<tr valign="top"><td><code>scale_axis</code></td>
+<td>
+<p>ggplot transformation for axis (e.g. log2)</p>
+</td></tr>
+<tr valign="top"><td><code>axis_offset</code></td>
+<td>
+<p>offset to be used together with the scaling transformation</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>ggplot object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    filterDistributions(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

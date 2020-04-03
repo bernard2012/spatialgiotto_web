@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createGiottoInstructions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createGiottoInstructions {Giotto}"><tr><td>createGiottoInstructions {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createGiottoInstructions</h2>
+
+<h3>Description</h3>
+
+<p>Function to set global instructions for giotto functions
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createGiottoInstructions(
+  python_path = NULL,
+  show_plot = NULL,
+  return_plot = NULL,
+  save_plot = NULL,
+  save_dir = NULL,
+  plot_format = NULL,
+  dpi = NULL,
+  units = NULL,
+  height = NULL,
+  width = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>path to python binary to use</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>print plot to console, default = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return plot as object, default = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>automatically save plot, dafault = FALSE</p>
+</td></tr>
+<tr valign="top"><td><code>save_dir</code></td>
+<td>
+<p>path to directory where to save plots</p>
+</td></tr>
+<tr valign="top"><td><code>dpi</code></td>
+<td>
+<p>resolution for raster images</p>
+</td></tr>
+<tr valign="top"><td><code>height</code></td>
+<td>
+<p>height of plots</p>
+</td></tr>
+<tr valign="top"><td><code>width</code></td>
+<td>
+<p>width of  plots</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>named vector with giotto instructions
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createGiottoInstructions()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

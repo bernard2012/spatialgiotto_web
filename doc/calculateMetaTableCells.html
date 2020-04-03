@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: calculateMetaTableCells</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for calculateMetaTableCells {Giotto}"><tr><td>calculateMetaTableCells {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>calculateMetaTableCells</h2>
+
+<h3>Description</h3>
+
+<p>calculates the average metadata values for one or more (combined) annotation columns.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+calculateMetaTableCells(
+  gobject,
+  value_cols = NULL,
+  metadata_cols = NULL,
+  spat_enr_names = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>value_cols</code></td>
+<td>
+<p>metadata or enrichment value columns to use</p>
+</td></tr>
+<tr valign="top"><td><code>metadata_cols</code></td>
+<td>
+<p>annotation columns found in pDataDT(gobject)</p>
+</td></tr>
+<tr valign="top"><td><code>spat_enr_names</code></td>
+<td>
+<p>which spatial enrichment results to include</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with average metadata values per (combined) annotation
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    calculateMetaTableCells(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

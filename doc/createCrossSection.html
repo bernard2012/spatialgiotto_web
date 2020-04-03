@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createCrossSection</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createCrossSection {Giotto}"><tr><td>createCrossSection {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createCrossSection</h2>
+
+<h3>Description</h3>
+
+<p>Create a virtural 2D cross section.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createCrossSection(
+  gobject,
+  name = "cross_section",
+  spatial_network_name = "Delaunay_network",
+  thickness_unit = c("cell", "natural"),
+  slice_thickness = 2,
+  extend_ratio = 0.2,
+  method = c("equation", "3 points", "point and norm vector",
+    "point and two plane vectors"),
+  equation = NULL,
+  point1 = NULL,
+  point2 = NULL,
+  point3 = NULL,
+  normVector = NULL,
+  planeVector1 = NULL,
+  planeVector2 = NULL,
+  mesh_grid_n = 20,
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name of cress section object. (default = cross_sectino)</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network object. (default = Delaunay_network)</p>
+</td></tr>
+<tr valign="top"><td><code>thickness_unit</code></td>
+<td>
+<p>unit of the virtual section thickness. If &quot;cell&quot;, average size of the observed cells is used as length unit. If &quot;natural&quot;, the unit of cell location coordinates is used.(default = cell)</p>
+</td></tr>
+<tr valign="top"><td><code>extend_ratio</code></td>
+<td>
+<p>deciding the span of the cross section meshgrid, as a ratio of extension compared to the borders of the vitural tissue section. (default = 0.2)</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>method to define the cross section plane.
+If equation, the plane is defined by a four element numerical vector (equation) in the form of c(A,B,C,D), corresponding to a plane with equation Ax+By+Cz=D.
+If 3 points, the plane is define by the coordinates of 3 points, as given by point1, point2, and point3.
+If point and norm vector, the plane is defined by the coordinates of one point (point1) in the plane and the coordinates of one norm vector (normVector) to the plane.
+If point and two plane vector, the plane is defined by the coordinates of one point (point1) in the plane and the coordinates of two vectors (planeVector1, planeVector2) in the plane.
+(default = equation)</p>
+</td></tr>
+<tr valign="top"><td><code>equation</code></td>
+<td>
+<p>equation required by method &quot;equation&quot;.equations needs to be a numerical vector of length 4, in the form of c(A,B,C,D), which defines plane Ax+By+Cz=D.</p>
+</td></tr>
+<tr valign="top"><td><code>point1</code></td>
+<td>
+<p>coordinates of the first point required by method &quot;3 points&quot;,&quot;point and norm vector&quot;, and &quot;point and two plane vectors&quot;.</p>
+</td></tr>
+<tr valign="top"><td><code>point2</code></td>
+<td>
+<p>coordinates of the second point required by method &quot;3 points&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>point3</code></td>
+<td>
+<p>coordinates of the third point required by method &quot;3 points&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>normVector</code></td>
+<td>
+<p>coordinates of the norm vector required by method &quot;point and norm vector&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>planeVector1</code></td>
+<td>
+<p>coordinates of the first plane vector required by method &quot;point and two plane vectors&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>planeVector2</code></td>
+<td>
+<p>coordinates of the second plane vector required by method &quot;point and two plane vectors&quot;</p>
+</td></tr>
+<tr valign="top"><td><code>mesh_grid_n</code></td>
+<td>
+<p>numer of meshgrid lines to generate along both directions for the cross section plane.</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a virtual 2D cross section object for a given spatial network object. The users need to provide the definition of the cross section plane (see method).
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated spatial network slot
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

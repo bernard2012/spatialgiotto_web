@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: runPCA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for runPCA {Giotto}"><tr><td>runPCA {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>runPCA</h2>
+
+<h3>Description</h3>
+
+<p>runs a Principal Component Analysis
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+runPCA(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  reduction = c("cells", "genes"),
+  name = "pca",
+  genes_to_use = NULL,
+  return_gobject = TRUE,
+  scale_unit = F,
+  ncp = 200,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>reduction</code></td>
+<td>
+<p>cells or genes</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>arbitrary name for PCA run</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>subset of genes to use for PCA</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>scale_unit</code></td>
+<td>
+<p>scale features before PCA</p>
+</td></tr>
+<tr valign="top"><td><code>ncp</code></td>
+<td>
+<p>number of principal components to calculate</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional parameters for PCA (see details)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>PCA</code> for more information about other parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated PCA dimension recuction
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    runPCA(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: addCellIntMetadata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addCellIntMetadata {Giotto}"><tr><td>addCellIntMetadata {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>addCellIntMetadata</h2>
+
+<h3>Description</h3>
+
+<p>Creates an additional metadata column with information about interacting and non-interacting cell types of the
+selected cell-cell interaction.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addCellIntMetadata(
+  gobject,
+  spatial_network = "spatial_network",
+  cluster_column,
+  cell_interaction,
+  name = "select_int",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>column of cell types</p>
+</td></tr>
+<tr valign="top"><td><code>cell_interaction</code></td>
+<td>
+<p>cell-cell interaction to use</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for the new metadata column</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>return an updated giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function will create an additional metadata column which selects interacting cell types for a specific cell-cell
+interaction. For example, if you want to color interacting astrocytes and oligodendrocytes it will create a new metadata column with
+the values &quot;select_astrocytes&quot;, &quot;select_oligodendrocytes&quot;, &quot;other_astrocytes&quot;, &quot;other_oligodendroyctes&quot; and &quot;other&quot;. Where &quot;other&quot; is all
+other cell types found within the selected cell type column.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    addCellIntMetadata(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

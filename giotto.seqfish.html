@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">seqFISH+ dataset </h1>
+			</div>
+			<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a> -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker gene</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotation">Cell type annot</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial">Spatial grid&amp;network</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_gene">Spatial gene</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_coexpr">Spatial coexpr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_domain">Spatial domain</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_interaction">Cell interaction</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_export">Export to Viewer</a>
+    </li>
+  </ul>
+</nav>
+
+<h4>seqFISH+ cortex example</h4>
+
+<h4>Giotto global instructions</h4>
+
+<pre><code class="language-R"># this example was tested with Giotto v.0.3.0
+library(Giotto)
+
+## create instructions
+## instructions allow us to automatically save all plots into a chosen results folder
+my_python_path = "/your/python/path/python"
+results_folder = "/your/results/path/"
+instrs = createGiottoInstructions(python_path = my_python_path,
+                                  show_plot = F, return_plot = T, save_plot = T,
+                                  save_dir = results_folder,
+                                  plot_format = "png",
+                                  dpi = 300, height = 9, width = 9)
+</code></pre>
+
+<h4 id="s_create_giotto">1. Data input</h4>
+<h5>1.1. loading data</h5>
+<ul>
+<li>load cortex/svz gene expression matrix<br/></li>
+<li>prepare cell coordinates by stitching imaging fields<br/></li>
+</ul>
+
+<p>Several fields - containing 100's of cells - in the mouse cortex and subventricular zone were imaged. The coordinates of the cells within each field are independent of eachother, so in order to visualize and process all cells together imaging fields will be stitched together by providing x and y-offset values specific to each field. These offset values are known or estimates based on the original raw image:  </p>
+
+<p>
+<img src="figures/seqfishplus/cortex_svz_location_fields.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img>
+
+<pre><code class="language-R">## A. expression and cell location
+data_dir = '/path/to/data/Seqfish_SS_cortex/'
+VC_exprs = read.table(paste0(data_dir,"/", "count_matrix/cortex_svz_expression.txt"))
+VC_locs = fread(paste0(data_dir,"/", "cell_locations/cortex_svz_centroids_rotated.csv"))
+
+## B. offset file to combine fields
+my_offset_file = data.table(field = c(0, 1, 2, 3, 4, 5, 6),
+                            x_offset = c(0, 1654.97, 1750.75, 1674.35, 675.5, 2048, 675),
+                            y_offset = c(0, 0, 0, 0, -1438.02, -1438.02, 0))
+stitch_file = stitchFieldCoordinates(location_file = VC_locs, offset_file = my_offset_file,
+                                     cumulate_offset_x = T, cumulate_offset_y = F,
+                                     field_col = 'Field of View',
+                                     reverse_final_x = F, reverse_final_y = T)
+stitch_file    = stitch_file[,.(X_final, Y_final)]
+my_offset_file = my_offset_file[,.(field, x_offset_final, y_offset_final)]
+</code></pre>
+
+<hr/>
+
+<h5>1.2. Create Giotto object &amp; process data</h5>
+
+<pre><code class="language-R">## create
+VC_test <- createGiottoObject(raw_exprs = VC_exprs, spatial_locs = stitch_file,
+                              offset_file = my_offset_file, instructions = instrs)
+
+## add known field annotation
+cortex_fields = fread(paste0(data_dir,"/", "cortex_fields_info.txt"))
+VC_test = addCellMetadata(VC_test, new_metadata = cortex_fields,
+                          by_column = T, column_cell_ID = 'uniq_ID')
+
+## subset for cortex only (first 5 fields)
+cell_metadata = pDataDT(VC_test)
+cortex_cell_ids = cell_metadata[Field_of_View %in% 0:4]$cell_ID
+VC_test = subsetGiotto(VC_test, cell_ids = cortex_cell_ids)
+
+## filter
+VC_test <- filterGiotto(gobject = VC_test,
+                        expression_threshold = 1,
+                        gene_det_in_min_cells = 10,
+                        min_det_genes_per_cell = 10,
+                        expression_values = c('raw'),
+                        verbose = T)
+
+## normalize
+VC_test <- normalizeGiotto(gobject = VC_test, scalefactor = 6000, verbose = T)
+
+## add gene &amp; cell statistics
+VC_test <- addStatistics(gobject = VC_test)
+
+## adjust expression matrix for technical or known variables
+VC_test <- adjustGiottoMatrix(gobject = VC_test, expression_values = c('normalized'),
+                              batch_columns = NULL, covariate_columns = c('nr_genes', 'total_expr'),
+                              return_gobject = TRUE,
+                              update_slot = c('custom'))
+
+## visualize
+spatPlot(gobject = VC_test)
+
+</code></pre>
+
+<p>
+<!--class="img-fluid" style="max-width:50%" alt="Responsive image"></img>-->
+<img src="figures/seqfishplus/2_spatial_locations.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img>
+</p>
+
+<h4 id="s_clustering">2. Clustering</h4>
+<h5>2.1. Clustering: dimension reduction</h5>
+
+<pre><code class="language-R">## highly variable genes (HVG)
+VC_test <- calculateHVG(gobject = VC_test, method = 'cov_loess', difference_in_cov = 0.1,
+                        save_param = list(save_name = '3_HVGplot', base_height = 5, base_width = 5))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/3_HVGplot.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img>
+</p>
+
+<pre><code class="language-R">## select genes based on HVG and gene statistics, both found in gene metadata
+gene_metadata = fDataDT(VC_test)
+featgenes = gene_metadata[hvg == 'yes' &amp; perc_cells &gt; 4 &amp; mean_expr_det &gt; 0.5]$gene_ID
+
+## run PCA on expression values (default)
+VC_test <- runPCA(gobject = VC_test, genes_to_use = featgenes, scale_unit = F)
+
+signPCA(VC_test, genes_to_use = featgenes, scale_unit = F,
+        save_param = list(save_name = '3_screeplot'))
+
+plotPCA(gobject = VC_test,
+        save_param = list(save_name = '3_PCA_reduction'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/3_screeplot.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<p>
+<img src="figures/seqfishplus/3_PCA_reduction.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<pre><code class="language-R">## run UMAP and tSNE on PCA space (default)
+VC_test <- runUMAP(VC_test, dimensions_to_use = 1:15, n_threads = 10)
+plotUMAP(gobject = VC_test,
+         save_param = list(save_name = '3_UMAP_reduction'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/3_UMAP_reduction.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<pre><code class="language-R">VC_test <- runtSNE(VC_test, dimensions_to_use = 1:30)
+plotTSNE(gobject = VC_test,
+         save_param = list(save_name = '3_tSNE_reduction'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/3_tSNE_reduction.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<h5>2.2. cluster</h5>
+
+<pre><code class="language-R">
+## sNN network (default)
+VC_test <- createNearestNetwork(gobject = VC_test, dimensions_to_use = 1:15, k = 15)
+## Leiden clustering
+VC_test <- doLeidenCluster(gobject = VC_test, resolution = 0.4, n_iterations = 1000)
+plotUMAP(gobject = VC_test,
+         cell_color = 'leiden_clus', show_NN_network = T, point_size = 2.5,
+         save_param = list(save_name = '4_UMAP_leiden'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/4_UMAP_leiden.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<pre><code class="language-R">## Leiden subclustering for specified clusters
+VC_test = doLeidenSubCluster(gobject = VC_test, cluster_column = 'leiden_clus',
+                             resolution = 0.2, k_neighbors = 10,
+                             hvg_param = list(method = 'cov_loess', difference_in_cov = 0.1),
+                             pca_param = list(expression_values = 'normalized', scale_unit = F),
+                             nn_param = list(dimensions_to_use = 1:5),
+                             selected_clusters = c(4, 6, 7),
+                             name = 'sub_leiden_clus_select')
+
+## set colors for clusters
+subleiden_order = c( 1.1, 5.1,  2.1, 3.1,
+                     4.1,  4.2, 4.3, 6.2, 6.1,
+                     7.1,  7.2, 8.1)
+subleiden_colors = Giotto:::getDistinctColors(length(subleiden_order)) 
+names(subleiden_colors) = subleiden_order
+
+plotUMAP(gobject = VC_test,
+         cell_color = 'sub_leiden_clus_select', cell_color_code = subleiden_colors,
+         show_NN_network = T, point_size = 2.5, show_center_label = F, 
+         legend_text = 12, legend_symbol_size = 3,
+         save_param = list(save_name = '4_UMAP_leiden_subcluster'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/4_UMAP_leiden_subcluster.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<pre><code class="language-R">## show cluster relationships
+showClusterHeatmap(gobject = VC_test, cluster_column = 'sub_leiden_clus_select',
+                   save_param = list(save_name = '4_heatmap', units = 'cm'),
+                   row_names_gp = grid::gpar(fontsize = 9), column_names_gp = grid::gpar(fontsize = 9))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/4_heatmap.png" class="img-fluid" style="max-width:50%" alt=""/></img>
+</p>
+
+<pre><code class="language-R">showClusterDendrogram(VC_test, h = 0.5, rotate = T, cluster_column = 'sub_leiden_clus_select',
+                      save_param = list(save_name = '4_dendro', units = 'cm'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/4_dendro.png" class="img-fluid" style="max-width:30%" alt="Responsive image"></img> 
+</p>
+
+<h5>2.3. visualize spatial and expression space</h5>
+
+<pre><code class="language-R"># expression and spatial
+spatDimPlot(gobject = VC_test, cell_color = 'sub_leiden_clus_select', cell_color_code = subleiden_colors,
+            dim_point_size = 2, spat_point_size = 2,
+            save_param = list(save_name = '5_covis_leiden'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/5_covis_leiden.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R"># selected groups and provide new colors
+groups_of_interest = c(4.1, 6.1, 6.2, 7.1)
+group_colors = c('red', 'green', 'blue', 'purple'); names(group_colors) = groups_of_interest
+
+spatDimPlot(gobject = VC_test, cell_color = 'sub_leiden_clus_select', 
+            dim_point_size = 2, spat_point_size = 2,
+            select_cell_groups = groups_of_interest, cell_color_code = group_colors,
+            save_param = list(save_name = '5_covis_leiden_selected'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/5_covis_leiden_selected.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_marker_gene">3. cell type marker gene detection</h4>
+<h5>3.1. marker gene identification</h5>
+<pre><code class="language-R">## gini ##
+gini_markers_subclusters = findMarkers_one_vs_all(gobject = VC_test,
+                                                  method = 'gini',
+                                                  expression_values = 'normalized',
+                                                  cluster_column = 'sub_leiden_clus_select',
+                                                  min_genes = 20,
+                                                  min_expr_gini_score = 0.5,
+                                                  min_det_gini_score = 0.5)
+topgenes_gini = gini_markers_subclusters[, head(.SD, 2), by = 'cluster']
+
+# violinplot
+violinPlot(VC_test, genes = unique(topgenes_gini$genes), cluster_column = 'sub_leiden_clus_select',
+           strip_text = 8, strip_position = 'right', cluster_custom_order = unique(topgenes_gini$cluster),
+           save_param = c(save_name = '6_violinplot_gini', base_width = 5, base_height = 10))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/6_violinplot_gini.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R"># cluster heatmap
+topgenes_gini2 = gini_markers_subclusters[, head(.SD, 6), by = 'cluster']
+plotMetaDataHeatmap(VC_test, selected_genes = unique(topgenes_gini2$genes), 
+                    custom_gene_order = unique(topgenes_gini2$genes),
+                    custom_cluster_order = unique(topgenes_gini2$cluster),
+                    metadata_cols = c('sub_leiden_clus_select'), x_text_size = 10, y_text_size = 10,
+                    save_param = c(save_name = '6_metaheatmap_gini'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/6_metaheatmap_gini2.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_annotation">4. cell type annotation</h4>
+<h5>cell type manual annotation</h5>
+<pre><code class="language-R">## general cell types
+# create vector with names
+clusters_cell_types_cortex = c('microglia', 'L4 eNeuron', 'endothelial',
+                               'astrocytes', 'Adarb2 iNeuron', 'Lhx6 iNeuron',
+                               'L6 eNeuron', 'L5 eNeuron', 'L2/3 eNeuron',
+                               'OPC', 'Olig', 'mural')
+names(clusters_cell_types_cortex) = c(8.1, 2.1, 7.1,
+                                      4.1, 6.2, 6.1,
+                                      1.1, 5.1, 3.1,
+                                      4.3, 4.2, 7.2)
+
+VC_test = annotateGiotto(gobject = VC_test, annotation_vector = clusters_cell_types_cortex,
+                         cluster_column = 'sub_leiden_clus_select', name = 'cell_types')
+
+# cell type order and colors
+cell_type_order = c('L6 eNeuron', 'L5 eNeuron', 'L4 eNeuron', 'L2/3 eNeuron',
+                    'astrocytes', 'Olig', 'OPC','Adarb2 iNeuron', 'Lhx6 iNeuron',
+                    'endothelial', 'mural', 'microglia')
+cell_type_colors = Giotto:::getDistinctColors(length(cell_type_order)) 
+names(cell_type_colors) = cell_type_order
+
+## violinplot
+violinPlot(gobject = VC_test, genes = unique(topgenes_gini$genes),
+           strip_text = 7, strip_position = 'right', 
+           cluster_custom_order = cell_type_order,
+           cluster_column = 'cell_types', color_violin = 'cluster',
+           save_param = c(save_name = '7_violinplot', base_width = 5))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/7_violinplot.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## co-visualization
+spatDimPlot(gobject = VC_test, cell_color = 'cell_types',
+            dim_point_size = 2, spat_point_size = 2, dim_show_cluster_center = F, dim_show_center_label = T,
+            save_param = c(save_name = '7_covisualization'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/7_covisualization.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## heatmap genes vs cells
+gini_markers_subclusters[, cell_types := clusters_cell_types_cortex[cluster] ]
+gini_markers_subclusters[, cell_types := factor(cell_types, cell_type_order)]
+setorder(gini_markers_subclusters, cell_types)
+
+plotHeatmap(gobject = VC_test,
+            genes = gini_markers_subclusters[, head(.SD, 3), by = 'cell_types']$genes, 
+            gene_order = 'custom',
+            gene_custom_order = unique(gini_markers_subclusters[, head(.SD, 3), by = 'cluster']$genes),
+            cluster_column = 'cell_types', cluster_order = 'custom',
+            cluster_custom_order = unique(gini_markers_subclusters[, head(.SD, 3), by = 'cell_types']$cell_types), 
+            legend_nrows = 2,
+            save_param = c(save_name = '7_heatmap'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/7_heatmap.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">plotHeatmap(gobject = VC_test, cluster_color_code = cell_type_colors,
+            genes = gini_markers_subclusters[, head(.SD, 6), by = 'cell_types']$genes,
+            gene_order = 'custom',
+            gene_label_selection = gini_markers_subclusters[, head(.SD, 2), by = 'cluster']$genes,
+            gene_custom_order = unique(gini_markers_subclusters[, head(.SD, 6), by = 'cluster']$genes),
+            cluster_column = 'cell_types', cluster_order = 'custom',
+            cluster_custom_order = unique(gini_markers_subclusters[, head(.SD, 3), by = 'cell_types']$cell_types), 
+            legend_nrows = 2,
+            save_param = c(save_name = '7_heatmap_selected'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/7_heatmap_selected.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_spatial">5. spatial grid and network</h4>
+<h5>5.1. spatial grid</h5>
+
+<pre><code class="language-R">## spatial grid
+VC_test <- createSpatialGrid(gobject = VC_test,
+                             sdimx_stepsize = 500,
+                             sdimy_stepsize = 500,
+                             minimum_padding = 50)
+
+spatPlot(gobject = VC_test, show_grid = T, point_size = 1.5,
+         save_param = c(save_name = '8_grid'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/8_grid.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h5>5.2 spatial network</h5>
+
+<pre><code class="language-R">
+## delaunay network: stats + creation
+plotStatDelaunayNetwork(gobject = VC_test, maximum_distance = 400, save_plot = F)
+VC_test = createSpatialNetwork(gobject = VC_test, minimum_k = 2, maximum_distance_delaunay = 400)
+
+## create spatial networks based on k and/or distance from centroid
+VC_test <- createSpatialNetwork(gobject = VC_test, method = 'kNN', k = 5, name = 'spatial_network')
+VC_test <- createSpatialNetwork(gobject = VC_test, method = 'kNN', k = 10, name = 'large_network')
+VC_test <- createSpatialNetwork(gobject = VC_test, method = 'kNN', k = 100,
+                                maximum_distance_knn = 200, minimum_k = 2, name = 'distance_network')
+
+## visualize different spatial networks on first field (~ layer 1)
+cell_metadata = pDataDT(VC_test)
+field1_ids = cell_metadata[Field_of_View == 0]$cell_ID
+subVC_test = subsetGiotto(VC_test, cell_ids = field1_ids)
+
+spatPlot(gobject = subVC_test, show_network = T,
+         network_color = 'blue', spatial_network_name = 'Delaunay_network',
+         point_size = 2.5, cell_color = 'cell_types', 
+         save_param = c(save_name = '9_spatial_network_delaunay', base_height = 6))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/9_spatial_network_delaunay.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">spatPlot(gobject = subVC_test, show_network = T,
+         network_color = 'blue', spatial_network_name = 'spatial_network',
+         point_size = 2.5, cell_color = 'cell_types',
+         save_param = c(save_name = '9_spatial_network_k3', base_height = 6))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/9_spatial_network_k3.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">spatPlot(gobject = subVC_test, show_network = T,
+         network_color = 'blue', spatial_network_name = 'large_network',
+         point_size = 2.5, cell_color = 'cell_types',
+         save_param = c(save_name = '9_spatial_network_k10', base_height = 6))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/9_spatial_network_k10.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">spatPlot(gobject = subVC_test, show_network = T,
+         network_color = 'blue', spatial_network_name = 'distance_network',
+         point_size = 2.5, cell_color = 'cell_types',
+         save_param = c(save_name = '9_spatial_network_dist', base_height = 6))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/9_spatial_network_dist.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_spatial_gene">6. spatial genes</h4>
+
+<h5>6.1. Individual spatial genes</h5>
+
+<pre><code class="language-R"># 3 new methods to identify spatial genes
+km_spatialgenes = binSpect(VC_test)
+spatGenePlot(VC_test, expression_values = 'scaled', genes = km_spatialgenes[1:6]$genes,
+             point_shape = 'border', point_border_stroke = 0.1,
+             show_network = F, network_color = 'lightgrey', point_size = 2.5, 
+             genes_high_color = 'red', genes_mid_color = 'white', genes_low_color = 'white',
+             cow_n_col = 2,
+             save_param = list(save_name = '10_spatialgenes_km'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10_spatialgenes_km.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">rank_spatialgenes = binSpect(VC_test, bin_method = 'rank')
+spatGenePlot(VC_test, expression_values = 'scaled', genes = rank_spatialgenes[1:6]$genes,
+             point_shape = 'border', point_border_stroke = 0.1,
+             show_network = F, network_color = 'lightgrey', point_size = 2.5, 
+             genes_high_color = 'red', genes_mid_color = 'white', genes_low_color = 'white',
+             cow_n_col = 2,
+             save_param = list(save_name = '10_spatialgenes_rank'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10_spatialgenes_rank.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">silh_spatialgenes = silhouetteRank(gobject = VC_test)
+spatGenePlot(VC_test, expression_values = 'scaled', genes = silh_spatialgenes[1:6]$genes,
+             point_shape = 'border', point_border_stroke = 0.1,
+             show_network = F, network_color = 'lightgrey', point_size = 2.5, 
+             genes_high_color = 'red', genes_mid_color = 'white', genes_low_color = 'white',
+             cow_n_col = 2,
+             save_param = list(save_name = '10_spatialgenes_silh'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10_spatialgenes_silh.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_spatial_coexpr">7. Spatial genes co-expression modules</h4>
+<h5>7.1. Coexpression</h5>
+<pre><code class="language-R">## spatial co-expression patterns ##
+ext_spatial_genes = kmtest[1:500]$genes
+
+# 1. calculate gene spatial correlation and single-cell correlation 
+# create spatial correlation object
+spat_cor_netw_DT = detectSpatialCorGenes(VC_test, 
+                                         method = 'network', spatial_network_name = 'Delaunay_network',
+                                         subset_genes = ext_spatial_genes)
+
+
+# 2. cluster correlated genes &amp; visualize
+spat_cor_netw_DT = clusterSpatialCorGenes(spat_cor_netw_DT, name = 'spat_netw_clus', k = 8)
+
+heatmSpatialCorGenes(VC_test, spatCorObject = spat_cor_netw_DT, use_clus_name = 'spat_netw_clus',
+                     save_param = c(save_name = '10b_spatialcoexpression_heatmap',
+                                    base_height = 6, base_width = 8, units = 'cm'), 
+                     heatmap_legend_param = list(title = NULL))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10b_spatialcoexpression_heatmap.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R"># 3. rank spatial correlated clusters and show genes for selected clusters
+netw_ranks = rankSpatialCorGroups(VC_test, spatCorObject = spat_cor_netw_DT, use_clus_name = 'spat_netw_clus',
+                                  save_param = c(save_name = '10b_spatialcoexpression_rank',
+                                                 base_height = 3, base_width = 5))
+
+top_netw_spat_cluster = showSpatialCorGenes(spat_cor_netw_DT, use_clus_name = 'spat_netw_clus',
+                                            selected_clusters = 6, show_top_genes = 1)
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10b_spatialcoexpression_rank.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R"># 5. create metagene enrichment score for clusters
+cluster_genes_DT = showSpatialCorGenes(spat_cor_netw_DT, use_clus_name = 'spat_netw_clus', show_top_genes = 1)
+cluster_genes = cluster_genes_DT$clus; names(cluster_genes) = cluster_genes_DT$gene_ID
+
+VC_test = createMetagenes(VC_test, gene_clusters = cluster_genes, name = 'cluster_metagene')
+
+spatCellPlot(VC_test,
+             spat_enr_names = 'cluster_metagene',
+             cell_annotation_values = netw_ranks$clusters,
+             point_size = 1.5, cow_n_col = 3,
+             save_param = c(save_name = '10b_spatialcoexpression_metagenes',
+                            base_width = 11, base_height = 6))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/10b_spatialcoexpression_metagenes.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_spatial_domain">8. HMRF spatial domains</h4>
+<h5>8.1. Spatial domain identification by hidden markov random field (HMRF)</h5>
+<pre><code class="language-R">hmrf_folder = paste0(results_folder,'/','11_HMRF/')
+if(!file.exists(hmrf_folder)) dir.create(hmrf_folder, recursive = T)
+
+my_spatial_genes = km_spatialgenes[1:100]$genes
+
+# do HMRF with different betas
+HMRF_spatial_genes = doHMRF(gobject = VC_test, 
+                            expression_values = 'scaled',
+                            spatial_genes = my_spatial_genes,
+                            spatial_network_name = 'Delaunay_network',
+                            k = 9,
+                            betas = c(28,2,3), 
+                            output_folder = paste0(hmrf_folder, '/', 'Spatial_genes/SG_top100_k9_scaled'))
+
+
+## view results of HMRF
+for(i in seq(28, 32, by = 2)) {
+  viewHMRFresults2D(gobject = VC_test,
+                    HMRFoutput = HMRF_spatial_genes,
+                    k = 9, betas_to_view = i,
+                    point_size = 2)
+}
+
+
+## add HMRF of interest to giotto object
+VC_test = addHMRF(gobject = VC_test,
+                  HMRFoutput = HMRF_spatial_genes,
+                  k = 9, betas_to_add = c(28),
+                  hmrf_name = 'HMRF_2')
+
+## visualize
+spatPlot(gobject = VC_test, cell_color = 'HMRF_2_k9_b.28', point_size = 3, coord_fix_ratio = 1, 
+         save_param = c(save_name = '11_HMRF_2_k9_b.28', base_height = 3, base_width = 9, save_format = 'pdf'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/11_HMRF_2_k9_b.28.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_interaction">9. cell neighborhood: cell-type/cell-type interactions</h4>
+<h5>9.1. cell type interactions</h5>
+<pre><code class="language-R">cell_proximities = cellProximityEnrichment(gobject = VC_test,
+                                           cluster_column = 'cell_types',
+                                           spatial_network_name = 'Delaunay_network',
+                                           adjust_method = 'fdr',
+                                           number_of_simulations = 2000)
+
+## barplot
+cellProximityBarplot(gobject = VC_test, CPscore = cell_proximities, min_orig_ints = 5, min_sim_ints = 5, 
+                     save_param = c(save_name = '12_barplot_cell_cell_enrichment'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_barplot_cell_cell_enrichment.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## heatmap
+cellProximityHeatmap(gobject = VC_test, CPscore = cell_proximities, order_cell_types = T, scale = T,
+                     color_breaks = c(-1.5, 0, 1.5), color_names = c('blue', 'white', 'red'),
+                     save_param = c(save_name = '12_heatmap_cell_cell_enrichment', unit = 'in'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_heatmap_cell_cell_enrichment.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## network
+cellProximityNetwork(gobject = VC_test, CPscore = cell_proximities, remove_self_edges = T, only_show_enrichment_edges = T,
+                     save_param = c(save_name = '12_network_cell_cell_enrichment'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_network_cell_cell_enrichment.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## network with self-edges
+cellProximityNetwork(gobject = VC_test, CPscore = cell_proximities,
+                     remove_self_edges = F, self_loop_strength = 0.3,
+                     only_show_enrichment_edges = F,
+                     rescale_edge_weights = T,
+                     node_size = 8,
+                     edge_weight_range_depletion = c(1, 2),
+                     edge_weight_range_enrichment = c(2,5),
+                     save_param = c(save_name = '12_network_cell_cell_enrichment_self',
+                                    base_height = 5, base_width = 5, save_format = 'pdf'))
+
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_network_cell_cell_enrichment_self.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## visualization of specific cell types
+# Option 1
+spec_interaction = "astrocytes--Olig"
+cellProximitySpatPlot2D(gobject = VC_test,
+                        interaction_name = spec_interaction,
+                        show_network = T,
+                        cluster_column = 'cell_types',
+                        cell_color = 'cell_types',
+                        cell_color_code = c(astrocytes = 'lightblue', Olig = 'red'),
+                        point_size_select = 4, point_size_other = 2,
+                        save_param = c(save_name = '12_cell_cell_enrichment_selected'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_cell_cell_enrichment_selected.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R"># Option 2: create additional metadata
+VC_test = addCellIntMetadata(VC_test, 
+                             spatial_network = 'spatial_network',
+                             cluster_column = 'cell_types',
+                             cell_interaction = spec_interaction,
+                             name = 'astro_olig_ints')
+spatPlot(VC_test, cell_color = 'astro_olig_ints',
+         select_cell_groups =  c('other_astrocytes', 'other_Olig', 'select_astrocytes', 'select_Olig'),
+         legend_symbol_size = 3, save_param = c(save_name = '12_cell_cell_enrichment_sel_vs_not'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/12_cell_cell_enrichment_sel_vs_not.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h5>9.2. cell neighborhood: interaction changed genes</h5>
+
+<pre><code class="language-R">## select top 25th highest expressing genes
+gene_metadata = fDataDT(VC_test)
+plot(gene_metadata$nr_cells, gene_metadata$mean_expr)
+plot(gene_metadata$nr_cells, gene_metadata$mean_expr_det)
+
+quantile(gene_metadata$mean_expr_det)
+high_expressed_genes = gene_metadata[mean_expr_det &gt; 1.31]$gene_ID
+
+## identify genes that are associated with proximity to other cell types
+CPGscoresHighGenes =  findCPG(gobject = VC_test,
+                              selected_genes = high_expressed_genes,
+                              spatial_network_name = 'Delaunay_network',
+                              cluster_column = 'cell_types',
+                              diff_test = 'permutation',
+                              adjust_method = 'fdr',
+                              nr_permutations = 2000, 
+                              do_parallel = T, cores = 2)
+
+## visualize all genes
+plotCellProximityGenes(VC_test, cpgObject = CPGscoresHighGenes, method = 'dotplot', 
+                       save_param = c(save_name = '13_CPG_dotplot', base_width = 5, base_height = 5))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/13_CPG_dotplot.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## filter genes
+CPGscoresFilt = filterCPG(CPGscoresHighGenes)
+
+## visualize subset of interaction changed genes (ICGs)
+ICG_genes = c('Jakmip1', 'Golgb1', 'Dact2', 'Ddx27', 'Abl1', 'Zswim8')
+ICG_genes_types = c('Lhx6 iNeuron', 'Lhx6 iNeuron', 'L4 eNeuron', 'L4 eNeuron', 'astrocytes', 'astrocytes')
+names(ICG_genes) = ICG_genes_types
+
+plotICG(gobject = VC_test,
+        cpgObject = CPGscoresHighGenes,
+        source_type = 'endothelial',
+        source_markers = c('Pltp', 'Cldn5', 'Apcdd1'),
+        ICG_genes = ICG_genes,
+        save_param = c(save_name = '13_ICG_barplot'))
+
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/13_ICG_barplot.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h5>9.3. cell neighborhood: ligand-receptor cell-cell communication</h5>
+
+<pre><code class="language-R"># LR expression
+# LR activity changes
+LR_data = fread(system.file("extdata", "mouse_ligand_receptors.txt", package = 'Giotto'))
+
+LR_data[, ligand_det := ifelse(mouseLigand %in% VC_test@gene_ID, T, F)]
+LR_data[, receptor_det := ifelse(mouseReceptor %in% VC_test@gene_ID, T, F)]
+LR_data_det = LR_data[ligand_det == T &amp; receptor_det == T]
+select_ligands = LR_data_det$mouseLigand
+select_receptors = LR_data_det$mouseReceptor
+
+
+## get statistical significance of gene pair expression changes based on expression ##
+expr_only_scores = exprCellCellcom(gobject = VC_test,
+                                   cluster_column = 'cell_types', 
+                                   random_iter = 1000,
+                                   gene_set_1 = select_ligands,
+                                   gene_set_2 = select_receptors)
+
+## get statistical significance of gene pair expression changes upon cell-cell interaction
+spatial_all_scores = spatCellCellcom(VC_test,
+                                     spatial_network_name = 'spatial_network',
+                                     cluster_column = 'cell_types', 
+                                     random_iter = 1000,
+                                     gene_set_1 = select_ligands,
+                                     gene_set_2 = select_receptors,
+                                     adjust_method = 'fdr',
+                                     do_parallel = T,
+                                     cores = 12,
+                                     verbose = 'a little')
+
+
+## select top LR ##
+selected_spat = spatial_all_scores[p.adj &lt;= 0.01 &amp; abs(log2fc) &gt; 0.25 &amp; lig_nr &gt;= 4 &amp; rec_nr &gt;= 4]
+setorder(selected_spat, -PI)
+
+top_LR_ints = unique(selected_spat[order(-abs(PI))]$LR_comb)[1:33]
+top_LR_cell_ints = unique(selected_spat[order(-abs(PI))]$LR_cell_comb)[1:33]
+
+plotCCcomDotplot(gobject = VC_test,
+                 comScores = spatial_all_scores,
+                 selected_LR = top_LR_ints,
+                 selected_cell_LR = top_LR_cell_ints,
+                 cluster_on = 'PI',
+                 save_param = c(save_name = '14_communication_dotplot', save_format = 'pdf'))
+
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/14_communication_dotplot.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## spatial vs rank ####
+comb_comm = combCCcom(spatialCC = spatial_all_scores,
+                      exprCC = expr_only_scores)
+
+# top differential activity levels for ligand receptor pairs
+plotRankSpatvsExpr(gobject = VC_test,
+                   comb_comm,
+                   expr_rnk_column = 'exprPI_rnk',
+                   spat_rnk_column = 'spatPI_rnk',
+                   midpoint = 10,
+                   save_param = c(save_name = '14_expr_vs_spatial_activity',
+                                  base_height = 4, base_width = 4.5, save_format = 'pdf'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/14_expr_vs_spatial_activity.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<pre><code class="language-R">## recovery ####
+## predict maximum differential activity
+plotRecovery(gobject = VC_test,
+             comb_comm,
+             expr_rnk_column = 'exprPI_rnk',
+             spat_rnk_column = 'spatPI_rnk',
+             ground_truth = 'spatial',
+             save_param = c(save_name = '14_spatial_recovery_activity', 
+                            base_height = 3, base_width = 3, save_format = 'pdf'))
+</code></pre>
+
+<p>
+<img src="figures/seqfishplus/14_spatial_recovery_activity.png" class="img-fluid" style="max-width:50%" alt="Responsive image"></img> 
+</p>
+
+<h4 id="s_export">10. export Giotto Analyzer to Viewer</h4>
+
+<pre><code class="language-R">viewer_folder = paste0(results_folder, '/', 'Mouse_cortex_viewer')
+
+# select annotations, reductions and expression values to view in Giotto Viewer
+pDataDT(VC_test)
+exportGiottoViewer(gobject = VC_test, output_directory = viewer_folder,
+                   factor_annotations = c('cell_types',
+                                          'leiden_clus',
+                                          'sub_leiden_clus_select',
+                                          'HMRF_2_k9_b.28'),
+                   numeric_annotations = 'total_expr',
+                   dim_reductions = c('umap'),
+                   dim_reduction_names = c('umap'),
+                   expression_values = 'scaled',
+                   expression_rounding = 3,
+                   overwrite_dir = T)
+</code></pre>
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

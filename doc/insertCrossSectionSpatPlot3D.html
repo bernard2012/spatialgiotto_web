@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: insertCrossSectionSpatPlot3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for insertCrossSectionSpatPlot3D {Giotto}"><tr><td>insertCrossSectionSpatPlot3D {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>insertCrossSectionSpatPlot3D</h2>
+
+<h3>Description</h3>
+
+<p>Visualize the meshgrid lines of cross section together with cells
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+insertCrossSectionSpatPlot3D(
+  gobject,
+  crossSection_obj = NULL,
+  name = NULL,
+  spatial_network_name = "Delaunay_network",
+  mesh_grid_color = "#1f77b4",
+  mesh_grid_width = 3,
+  mesh_grid_style = "dot",
+  sdimx = "sdimx",
+  sdimy = "sdimy",
+  sdimz = "sdimz",
+  point_size = 2,
+  cell_color = NULL,
+  cell_color_code = NULL,
+  select_cell_groups = NULL,
+  select_cells = NULL,
+  show_other_cells = T,
+  other_cell_color = "lightgrey",
+  other_point_size = 0.5,
+  show_network = F,
+  network_color = NULL,
+  network_alpha = 1,
+  other_cell_alpha = 0.5,
+  show_grid = F,
+  grid_color = NULL,
+  spatial_grid_name = "spatial_grid",
+  title = "",
+  show_legend = T,
+  axis_scale = c("cube", "real", "custom"),
+  custom_ratio = NULL,
+  x_ticks = NULL,
+  y_ticks = NULL,
+  z_ticks = NULL,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "spat3D_with_cross_section"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name of virtual cross section to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>mesh_grid_color</code></td>
+<td>
+<p>color for the meshgrid lines</p>
+</td></tr>
+<tr valign="top"><td><code>mesh_grid_width</code></td>
+<td>
+<p>width for the meshgrid lines</p>
+</td></tr>
+<tr valign="top"><td><code>mesh_grid_style</code></td>
+<td>
+<p>style for the meshgrid lines</p>
+</td></tr>
+<tr valign="top"><td><code>sdimx</code></td>
+<td>
+<p>x-axis dimension name (default = 'sdimx')</p>
+</td></tr>
+<tr valign="top"><td><code>sdimy</code></td>
+<td>
+<p>y-axis dimension name (default = 'sdimy')</p>
+</td></tr>
+<tr valign="top"><td><code>sdimz</code></td>
+<td>
+<p>z-axis dimension name (default = 'sdimy')</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color</code></td>
+<td>
+<p>color for cells (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_code</code></td>
+<td>
+<p>named vector with colors</p>
+</td></tr>
+<tr valign="top"><td><code>select_cell_groups</code></td>
+<td>
+<p>select subset of cells/clusters based on cell_color parameter</p>
+</td></tr>
+<tr valign="top"><td><code>show_other_cells</code></td>
+<td>
+<p>display not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_cell_color</code></td>
+<td>
+<p>color of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_point_size</code></td>
+<td>
+<p>point size of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>network_color</code></td>
+<td>
+<p>color of spatial network</p>
+</td></tr>
+<tr valign="top"><td><code>show_grid</code></td>
+<td>
+<p>show spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>grid_color</code></td>
+<td>
+<p>color of spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>title of plot</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>axis_scale</code></td>
+<td>
+<p>the way to scale the axis</p>
+</td></tr>
+<tr valign="top"><td><code>custom_ratio</code></td>
+<td>
+<p>customize the scale of the plot</p>
+</td></tr>
+<tr valign="top"><td><code>x_ticks</code></td>
+<td>
+<p>set the number of ticks on the x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>y_ticks</code></td>
+<td>
+<p>set the number of ticks on the y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>z_ticks</code></td>
+<td>
+<p>set the number of ticks on the z-axis</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    insertCrossSectionSpatPlot3D(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

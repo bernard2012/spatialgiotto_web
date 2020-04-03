@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: cellProximityNetwork</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cellProximityNetwork {Giotto}"><tr><td>cellProximityNetwork {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cellProximityNetwork</h2>
+
+<h3>Description</h3>
+
+<p>Create network from cell-cell proximity scores
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cellProximityNetwork(
+  gobject,
+  CPscore,
+  remove_self_edges = FALSE,
+  self_loop_strength = 0.1,
+  color_depletion = "lightgreen",
+  color_enrichment = "red",
+  rescale_edge_weights = TRUE,
+  edge_weight_range_depletion = c(0.1, 1),
+  edge_weight_range_enrichment = c(1, 5),
+  layout = c("Fruchterman", "DrL", "Kamada-Kawai"),
+  only_show_enrichment_edges = F,
+  edge_width_range = c(0.1, 2),
+  node_size = 4,
+  node_text_size = 6,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "cellProximityNetwork"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>CPscore</code></td>
+<td>
+<p>CPscore, output from cellProximityEnrichment()</p>
+</td></tr>
+<tr valign="top"><td><code>remove_self_edges</code></td>
+<td>
+<p>remove enrichment/depletion edges with itself</p>
+</td></tr>
+<tr valign="top"><td><code>self_loop_strength</code></td>
+<td>
+<p>size of self-loops</p>
+</td></tr>
+<tr valign="top"><td><code>color_depletion</code></td>
+<td>
+<p>color for depleted cell-cell interactions</p>
+</td></tr>
+<tr valign="top"><td><code>color_enrichment</code></td>
+<td>
+<p>color for enriched cell-cell interactions</p>
+</td></tr>
+<tr valign="top"><td><code>rescale_edge_weights</code></td>
+<td>
+<p>rescale edge weights (boolean)</p>
+</td></tr>
+<tr valign="top"><td><code>edge_weight_range_depletion</code></td>
+<td>
+<p>numerical vector of length 2 to rescale depleted edge weights</p>
+</td></tr>
+<tr valign="top"><td><code>edge_weight_range_enrichment</code></td>
+<td>
+<p>numerical vector of length 2 to rescale enriched edge weights</p>
+</td></tr>
+<tr valign="top"><td><code>layout</code></td>
+<td>
+<p>layout algorithm to use to draw nodes and edges</p>
+</td></tr>
+<tr valign="top"><td><code>only_show_enrichment_edges</code></td>
+<td>
+<p>show only the enriched pairwise scores</p>
+</td></tr>
+<tr valign="top"><td><code>edge_width_range</code></td>
+<td>
+<p>range of edge width</p>
+</td></tr>
+<tr valign="top"><td><code>node_size</code></td>
+<td>
+<p>size of nodes</p>
+</td></tr>
+<tr valign="top"><td><code>node_text_size</code></td>
+<td>
+<p>size of node labels</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function creates a network that shows the  spatial proximity
+enrichment or depletion of cell type pairs.
+</p>
+
+
+<h3>Value</h3>
+
+<p>igraph plot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    cellProximityNetwork(CPscore)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

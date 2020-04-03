@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: combineCellProximityGenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for combineCellProximityGenes {Giotto}"><tr><td>combineCellProximityGenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>combineCellProximityGenes</h2>
+
+<h3>Description</h3>
+
+<p>Combine CPG scores in a pairwise manner.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+combineCellProximityGenes(
+  cpgObject,
+  selected_ints = NULL,
+  selected_genes = NULL,
+  specific_genes_1 = NULL,
+  specific_genes_2 = NULL,
+  min_cells = 5,
+  min_int_cells = 3,
+  min_fdr = 0.05,
+  min_spat_diff = 0,
+  min_log2_fc = 0.5,
+  do_parallel = TRUE,
+  cores = NA,
+  verbose = T
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cpgObject</code></td>
+<td>
+<p>cell proximity gene score object</p>
+</td></tr>
+<tr valign="top"><td><code>selected_ints</code></td>
+<td>
+<p>subset of selected cell-cell interactions (optional)</p>
+</td></tr>
+<tr valign="top"><td><code>selected_genes</code></td>
+<td>
+<p>subset of selected genes (optional)</p>
+</td></tr>
+<tr valign="top"><td><code>specific_genes_1</code></td>
+<td>
+<p>specific geneset combo (need to position match specific_genes_2)</p>
+</td></tr>
+<tr valign="top"><td><code>specific_genes_2</code></td>
+<td>
+<p>specific geneset combo (need to position match specific_genes_1)</p>
+</td></tr>
+<tr valign="top"><td><code>min_cells</code></td>
+<td>
+<p>minimum number of target cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_int_cells</code></td>
+<td>
+<p>minimum number of interacting cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_fdr</code></td>
+<td>
+<p>minimum adjusted p-value</p>
+</td></tr>
+<tr valign="top"><td><code>min_spat_diff</code></td>
+<td>
+<p>minimum absolute spatial expression difference</p>
+</td></tr>
+<tr valign="top"><td><code>min_log2_fc</code></td>
+<td>
+<p>minimum absolute log2 fold-change</p>
+</td></tr>
+<tr valign="top"><td><code>do_parallel</code></td>
+<td>
+<p>run calculations in parallel with mclapply</p>
+</td></tr>
+<tr valign="top"><td><code>cores</code></td>
+<td>
+<p>number of cores to use if do_parallel = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>cpgObject that contains the filtered differential gene scores
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    combineCellProximityGenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

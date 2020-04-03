@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plotly_network</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotly_network {Giotto}"><tr><td>plotly_network {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plotly_network</h2>
+
+<h3>Description</h3>
+
+<p>provide network segment to draw in 3D plot_ly()
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotly_network(
+  network,
+  x = "sdimx_begin",
+  y = "sdimy_begin",
+  z = "sdimz_begin",
+  x_end = "sdimx_end",
+  y_end = "sdimy_end",
+  z_end = "sdimz_end"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>network in giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>edges in network as data.table()
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plotly_network(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

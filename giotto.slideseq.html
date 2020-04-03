@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">slideSeq Dataset - Part 1. Cell Type Enrichment </h1>
+			</div>
+			<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a> -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_scRNAseq">Analysis of scRNAseq</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_slideseq">Analysis of slideSeq</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_integrative">Integrative analysis</a>
+    </li>
+  </ul>
+</nav>
+
+<!--<div data-spy="scroll" data-target="#nex2" data-offset="0">-->
+
+<h4>Cell type enrichment analysis</h4>
+This section will illustrate the cell type enrichment analysis. We will start with the scRNAseq dataset, perform clustering to find cell types, show how to generate cell type signature matrix to be used for cell type enrichment. Finally, we will apply on the slideSeq cerebellum dataset to deconvolve cell types in individual beads.
+In the analysis of scRNAseq, the input is the count matrix (single-cell). No cell type information is needed.
+
+<br><br>
+<h4 id="s_scRNAseq">Analysis of scRNAseq</h4>
+Giotto can be used to analyze scRNAseq as well. The scRNAseq comes from http://mousebrain.org/ from the the Linnarsson Lab. We will use the cerebellum portion of the atlas in counts.
+
+<pre><code class="language-R">library(Giotto)
+#data loading
+data_folder = '.'
+expr = read.table(paste0(data_folder,'/','l1.cerebellum.txt'))
+cell_names = fread(paste0(data_folder,'/','l1.cerebellum.cells.2.txt'), header = F)
+gene_names = fread(paste0(data_folder,'/','l1.cerebellum.genes.txt'), header = F)
+#remove duplicate gene names
+gene_names[, dupl := duplicated(V1)]
+gene_names[, newV1 := ifelse(dupl == F, V1, paste0(V1,'_',1:.N)), by = V1]
+colnames(expr) = cell_names$V1
+rownames(expr) = gene_names$newV1
+
+#normal giotto steps
+cere_rnaseq <- createGiottoObject(raw_exprs = expr)
+cere_rnaseq <- filterGiotto(gobject=cere_rnaseq, gene_det_in_min_cells=30, min_det_genes_per_cell=300)
+cere_rnaseq <- normalizeGiotto(gobject = cere_rnaseq, scalefactor = 10000, verbose = T)
+cere_rnaseq <- addStatistics(gobject = cere_rnaseq)
+cere_rnaseq <- calculateHVG(gobject = cere_rnaseq, method = 'cov_groups', zscore_threshold = 0.5, nr_expression_groups = 10, reverse_log_scale=T)
+gene_metadata = fDataDT(cere_rnaseq)
+featgenes = gene_metadata[hvg == 'yes']$gene_ID
+cere_rnaseq <- adjustGiottoMatrix(gobject = cere_rnaseq, expression_values = c('normalized'), batch_columns = NULL, covariate_columns = c('nr_genes', 'total_expr'),  return_gobject = TRUE, update_slot = c('custom'))
+cere_rnaseq <- runPCA(gobject = cere_rnaseq, expression_values = 'custom', genes_to_use = featgenes, scale_unit = F)
+signPCA(cere_rnaseq, genes_to_use = featgenes, scale_unit = F, scree_ylim = c(0,1.3))
+plotPCA(gobject=cere_rnaseq)
+cere_rnaseq <- runUMAP(cere_rnaseq, dimensions_to_use=1:25, n_components=2)
+
+#clustering step
+cere_rnaseq<-createNearestNetwork(gobject=cere_rnaseq, dimensions_to_use=1:25, k=25)
+cere_rnaseq<-doLeidenCluster(gobject=cere_rnaseq, resolution=0.5, n_iterations=10, name="leiden", python_path="/n/app/python/3.6.0/bin/python3")
+
+#find marker genes
+library(scran)
+markers_scarn=findMarkers_one_vs_all(gobject=cere_rnaseq, method="scran", expression_values="custom", cluster_column="leiden", min_genes=5)
+markergenes_scran = unique(markers_scarn[, head(.SD, 8), by="cluster"][["genes"]])
+plotMetaDataHeatmap(cere_rnaseq, expression_values="custom", metadata_cols=c("leiden"), selected_genes=markergenes_scran)
+plotUMAP(gobject=cere_rnaseq, cell_color="leiden", point_size=1)
+</code></pre>
+
+calculateHVG (highly variable genes)<br>
+<img src="figures/slideSeq/2020-01-03.11-53-00.calculateHVG.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotPCA<br>
+<img src="figures/slideSeq/2020-01-03.12-02-02.plotPCA.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotUMAP with leiden clusters<br>
+<img src="figures/slideSeq/2020-01-03.12-03-54.plotUMAP.with.leiden.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+Signature matrix from scRNAseq<br>
+<img src="figures/slideSeq/2020-01-03.12-05-10.plotMetaDataHeatmap.cereRNAseq.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+<i>Legend:</i><br>
+<b>5</b>: GABAergic interneuron, <b>8</b>: endothelial cells 1, <b>13</b>: endothelial cells 2, <b>10</b>: microglia/macrophages, 
+<br>
+<b>3,7</b>: astrocyte-1 and astrocyte-2 or Bergmann Glia, <b>11</b>: unipolar brush neurons,
+<br>
+<b>1,2</b>: neurons (granule), <b>4</b>: Punkinje cells
+<br>
+<b>9</b>: Golgi cells, <b>6</b>: oligodendrocytes, <b>12</b>: OPC
+
+<br><br>
+
+
+<h4 id="s_slideseq">Slide-seq analysis</h4>
+We will use the unfiltered cerebellum count matrix.
+
+<pre><code class="language-bash">#load slideseq dataset
+bead_positions <- fread(file="slideSeq/2019_slideseq_cerebellum/cell_locations/BeadLocationsForR.csv")
+expr_matrix<-fread(file="slideSeq/2019_slideseq_cerebellum/raw_data/MappedDGEForR.csv")
+expr_mat = as.matrix(expr_matrix[,-1]);rownames(expr_mat) = expr_matrix$Row
+
+#normal giotto steps
+Slide_test <- createGiottoObject(raw_exprs = expr_mat, spatial_locs = bead_positions[,.(xcoord, ycoord)])
+
+#filter based on minimum number of cells and genes, and then remove mitochondrial genes
+filterCombinations(Slide_test, expression_thresholds = c(1, 1), gene_det_in_min_cells = c(20, 20, 20), min_det_genes_per_cell = c(20, 32, 100))
+Slide_test<-filterGiotto(gobject=Slide_test, gene_det_in_min_cells=20, min_det_genes_per_cell=20)
+non_mito_genes = grep(pattern = 'mt-', Slide_test@gene_ID, value = T, invert = T)
+non_mito_or_blood_genes = grep(pattern = 'Hb[ab]', non_mito_genes, value = T, invert = T)
+Slide_test = subsetGiotto(gobject = Slide_test, gene_ids = non_mito_or_blood_genes)
+visPlot(gobject = Slide_test, point_size=0.5)
+
+#normal giotto steps
+Slide_test <- normalizeGiotto(gobject = Slide_test, scalefactor = 2000, verbose = T)
+Slide_test <- addStatistics(gobject = Slide_test)
+Slide_test <- calculateHVG(gobject = Slide_test, method = 'cov_groups', zscore_threshold = 0.5, nr_expression_groups = 10)
+gene_metadata = fDataDT(Slide_test)
+featgenes = gene_metadata[hvg == 'yes']$gene_ID
+Slide_test <- adjustGiottoMatrix(gobject = Slide_test, expression_values = c('normalized'), batch_columns = NULL, covariate_columns = c('nr_genes', 'total_expr'),  return_gobject = TRUE, update_slot = c('custom'))
+Slide_test <- runPCA(gobject = Slide_test, expression_values = 'custom', genes_to_use = featgenes, scale_unit = F)
+plotPCA(gobject=Slide_test)
+Slide_test <- runUMAP(Slide_test, dimensions_to_use=1:9, n_components=2)
+plotUMAP(gobject=Slide_test, point_size=1)
+
+#clustering steps
+Slide_test<-createNearestNetwork(gobject=Slide_test, dimensions_to_use=1:9, k=20)
+Slide_test<-doLeidenCluster(gobject=Slide_test, resolution=0.5, n_iterations=10, name="leiden", python_path="/n/app/python/3.6.0/bin/python3")
+plotUMAP(gobject=Slide_test, cell_color="leiden", point_size=1)
+library(scran)
+markers_scarn=findMarkers_one_vs_all(gobject=Slide_test, method="scran", expression_values="custom", cluster_column="leiden", min_genes=5)
+markergenes_scran = unique(markers_scarn[, head(.SD, 8), by="cluster"][["genes"]])
+plotMetaDataHeatmap(Slide_test, expression_values="custom", metadata_cols=c("leiden"), selected_genes=markergenes_scran)
+</code></pre>
+<br>
+visPlot after subset giotto steps<br>
+<img src="figures/slideSeq/2020-01-03.12-07-01.visPlot.after.subsetGiotto.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+calculateHVG (slideseq)<br>
+<img src="figures/slideSeq/2020-01-03.12-09-31.calculateHVG.for.slideseq.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotUMAP of slideSeq before clustering<br>
+<img src="figures/slideSeq/2020-01-03.12-22-56.slideseq.plotUMAP.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+Leiden clustering<br>
+<img src="figures/slideSeq/2020-01-03.12-24-23.leidencluster.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+plotMetaDataHeatmap<br>
+<img src="figures/slideSeq/2020-01-03.12-28-04.slideseq.metadataheatmap.png" class="img-fluid" alt="Responsive image"></img>
+
+<h4 id="s_integrative">Cell type enrichment integrating scRNAseq and slideseq</h4>
+
+<pre><code class="language-R">#=====CELL TYPE ENRICHMENT SECTION=============
+#create rank-based gene signature matrix (scRNAseq)
+rank_matrix = makeSignMatrixRank(sc_matrix = cere_rnaseq@raw_exprs, sc_cluster_ids = pDataDT(cere_rnaseq)$leiden, gobject = Slide_test)
+#cell type enrichment step
+Slide_test = createSpatialEnrich(Slide_test, sign_matrix = rank_matrix, enrich_method = 'rank', name = 'rank')
+cell_types = colnames(rank_matrix)
+#visualize cell type enrichment result
+spatCellPlot(gobject = Slide_test, spat_enr_names = 'rank', cell_annotation_values = cell_types, cow_n_col = 3,coord_fix_ratio = NULL, point_size=1.0, point_border_stroke=0)
+plotMetaDataCellsHeatmap(gobject = Slide_test, metadata_cols = 'leiden', value_cols = cell_types, spat_enr_names = 'rank')
+</code></pre>
+
+Single-spot spatial Cell type enrichment plot (spatCellPlot)<br>
+<img src="figures/slideSeq/2020-01-03.12-50-42.spatial.plot.celltype.enrichment.png" class="img-fluid" alt="Responsive image"></img>
+<br>
+In the above plot, the title of each panel is the cell type ID (see below). Plot shows the enrichment of cell type in each panel.
+<br>
+<i>Legend:</i><br>
+<b>5</b>: GABAergic interneuron, <b>8</b>: endothelial cells 1, <b>13</b>: endothelial cells 2, <b>10</b>: microglia/macrophages, 
+<br>
+<b>3,7</b>: astrocyte-1 and astrocyte-2 or Bergmann Glia, <b>11</b>: unipolar brush neurons,
+<br>
+<b>1,2</b>: neurons (granule), <b>4</b>: Punkinje cells
+<br>
+<b>9</b>: Golgi cells, <b>6</b>: oligodendrocytes, <b>12</b>: OPC
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

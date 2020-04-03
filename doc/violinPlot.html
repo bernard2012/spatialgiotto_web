@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: violinPlot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for violinPlot {Giotto}"><tr><td>violinPlot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>violinPlot</h2>
+
+<h3>Description</h3>
+
+<p>Creates violinplot for selected clusters
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+violinPlot(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes,
+  cluster_column,
+  cluster_custom_order = NULL,
+  color_violin = c("genes", "cluster"),
+  cluster_color_code = NULL,
+  strip_position = c("top", "right", "left", "bottom"),
+  strip_text = 7,
+  axis_text_x_size = 10,
+  axis_text_y_size = 6,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "violinPlot"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to plot</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_custom_order</code></td>
+<td>
+<p>custom order of clusters</p>
+</td></tr>
+<tr valign="top"><td><code>color_violin</code></td>
+<td>
+<p>color violin according to genes or clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_color_code</code></td>
+<td>
+<p>color code for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>strip_position</code></td>
+<td>
+<p>position of gene labels</p>
+</td></tr>
+<tr valign="top"><td><code>strip_text</code></td>
+<td>
+<p>size of strip text</p>
+</td></tr>
+<tr valign="top"><td><code>axis_text_x_size</code></td>
+<td>
+<p>size of x-axis text</p>
+</td></tr>
+<tr valign="top"><td><code>axis_text_y_size</code></td>
+<td>
+<p>size of y-axis text</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    violinPlot(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

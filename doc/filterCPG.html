@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: filterCPG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for filterCPG {Giotto}"><tr><td>filterCPG {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>filterCPG</h2>
+
+<h3>Description</h3>
+
+<p>Filter cell proximity gene scores.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+filterCPG(
+  cpgObject,
+  min_cells = 4,
+  min_cells_expr = 1,
+  min_int_cells = 4,
+  min_int_cells_expr = 1,
+  min_fdr = 0.1,
+  min_spat_diff = 0.2,
+  min_log2_fc = 0.2,
+  min_zscore = 2,
+  zscores_column = c("cell_type", "genes"),
+  direction = c("both", "up", "down")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>cpgObject</code></td>
+<td>
+<p>cell proximity gene score object</p>
+</td></tr>
+<tr valign="top"><td><code>min_cells</code></td>
+<td>
+<p>minimum number of source cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_cells_expr</code></td>
+<td>
+<p>minimum expression level for source cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_int_cells</code></td>
+<td>
+<p>minimum number of interacting neighbor cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_int_cells_expr</code></td>
+<td>
+<p>minimum expression level for interacting neighbor cell type</p>
+</td></tr>
+<tr valign="top"><td><code>min_fdr</code></td>
+<td>
+<p>minimum adjusted p-value</p>
+</td></tr>
+<tr valign="top"><td><code>min_spat_diff</code></td>
+<td>
+<p>minimum absolute spatial expression difference</p>
+</td></tr>
+<tr valign="top"><td><code>min_log2_fc</code></td>
+<td>
+<p>minimum log2 fold-change</p>
+</td></tr>
+<tr valign="top"><td><code>min_zscore</code></td>
+<td>
+<p>minimum z-score change</p>
+</td></tr>
+<tr valign="top"><td><code>zscores_column</code></td>
+<td>
+<p>calculate z-scores over cell types or genes</p>
+</td></tr>
+<tr valign="top"><td><code>direction</code></td>
+<td>
+<p>differential expression directions to keep</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>cpgObject that contains the filtered differential gene scores
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    filterCPG(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

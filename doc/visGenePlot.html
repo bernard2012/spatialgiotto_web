@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: visGenePlot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for visGenePlot {Giotto}"><tr><td>visGenePlot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>visGenePlot</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells and gene expression according to spatial coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+visGenePlot(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes,
+  genes_high_color = NULL,
+  genes_mid_color = "white",
+  genes_low_color = "blue",
+  show_network = F,
+  network_color = NULL,
+  spatial_network_name = "spatial_network",
+  edge_alpha = NULL,
+  show_grid = F,
+  grid_color = NULL,
+  spatial_grid_name = "spatial_grid",
+  midpoint = 0,
+  scale_alpha_with_expression = FALSE,
+  point_size = 1,
+  point_border_col = "black",
+  point_border_stroke = 0.1,
+  show_legend = T,
+  cow_n_col = 2,
+  cow_rel_h = 1,
+  cow_rel_w = 1,
+  cow_align = "h",
+  axis_scale = c("cube", "real", "custom"),
+  custom_ratio = NULL,
+  x_ticks = NULL,
+  y_ticks = NULL,
+  z_ticks = NULL,
+  plot_method = c("ggplot", "plotly"),
+  show_plots = F
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to show</p>
+</td></tr>
+<tr valign="top"><td><code>genes_high_color</code></td>
+<td>
+<p>color represents high gene expression</p>
+</td></tr>
+<tr valign="top"><td><code>genes_mid_color</code></td>
+<td>
+<p>color represents middle gene expression</p>
+</td></tr>
+<tr valign="top"><td><code>genes_low_color</code></td>
+<td>
+<p>color represents low gene expression</p>
+</td></tr>
+<tr valign="top"><td><code>show_network</code></td>
+<td>
+<p>show underlying spatial network</p>
+</td></tr>
+<tr valign="top"><td><code>network_color</code></td>
+<td>
+<p>color of spatial network</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>show_grid</code></td>
+<td>
+<p>show spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>grid_color</code></td>
+<td>
+<p>color of spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>midpoint</code></td>
+<td>
+<p>expression midpoint</p>
+</td></tr>
+<tr valign="top"><td><code>scale_alpha_with_expression</code></td>
+<td>
+<p>scale expression with ggplot alpha parameter</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>cow_n_col</code></td>
+<td>
+<p>cowplot param: how many columns</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_h</code></td>
+<td>
+<p>cowplot param: relative height</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_w</code></td>
+<td>
+<p>cowplot param: relative width</p>
+</td></tr>
+<tr valign="top"><td><code>cow_align</code></td>
+<td>
+<p>cowplot param: how to align</p>
+</td></tr>
+<tr valign="top"><td><code>axis_scale</code></td>
+<td>
+<p>three mode to adjust axis scale</p>
+</td></tr>
+<tr valign="top"><td><code>x_ticks</code></td>
+<td>
+<p>number of ticks on x axis</p>
+</td></tr>
+<tr valign="top"><td><code>y_ticks</code></td>
+<td>
+<p>number of ticks on y axis</p>
+</td></tr>
+<tr valign="top"><td><code>z_ticks</code></td>
+<td>
+<p>number of ticks on z axis</p>
+</td></tr>
+<tr valign="top"><td><code>plot_method</code></td>
+<td>
+<p>two methods of plot</p>
+</td></tr>
+<tr valign="top"><td><code>show_plots</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot or plotly
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    visGenePlot(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: rankSpatialCorGroups</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for rankSpatialCorGroups {Giotto}"><tr><td>rankSpatialCorGroups {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>rankSpatialCorGroups</h2>
+
+<h3>Description</h3>
+
+<p>Rank spatial correlated clusters according to correlation structure
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+rankSpatialCorGroups(
+  gobject,
+  spatCorObject,
+  use_clus_name = NULL,
+  show_plot = NA,
+  return_plot = FALSE,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "rankSpatialCorGroups"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>spatCorObject</code></td>
+<td>
+<p>spatial correlation object</p>
+</td></tr>
+<tr valign="top"><td><code>use_clus_name</code></td>
+<td>
+<p>name of clusters to visualize (from clusterSpatialCorGenes())</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with positive (within group) and negative (outside group) scores
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    rankSpatialCorGroups(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

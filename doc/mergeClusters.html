@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: mergeClusters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for mergeClusters {Giotto}"><tr><td>mergeClusters {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>mergeClusters</h2>
+
+<h3>Description</h3>
+
+<p>Merge selected clusters based on pairwise correlation scores and size of cluster.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mergeClusters(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  cluster_column,
+  cor = c("pearson", "spearman"),
+  new_cluster_name = "merged_cluster",
+  min_cor_score = 0.8,
+  max_group_size = 20,
+  force_min_group_size = 10,
+  return_gobject = TRUE,
+  verbose = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cor</code></td>
+<td>
+<p>correlation score to calculate distance</p>
+</td></tr>
+<tr valign="top"><td><code>new_cluster_name</code></td>
+<td>
+<p>new name for merged clusters</p>
+</td></tr>
+<tr valign="top"><td><code>min_cor_score</code></td>
+<td>
+<p>min correlation score to merge pairwise clusters</p>
+</td></tr>
+<tr valign="top"><td><code>max_group_size</code></td>
+<td>
+<p>max cluster size that can be merged</p>
+</td></tr>
+<tr valign="top"><td><code>force_min_group_size</code></td>
+<td>
+<p>size of clusters that will be merged with their most similar neighbor(s)</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>return giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>be verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Merge selected clusters based on pairwise correlation scores and size of cluster.
+To avoid large clusters to merge the max_group_size can be lowered. Small clusters can
+be forcibly merged with their most similar pairwise cluster by adjusting the
+force_min_group_size parameter. Clusters smaller than this value will be merged
+independent on the provided min_cor_score value. <br />
+A giotto object is returned by default, if FALSE then the merging vector will be returned.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    mergeClusters(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

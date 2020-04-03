@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: doLouvainCluster_multinet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doLouvainCluster_multinet {Giotto}"><tr><td>doLouvainCluster_multinet {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>doLouvainCluster_multinet</h2>
+
+<h3>Description</h3>
+
+<p>cluster cells using a NN-network and the Louvain algorithm from the multinet package in R.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doLouvainCluster_multinet(
+  gobject,
+  name = "louvain_clus",
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  gamma = 1,
+  omega = 1,
+  return_gobject = TRUE,
+  set_seed = F,
+  seed_number = 1234,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for cluster</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use</p>
+</td></tr>
+<tr valign="top"><td><code>gamma</code></td>
+<td>
+<p>Resolution parameter for modularity in the generalized louvain method.</p>
+</td></tr>
+<tr valign="top"><td><code>omega</code></td>
+<td>
+<p>Inter-layer weight parameter in the generalized louvain method.</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>set seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>number for seed</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>glouvain_ml</code> from the multinet package in R for
+more information.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with new clusters appended to cell metadata
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    doLouvainCluster_multinet(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

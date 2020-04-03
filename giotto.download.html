@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="giotto.download.html">
+							Main page <span class="sr-only">(current)</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Download </h1>
+			</div>
+
+Giotto consists of two modules: <b>analyzer</b> and <b>viewer</b>.
+<br><br> 
+
+The <b>analyzer</b> is an R package named <b>Giotto</b>, available under <a href="https://github.com/RubD/Giotto">https://github.com/RubD/Giotto</a>.
+The <a href="giotto.install.2.html">installation</a> page describes how to get the latest version of Giotto.
+We recommend getting the R Giotto package directly from within R in a remote install: "remotes::install_github("RubD/Giotto")".
+In addition to the R package, you also need to install some python packages (see <a href="giotto.install.2.html">Installation</a> for details).
+<br><br> 
+
+
+The <b>viewer</b> is a set of two Python packages (in pip repository): <b>smfish-image-processing</b>, and <b>giotto-viewer</b>. It requires opencv-python, scikit-image as pre-requisites. Also requires ImageMagick commonly available in Linux, and Ruby, tileup Ruby package. See <a href="giotto.install.2.html">Installation</a> for details.
+<br><br> 
+
+
+Archival: Giotto analyzer as tar-ball: <a href="../Giotto-master.zip">Giotto-master.zip</a> (450MB).
+<br><br>
+
+<h4>Docker image</h4>
+
+As an alternative to the above downloads, to further simplify the install process, we also provide a premade docker image containing both the latest version of the analyzer and the viewer.
+<br>
+<h5>
+<a href="http://spatial.rc.fas.harvard.edu/docker-giotto-4.7z">docker-giotto-4.7z</a> (750MB)
+</h5>
+See Docker details here <a href="giotto.install.docker.html">Docker instructions</a>.
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

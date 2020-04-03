@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="giotto.install.2.html">
+							Main page <span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="giotto.install.native.html">
+							Native install
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="giotto.install.docker.html">
+							Docker image install
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Installation </h1>
+			</div>
+
+Giotto consists of two modules: analyzer and viewer. The requirements of Giotto installation are:
+<ul>
+<li>R (at least 3.5.1)</li>
+<li>Python (at least 3.0)</li>
+<li>Java 1.6+</li>
+<li>Unix / Linux environment</li>
+</ul>
+
+There are two options to install Giotto: 1) <a href="giotto.install.native.html"><b>native install</b></a>, or 2) <a href="giotto.install.docker.html"><b>docker image</b></a>.
+Docker image is recommended for fast deployment, and is compatible across all operating systems.
+Native install may require a bit of effort (especially for macOS). 
+<br><br>
+<h4>Compatibility</h4>
+
+<table class="table">
+<thead class="thead-dark">
+<tr>
+<th scope="col">OS</th>
+<th scope="col">Native install</th>
+<th scope="col">Docker image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">Ubuntu Linux</th>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<th scope="row">macOS X</th>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<th scope="row">Windows 10</th>
+<td>Partial*</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+* - Analyzer might work. Viewer requires linux tools.
+<br>
+Docker image is recommended for Windows.
+
+<br>
+<br>
+<h4>Detailed instructions</h4>
+
+<table class="table">
+<tbody>
+<tr>
+<td>
+<a class="btn btn-primary" href="giotto.install.native.html" role="button">Native installation</a></td>
+</tr>
+<tr>
+<td>
+<a class="btn btn-primary" href="giotto.install.docker.html" role="button">Docker image instructions</a>
+</td>
+</tr>
+</tbody>
+</table>
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

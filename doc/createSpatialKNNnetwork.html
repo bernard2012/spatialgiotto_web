@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createSpatialKNNnetwork</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createSpatialKNNnetwork {Giotto}"><tr><td>createSpatialKNNnetwork {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createSpatialKNNnetwork</h2>
+
+<h3>Description</h3>
+
+<p>Create a spatial knn network.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createSpatialKNNnetwork(
+  gobject,
+  method = "dbscan",
+  dimensions = "all",
+  name = "knn_network",
+  k = 4,
+  maximum_distance = NULL,
+  minimum_k = 0,
+  verbose = F,
+  return_gobject = TRUE,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>method to create kNN network</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions</code></td>
+<td>
+<p>which spatial dimensions to use (default = all)</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for spatial network (default = 'spatial_network')</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of nearest neighbors based on physical distance</p>
+</td></tr>
+<tr valign="top"><td><code>maximum_distance</code></td>
+<td>
+<p>distance cuttof for nearest neighbors to consider for kNN network</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_k</code></td>
+<td>
+<p>minimum nearest neigbhours if maximum_distance != NULL</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>verbose</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated spatial network slot
+</p>
+<p><strong>dimensions: </strong> default = 'all' which takes all possible dimensions.
+Alternatively you can provide a character vector that specififies the spatial dimensions to use, e.g. c(&quot;sdimx', &quot;sdimy&quot;)
+or a numerical vector, e.g. 2:3
+</p>
+<p><strong>maximum_distance: </strong> to create a network based on maximum distance only, you also need to set k to a very high value, e.g. k = 100
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createSpatialKNNnetwork(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: do_spatial_grid_averaging</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for do_spatial_grid_averaging {Giotto}"><tr><td>do_spatial_grid_averaging {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>do_spatial_grid_averaging</h2>
+
+<h3>Description</h3>
+
+<p>smooth gene expression over a defined spatial grid
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+do_spatial_grid_averaging(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  subset_genes = NULL,
+  spatial_grid_name = "spatial_grid",
+  min_cells_per_grid = 4
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>subset_genes</code></td>
+<td>
+<p>subset of genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>min_cells_per_grid</code></td>
+<td>
+<p>minimum number of cells to consider a grid</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>matrix with smoothened gene expression values based on spatial grid
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    do_spatial_grid_averaging(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

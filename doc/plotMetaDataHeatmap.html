@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plotMetaDataHeatmap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotMetaDataHeatmap {Giotto}"><tr><td>plotMetaDataHeatmap {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plotMetaDataHeatmap</h2>
+
+<h3>Description</h3>
+
+<p>Creates heatmap for genes within aggregated clusters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotMetaDataHeatmap(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  metadata_cols = NULL,
+  selected_genes = NULL,
+  first_meta_col = NULL,
+  second_meta_col = NULL,
+  show_values = c("zscores", "original", "zscores_rescaled"),
+  custom_cluster_order = NULL,
+  clus_cor_method = "pearson",
+  clus_cluster_method = "complete",
+  custom_gene_order = NULL,
+  gene_cor_method = "pearson",
+  gene_cluster_method = "complete",
+  gradient_color = c("blue", "white", "red"),
+  gradient_midpoint = 0,
+  gradient_limits = NULL,
+  x_text_size = 10,
+  x_text_angle = 45,
+  y_text_size = 10,
+  strip_text_size = 8,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "plotMetaDataHeatmap"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>metadata_cols</code></td>
+<td>
+<p>annotation columns found in pDataDT(gobject)</p>
+</td></tr>
+<tr valign="top"><td><code>selected_genes</code></td>
+<td>
+<p>subset of genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>first_meta_col</code></td>
+<td>
+<p>if more than 1 metadata column, select the x-axis factor</p>
+</td></tr>
+<tr valign="top"><td><code>second_meta_col</code></td>
+<td>
+<p>if more than 1 metadata column, select the facetting factor</p>
+</td></tr>
+<tr valign="top"><td><code>show_values</code></td>
+<td>
+<p>which values to show on heatmap</p>
+</td></tr>
+<tr valign="top"><td><code>custom_cluster_order</code></td>
+<td>
+<p>custom cluster order (default = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>clus_cor_method</code></td>
+<td>
+<p>correlation method for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>clus_cluster_method</code></td>
+<td>
+<p>hierarchical cluster method for the clusters</p>
+</td></tr>
+<tr valign="top"><td><code>custom_gene_order</code></td>
+<td>
+<p>custom gene order (default = NULL)</p>
+</td></tr>
+<tr valign="top"><td><code>gene_cor_method</code></td>
+<td>
+<p>correlation method for genes</p>
+</td></tr>
+<tr valign="top"><td><code>gene_cluster_method</code></td>
+<td>
+<p>hierarchical cluster method for the genes</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_color</code></td>
+<td>
+<p>vector with 3 colors for numeric data</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_midpoint</code></td>
+<td>
+<p>midpoint for color gradient</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_limits</code></td>
+<td>
+<p>vector with lower and upper limits</p>
+</td></tr>
+<tr valign="top"><td><code>x_text_size</code></td>
+<td>
+<p>size of x-axis text</p>
+</td></tr>
+<tr valign="top"><td><code>x_text_angle</code></td>
+<td>
+<p>angle of x-axis text</p>
+</td></tr>
+<tr valign="top"><td><code>y_text_size</code></td>
+<td>
+<p>size of y-axis text</p>
+</td></tr>
+<tr valign="top"><td><code>strip_text_size</code></td>
+<td>
+<p>size of strip text</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates heatmap for the average expression of selected genes in the different annotation/cluster groups.
+Calculation of cluster or gene order is done on the provided expression values, but visualization
+is by default on the z-scores. Other options are the original values or z-scores rescaled per gene (-1 to 1).
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot or data.table
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>plotMetaDataCellsHeatmap</code> for numeric cell annotation instead of gene expression.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plotMetaDataHeatmap(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

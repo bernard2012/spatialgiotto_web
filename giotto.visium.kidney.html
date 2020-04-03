@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">10X Visium kidney dataset </h1>
+			</div>
+
+<!--
+<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Data loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_subset">Spatial subsets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_dist">Spatial distr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotate_clust">Annotate clusters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_analyses_paper">Analyses (paper)</a>
+    </li>
+  </ul>
+</nav>
+-->
+<p>The Visium kidney data to run this tutorial can be found <a href="https://support.10xgenomics.com/spatial-gene-expression/datasets/1.0.0/V1_Mouse_Kidney">here</a></p>
+
+<h4>Giotto global instructions</h4>
+
+<pre><code class="language-R">library(Giotto)
+## create instructions
+## instructions allow us to automatically save all plots into a chosen results folder
+## Here we will automatically save plots, for an example without automatic saving see the visium brain dataset
+my_python_path = &quot;/your/python/path/python&quot;
+results_folder = &#39;/your/results/path/&#39;
+instrs = createGiottoInstructions(python_path = my_python_path,
+                                  save_dir = results_folder,
+                                  show_plot = F, return_plot = T, save_plot = T,
+                                  plot_format = &#39;png&#39;, dpi = 300, height = 9, width = 9)
+</code></pre>
+
+<h4>part 1: Data input</h4>
+
+<p><a href="https://www.10xgenomics.com/spatial-transcriptomics/">10X genomics</a> recently launched a new platform to obtain spatial expression data using a Visium Spatial Gene Expression slide.</p>
+
+<p><img src="figures/visium.kidney/visium_technology.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## expression and cell location
+## expression data
+data_dir = &quot;path/to/Visum_data/&quot;
+data_path = paste0(data_dir,&#39;raw_feature_bc_matrix/&#39;)
+raw_matrix = get10Xmatrix(path_to_data = data_path, gene_column_index = 2) # gene symbol is in the 2nd column
+## spatial locations and metadata
+spatial_locations = fread(paste0(data_dir,&#39;spatial/tissue_positions_list.csv&#39;))
+spatial_locations = spatial_locations[match(colnames(raw_matrix), V1)]
+colnames(spatial_locations) = c(&#39;barcode&#39;, &#39;in_tissue&#39;, &#39;array_row&#39;, &#39;array_col&#39;, &#39;col_pxl&#39;, &#39;row_pxl&#39;)
+</code></pre>
+
+<p>High resolution png from original tissue.<br/>
+<img src="figures/visium.kidney/mouse_kidney_highres.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 2: Create Giotto object &amp; process data</h4>
+
+<pre><code class="language-R">## we need to reverse the column pixel to get the same .jpg image as provided by 10X
+visium_kidney &lt;- createGiottoObject(raw_exprs = raw_matrix,
+                                    spatial_locs = spatial_results[,.(row_pxl,-col_pxl)],
+                                    instructions = instrs,
+                                    cell_metadata = spatial_results[,.(in_tissue, array_row, array_col)])
+## check metadata
+pDataDT(visium_kidney)
+## compare in tissue with provided jpg
+spatPlot(gobject = visium_kidney, cell_color = &#39;in_tissue&#39;, point_size = 2,
+         cell_color_code = c(&#39;0&#39; = &#39;lightgrey&#39;, &#39;1&#39; = &#39;blue&#39;),
+         save_param = list(save_name = &#39;2_in_tissue&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/2_in_tissue.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## subset on spots that were covered by tissue
+metadata = pDataDT(visium_kidney)
+in_tissue_barcodes = metadata[in_tissue == 1]$cell_ID
+visium_kidney = subsetGiotto(visium_kidney, cell_ids = in_tissue_barcodes)
+## filter
+visium_kidney &lt;- filterGiotto(gobject = visium_kidney,
+                              expression_threshold = 1,
+                              gene_det_in_min_cells = 50,
+                              min_det_genes_per_cell = 1000,
+                              expression_values = c(&#39;raw&#39;),
+                              verbose = T)
+## normalize
+visium_kidney &lt;- normalizeGiotto(gobject = visium_kidney, scalefactor = 6000, verbose = T)
+## add gene &amp; cell statistics
+visium_kidney &lt;- addStatistics(gobject = visium_kidney)
+## visualize
+spatPlot2D(gobject = visium_kidney, 
+           save_param = list(save_name = &#39;2_spatial_locations&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/2_spatial_locations.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">spatPlot2D(gobject = visium_kidney, cell_color = &#39;nr_genes&#39;, color_as_factor = F,
+           save_param = list(save_name = &#39;2_nr_genes&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/2_nr_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 3: dimension reduction</h4>
+
+<pre><code class="language-R">## highly variable genes (HVG)
+visium_kidney &lt;- calculateHVG(gobject = visium_kidney,
+                              save_param = list(save_name = &#39;3_HVGplot&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/3_HVGplot.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## select genes based on HVG and gene statistics, both found in gene metadata
+gene_metadata = fDataDT(visium_kidney)
+featgenes = gene_metadata[hvg == &#39;yes&#39; &amp; perc_cells &gt; 4 &amp; mean_expr_det &gt; 0.5]$gene_ID
+## run PCA on expression values (default)
+visium_kidney &lt;- runPCA(gobject = visium_kidney, genes_to_use = featgenes, scale_unit = F)
+signPCA(visium_kidney, genes_to_use = featgenes, scale_unit = F,
+        save_param = list(save_name = &#39;3_screeplot&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/3_screeplot.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">plotPCA(gobject = visium_kidney,
+        save_param = list(save_name = &#39;3_PCA_reduction&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/3_PCA_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## run UMAP and tSNE on PCA space (default)
+visium_kidney &lt;- runUMAP(visium_kidney, dimensions_to_use = 1:10)
+plotUMAP(gobject = visium_kidney,
+         save_param = list(save_name = &#39;3_UMAP_reduction&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/3_UMAP_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">visium_kidney &lt;- runtSNE(visium_kidney, dimensions_to_use = 1:10)
+plotTSNE(gobject = visium_kidney,
+         save_param = list(save_name = &#39;3_tSNE_reduction&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/3_tSNE_reduction.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 4:  cluster</h4>
+
+<pre><code class="language-R">## sNN network (default)
+visium_kidney &lt;- createNearestNetwork(gobject = visium_kidney, dimensions_to_use = 1:10, k = 15)
+## Leiden clustering
+visium_kidney &lt;- doLeidenCluster(gobject = visium_kidney, resolution = 0.4, n_iterations = 1000)
+plotUMAP(gobject = visium_kidney,
+         cell_color = &#39;leiden_clus&#39;, show_NN_network = T, point_size = 2.5,
+         save_param = list(save_name = &#39;4_UMAP_leiden&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/4_UMAP_leiden.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 5: co-visualize</h4>
+
+<pre><code class="language-R"># expression and spatial
+spatDimPlot(gobject = visium_kidney, cell_color = &#39;leiden_clus&#39;,
+            dim_point_size = 2, spat_point_size = 2.5,
+            save_param = list(save_name = &#39;5_covis_leiden&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/5_covis_leiden.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">spatDimPlot(gobject = visium_kidney, cell_color = &#39;nr_genes&#39;, color_as_factor = F,
+            dim_point_size = 2, spat_point_size = 2.5,
+            save_param = list(save_name = &#39;5_nr_genes&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/5_nr_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 6: cell type marker gene detection</h4>
+
+<h4>gini</h4>
+
+<pre><code class="language-R">## ---- ##
+gini_markers_subclusters = findMarkers_one_vs_all(gobject = visium_kidney,
+                                                  method = &#39;gini&#39;,
+                                                  expression_values = &#39;normalized&#39;,
+                                                  cluster_column = &#39;leiden_clus&#39;,
+                                                  min_genes = 20,
+                                                  min_expr_gini_score = 0.5,
+                                                  min_det_gini_score = 0.5)
+topgenes_gini = gini_markers_subclusters[, head(.SD, 2), by = &#39;cluster&#39;]$genes
+
+# violinplot
+violinPlot(visium_kidney, genes = unique(topgenes_gini), cluster_column = &#39;leiden_clus&#39;,
+           strip_text = 8, strip_position = &#39;right&#39;,
+           save_param = c(save_name = &#39;6_violinplot_gini&#39;, base_width = 5, base_height = 10))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_violinplot_gini.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># cluster heatmap
+my_cluster_order = c(2, 4, 5, 3, 6, 7, 8, 9, 10, 1)
+plotMetaDataHeatmap(visium_kidney, selected_genes = topgenes_gini, custom_cluster_order = my_cluster_order,
+                    metadata_cols = c(&#39;leiden_clus&#39;), x_text_size = 10, y_text_size = 10,
+                    save_param = c(save_name = &#39;6_metaheatmap_gini&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_metaheatmap_gini.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># umap plots
+dimGenePlot2D(visium_kidney, expression_values = &#39;scaled&#39;,
+              genes = gini_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes,
+              cow_n_col = 3, point_size = 1,
+              genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0,
+              save_param = c(save_name = &#39;6_gini_umap&#39;, base_width = 8, base_height = 5))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_gini_umap.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>scran</h4>
+
+<pre><code class="language-R">## ----- ##
+scran_markers_subclusters = findMarkers_one_vs_all(gobject = visium_kidney,
+                                                   method = &#39;scran&#39;,
+                                                   expression_values = &#39;normalized&#39;,
+                                                   cluster_column = &#39;leiden_clus&#39;)
+topgenes_scran = scran_markers_subclusters[, head(.SD, 2), by = &#39;cluster&#39;]$genes
+
+# violinplot
+violinPlot(visium_kidney, genes = unique(topgenes_scran), cluster_column = &#39;leiden_clus&#39;,
+           strip_text = 10, strip_position = &#39;right&#39;,
+           save_param = c(save_name = &#39;6_violinplot_scran&#39;, base_width = 5))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_violinplot_scran.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># cluster heatmap
+plotMetaDataHeatmap(visium_kidney, selected_genes = topgenes_scran, custom_cluster_order = my_cluster_order,
+                    metadata_cols = c(&#39;leiden_clus&#39;),
+                    save_param = c(save_name = &#39;6_metaheatmap_scran&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_metaheatmap_scran.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># umap plots
+dimGenePlot(visium_kidney, expression_values = &#39;scaled&#39;,
+            genes = scran_markers_subclusters[, head(.SD, 1), by = &#39;cluster&#39;]$genes,
+            cow_n_col = 3, point_size = 1,
+            genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0,
+            save_param = c(save_name = &#39;6_scran_umap&#39;, base_width = 8, base_height = 5))
+</code></pre>
+
+<p><img src="figures/visium.kidney/6_scran_umap.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 7: cell-type annotation</h4>
+
+<p>Visium spatial transcriptomics does not provide single-cell resolution, making cell type annotation a harder problem. Giotto provides 3 ways to calculate enrichment of specific cell-type signature gene list:    </p>
+
+<ul>
+<li>PAGE<br/></li>
+<li>rank<br/></li>
+<li>hypergeometric test</li>
+</ul>
+
+<p>See the <a href="./mouse_visium_brain_200325.html">mouse Visium brain dataset</a> for an example.</p>
+
+<h4>part 8: spatial grid</h4>
+
+<pre><code class="language-R">visium_kidney &lt;- createSpatialGrid(gobject = visium_kidney,
+                                   sdimx_stepsize = 400,
+                                   sdimy_stepsize = 400,
+                                   minimum_padding = 0)
+spatPlot(visium_kidney, cell_color = &#39;leiden_clus&#39;, show_grid = T,
+         grid_color = &#39;red&#39;, spatial_grid_name = &#39;spatial_grid&#39;, 
+         save_param = c(save_name = &#39;8_grid&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/8_grid.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 9: spatial network</h4>
+
+<pre><code class="language-R">## (default) delaunay network: stats + creation
+plotStatDelaunayNetwork(gobject = visium_kidney, maximum_distance = 400, save_plot = F)
+visium_kidney = createSpatialNetwork(gobject = visium_kidney, maximum_distance_delaunay = 400, minimum_k = 2)
+spatPlot(gobject = visium_kidney, show_network = T,
+         network_color = &#39;blue&#39;, spatial_network_name = &#39;delaunay_network&#39;,
+         save_param = c(save_name = &#39;9_delaunay_network&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/9_delaunay_network.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## kNN network
+visium_kidney &lt;- createSpatialNetwork(gobject = visium_kidney, method = &#39;kNN&#39;, k = 5, maximum_distance_knn = 400)
+spatPlot(gobject = visium_kidney, show_network = T,
+         network_color = &#39;blue&#39;, spatial_network_name = &#39;spatial_network&#39;,
+         save_param = c(save_name = &#39;9_spatial_network_k5&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/9_spatial_network_k5.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h4>part 10: spatial genes</h4>
+
+<h5>Spatial genes</h5>
+
+<pre><code class="language-R">## kmeans binarization
+kmtest = binSpect(visium_kidney, bin_method = &#39;kmeans&#39;,
+                            do_fisher_test = T, 
+                            spatial_network_name = &#39;delaunay_network&#39;, verbose = T)
+spatGenePlot(visium_kidney, expression_values = &#39;scaled&#39;,
+             genes = kmtest$genes[1:6], cow_n_col = 2, point_size = 1.5,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0,
+             save_param = c(save_name = &#39;10_spatial_genes_km&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_spatial_genes_km.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## rank binarization
+ranktest = binSpect(visium_kidney, bin_method = &#39;rank&#39;, 
+                              do_fisher_test = T, percentage_rank = 30,
+                              spatial_network_name = &#39;delaunay_network&#39;, verbose = T)
+spatGenePlot(visium_kidney, expression_values = &#39;scaled&#39;,
+             genes = ranktest$genes[1:6], cow_n_col = 2, point_size = 1.5,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0,
+             save_param = c(save_name = &#39;10_spatial_genes_rank&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_spatial_genes_rank.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">## silhouette
+spatial_genes = silhouetteRank(gobject = visium_kidney,
+                               expression_values = &#39;scaled&#39;,
+                               rbp_p=0.95, examine_top=0.3)
+spatGenePlot(visium_kidney, expression_values = &#39;scaled&#39;,
+             genes = spatial_genes$genes[1:6], cow_n_col = 2, point_size = 1.5,
+             genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;, midpoint = 0,
+             save_param = c(save_name = &#39;10_spatial_genes&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_spatial_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<h5>Spatial co-expression patterns</h5>
+
+<pre><code class="language-R">## spatially correlated genes ##
+ext_spatial_genes = kmtest[1:500]$genes
+# 1. calculate gene spatial correlation and single-cell correlation 
+# create spatial correlation object
+spat_cor_netw_DT = detectSpatialCorGenes(visium_kidney, 
+                                         method = &#39;network&#39;, spatial_network_name = &#39;delaunay_network&#39;,
+                                         subset_genes = ext_spatial_genes)
+# 2. identify most similar spatially correlated genes for one gene
+Napsa_top10_genes = showSpatialCorGenes(spat_cor_netw_DT, genes = &#39;Napsa&#39;, show_top_genes = 10)
+spatGenePlot(visium_kidney, expression_values = &#39;scaled&#39;,
+             genes = c(&#39;Napsa&#39;, &#39;Kap&#39;, &#39;Defb29&#39;, &#39;Prdx1&#39;), point_size = 3,
+             save_param = c(save_name = &#39;10_Napsa_correlated_genes&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_Napsa_correlated_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># 3. cluster correlated genes &amp; visualize
+spat_cor_netw_DT = clusterSpatialCorGenes(spat_cor_netw_DT, name = &#39;spat_netw_clus&#39;, k = 8)
+heatmSpatialCorGenes(visium_kidney, spatCorObject = spat_cor_netw_DT, use_clus_name = &#39;spat_netw_clus&#39;,
+                     save_param = c(save_name = &#39;10_heatmap_correlated_genes&#39;, save_format = &#39;pdf&#39;,
+                                    base_height = 6, base_width = 8, units = &#39;cm&#39;), 
+                     heatmap_legend_param = list(title = NULL))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_heatmap_correlated_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># 4. rank spatial correlated clusters and show genes for selected clusters
+netw_ranks = rankSpatialCorGroups(visium_kidney, spatCorObject = spat_cor_netw_DT, use_clus_name = &#39;spat_netw_clus&#39;,
+                                  save_param = c(save_name = &#39;10_rank_correlated_groups&#39;,
+                                                 base_height = 3, base_width = 5))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_rank_correlated_groups.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">top_netw_spat_cluster = showSpatialCorGenes(spat_cor_netw_DT, use_clus_name = &#39;spat_netw_clus&#39;,
+                                            selected_clusters = 6, show_top_genes = 1)
+# 5. create metagene enrichment score for clusters
+cluster_genes_DT = showSpatialCorGenes(spat_cor_netw_DT, use_clus_name = &#39;spat_netw_clus&#39;, show_top_genes = 1)
+cluster_genes = cluster_genes_DT$clus; names(cluster_genes) = cluster_genes_DT$gene_ID
+visium_kidney = createMetagenes(visium_kidney, gene_clusters = cluster_genes, name = &#39;cluster_metagene&#39;)
+spatCellPlot(visium_kidney,
+             spat_enr_names = &#39;cluster_metagene&#39;,
+             cell_annotation_values = netw_ranks$clusters,
+             point_size = 1.5, cow_n_col = 4, 
+             save_param = c(save_name = &#39;10_spat_enrichment_score_plots&#39;,
+                            base_width = 13, base_height = 6))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_spat_enrichment_score_plots.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R"># example for gene per cluster
+top_netw_spat_cluster = showSpatialCorGenes(spat_cor_netw_DT, use_clus_name = &#39;spat_netw_clus&#39;,
+                                            selected_clusters = 1:8, show_top_genes = 1)
+first_genes = top_netw_spat_cluster[, head(.SD, 1), by = clus]$gene_ID
+cluster_names = top_netw_spat_cluster[, head(.SD, 1), by = clus]$clus
+names(first_genes) = cluster_names
+first_genes = first_genes[as.character(netw_ranks$clusters)]
+
+spatGenePlot(visium_kidney, genes = first_genes, expression_values = &#39;scaled&#39;, cow_n_col = 4, midpoint = 0, point_size = 2,
+             save_param = c(save_name = &#39;10_spat_enrichment_score_plots_genes&#39;,
+                            base_width = 11, base_height = 6))
+</code></pre>
+
+<p><img src="figures/visium.kidney/10_spat_enrichment_score_plots_genes.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<!--
+<h4>part 11: HMRF domains</h4>
+
+<pre><code class="language-R"># spatial genes
+my_spatial_genes &lt;- kmtest[1:100]$genes
+
+# do HMRF with different betas
+hmrf_folder = paste0(results_folder,&#39;/&#39;,&#39;11_HMRF/&#39;)
+if(!file.exists(hmrf_folder)) dir.create(hmrf_folder, recursive = T)
+
+HMRF_spatial_genes = doHMRF(gobject = visium_kidney, expression_values = &#39;scaled&#39;, 
+                            spatial_network_name = &#39;delaunay_network&#39;,
+                            spatial_genes = my_spatial_genes,
+                            k = 5,
+                            betas = c(0, 1, 6), 
+                            output_folder = paste0(hmrf_folder, &#39;/&#39;, &#39;Spatial_genes/SG_topgenes_k5_scaled&#39;))
+
+## view results of HMRF
+## results not displayed
+for(i in seq(0, 5, by = 1)) {
+  viewHMRFresults2D(gobject = visium_kidney,
+                    HMRFoutput = HMRF_spatial_genes,
+                    k = 5, betas_to_view = i,
+                    point_size = 2)
+}
+</code></pre>
+
+<pre><code class="language-R">## alternative way to view HMRF results
+#results = writeHMRFresults(gobject = ST_test,
+#                           HMRFoutput = HMRF_spatial_genes,
+#                           k = 5, betas_to_view = seq(0, 25, by = 5))
+#ST_test = addCellMetadata(ST_test, new_metadata = results, by_column = T, column_cell_ID = &#39;cell_ID&#39;)
+
+## add HMRF of interest to giotto object
+visium_kidney = addHMRF(gobject = visium_kidney,
+                        HMRFoutput = HMRF_spatial_genes,
+                        k = 5, betas_to_add = c(0, 2),
+                        hmrf_name = &#39;HMRF&#39;)
+
+## visualize
+spatPlot(gobject = visium_kidney, cell_color = &#39;HMRF_k5_b.0&#39;, point_size = 5,
+         save_param = c(save_name = &#39;11_HMRF_k5_b.0&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/11_HMRF_k5_b.0.png" class="img-fluid" style="max-width:50%"></img></p>
+
+<pre><code class="language-R">spatPlot(gobject = visium_kidney, cell_color = &#39;HMRF_k5_b.2&#39;, point_size = 5,
+         save_param = c(save_name = &#39;11_HMRF_k5_b.2&#39;))
+</code></pre>
+
+<p><img src="figures/visium.kidney/11_HMRF_k5_b.2.png" class="img-fluid" style="max-width:50%"></img></p>
+-->
+
+<h4>Export and create Giotto Viewer</h4>
+
+<pre><code class="language-R"># check which annotations are available
+combineMetadata(visium_kidney, spat_enr_names = &#39;PAGE&#39;)
+
+# select annotations, reductions and expression values to view in Giotto Viewer
+viewer_folder = paste0(results_folder, &#39;/&#39;, &#39;mouse_visium_kidney_viewer&#39;)
+
+exportGiottoViewer(gobject = visium_kidney,
+                   output_directory = viewer_folder,
+                   spat_enr_names = &#39;PAGE&#39;, 
+                   factor_annotations = c(&#39;in_tissue&#39;,
+                                          &#39;leiden_clus&#39;,
+                                          &#39;MRF_k5_b.2&#39;),
+                   numeric_annotations = c(&#39;nr_genes&#39;,
+                                           &#39;clus_25&#39;),
+                   dim_reductions = c(&#39;tsne&#39;, &#39;umap&#39;),
+                   dim_reduction_names = c(&#39;tsne&#39;, &#39;umap&#39;),
+                   expression_values = &#39;scaled&#39;,
+                   expression_rounding = 2,
+                   overwrite_dir = T)
+</code></pre>
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

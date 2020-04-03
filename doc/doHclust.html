@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: doHclust</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doHclust {Giotto}"><tr><td>doHclust {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>doHclust</h2>
+
+<h3>Description</h3>
+
+<p>cluster cells using hierarchical clustering algorithm
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doHclust(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes_to_use = NULL,
+  dim_reduction_to_use = c("cells", "pca", "umap", "tsne"),
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  distance_method = c("pearson", "spearman", "original", "euclidean", "maximum",
+    "manhattan", "canberra", "binary", "minkowski"),
+  agglomeration_method = c("ward.D2", "ward.D", "single", "complete", "average",
+    "mcquitty", "median", "centroid"),
+  k = 10,
+  h = NULL,
+  name = "hclust",
+  return_gobject = TRUE,
+  set_seed = T,
+  seed_number = 1234
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>subset of genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>dimensions reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>dimensions to use</p>
+</td></tr>
+<tr valign="top"><td><code>distance_method</code></td>
+<td>
+<p>distance method</p>
+</td></tr>
+<tr valign="top"><td><code>agglomeration_method</code></td>
+<td>
+<p>agglomeration method for hclust</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of final clusters</p>
+</td></tr>
+<tr valign="top"><td><code>h</code></td>
+<td>
+<p>cut hierarchical tree at height = h</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for hierarchical clustering</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>set seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>number for seed</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description on how to use Kmeans clustering method.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with new clusters appended to cell metadata
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>hclust</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    doHclust(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

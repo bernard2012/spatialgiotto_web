@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: doSNNCluster</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doSNNCluster {Giotto}"><tr><td>doSNNCluster {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>doSNNCluster</h2>
+
+<h3>Description</h3>
+
+<p>Cluster cells using a SNN cluster approach.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doSNNCluster(
+  gobject,
+  name = "sNN_clus",
+  nn_network_to_use = "kNN",
+  network_name = "kNN.pca",
+  k = 20,
+  eps = 4,
+  minPts = 16,
+  borderPoints = TRUE,
+  return_gobject = TRUE,
+  set_seed = F,
+  seed_number = 1234,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for cluster</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (only works on kNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of kNN network to use</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>Neighborhood size for nearest neighbor sparsification to create the shared NN graph.</p>
+</td></tr>
+<tr valign="top"><td><code>eps</code></td>
+<td>
+<p>Two objects are only reachable from each other if they share at least eps nearest neighbors.</p>
+</td></tr>
+<tr valign="top"><td><code>minPts</code></td>
+<td>
+<p>minimum number of points that share at least eps nearest neighbors for a point to be considered a core points.</p>
+</td></tr>
+<tr valign="top"><td><code>borderPoints</code></td>
+<td>
+<p>should borderPoints be assigned to clusters like in DBSCAN?</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>set seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>number for seed</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>sNNclust</code> from dbscan package
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with new clusters appended to cell metadata
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    doSNNCluster(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

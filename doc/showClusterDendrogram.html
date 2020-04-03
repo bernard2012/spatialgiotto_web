@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: showClusterDendrogram</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for showClusterDendrogram {Giotto}"><tr><td>showClusterDendrogram {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>showClusterDendrogram</h2>
+
+<h3>Description</h3>
+
+<p>Creates dendrogram for selected clusters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+showClusterDendrogram(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  cluster_column,
+  cor = c("pearson", "spearman"),
+  distance = "ward.D",
+  h = NULL,
+  h_color = "red",
+  rotate = FALSE,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "showClusterDendrogram",
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cor</code></td>
+<td>
+<p>correlation score to calculate distance</p>
+</td></tr>
+<tr valign="top"><td><code>distance</code></td>
+<td>
+<p>distance method to use for hierarchical clustering</p>
+</td></tr>
+<tr valign="top"><td><code>h</code></td>
+<td>
+<p>height of horizontal lines to plot</p>
+</td></tr>
+<tr valign="top"><td><code>h_color</code></td>
+<td>
+<p>color of horizontal lines</p>
+</td></tr>
+<tr valign="top"><td><code>rotate</code></td>
+<td>
+<p>rotate dendrogram 90 degrees</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional parameters for ggdendrogram()</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Expression correlation dendrogram for selected clusters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    showClusterDendrogram(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

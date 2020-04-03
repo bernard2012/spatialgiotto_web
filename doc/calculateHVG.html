@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: calculateHVG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for calculateHVG {Giotto}"><tr><td>calculateHVG {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>calculateHVG</h2>
+
+<h3>Description</h3>
+
+<p>compute highly variable genes
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+calculateHVG(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  method = c("cov_groups", "cov_loess"),
+  reverse_log_scale = FALSE,
+  logbase = 2,
+  expression_threshold = 0,
+  nr_expression_groups = 20,
+  zscore_threshold = 1.5,
+  HVGname = "hvg",
+  difference_in_cov = 0.1,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "HVGplot",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>method to calculate highly variable genes</p>
+</td></tr>
+<tr valign="top"><td><code>reverse_log_scale</code></td>
+<td>
+<p>reverse log-scale of expression values (default = FALSE)</p>
+</td></tr>
+<tr valign="top"><td><code>logbase</code></td>
+<td>
+<p>if reverse_log_scale is TRUE, which log base was used?</p>
+</td></tr>
+<tr valign="top"><td><code>expression_threshold</code></td>
+<td>
+<p>expression threshold to consider a gene detected</p>
+</td></tr>
+<tr valign="top"><td><code>nr_expression_groups</code></td>
+<td>
+<p>number of expression groups for cov_groups</p>
+</td></tr>
+<tr valign="top"><td><code>zscore_threshold</code></td>
+<td>
+<p>zscore to select hvg for cov_groups</p>
+</td></tr>
+<tr valign="top"><td><code>HVGname</code></td>
+<td>
+<p>name for highly variable genes in cell metadata</p>
+</td></tr>
+<tr valign="top"><td><code>difference_in_cov</code></td>
+<td>
+<p>minimum difference in coefficient of variance required</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Currently we provide 2 ways to calculate highly variable genes:
+<b>1. high coeff of variance (COV) within groups: </b> <br />
+First genes are binned (<em>nr_expression_groups</em>) into average expression groups and
+the COV for each gene is converted into a z-score within each bin. Genes with a z-score
+higher than the threshold (<em>zscore_threshold</em>) are considered highly variable.  <br />
+</p>
+<p><b>2. high COV based on loess regression prediction: </b> <br />
+A predicted COV is calculated for each gene using loess regression (COV~log(mean expression))
+Genes that show a higher than predicted COV (<em>difference_in_cov</em>) are considered highly variable. <br />
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object highly variable genes appended to gene metadata (fDataDT)
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    calculateHVG(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

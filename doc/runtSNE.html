@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: runtSNE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for runtSNE {Giotto}"><tr><td>runtSNE {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>runtSNE</h2>
+
+<h3>Description</h3>
+
+<p>run tSNE
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+runtSNE(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  reduction = c("cells", "genes"),
+  dim_reduction_to_use = "pca",
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  name = "tsne",
+  genes_to_use = NULL,
+  return_gobject = TRUE,
+  dims = 2,
+  perplexity = 30,
+  theta = 0.5,
+  do_PCA_first = F,
+  set_seed = T,
+  seed_number = 1234,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>reduction</code></td>
+<td>
+<p>cells or genes</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>use another dimension reduction set as input</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>name of dimension reduction set to use</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>number of dimensions to use as input</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>arbitrary name for tSNE run</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>if dim_reduction_to_use = NULL, which genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>dims</code></td>
+<td>
+<p>tSNE param: number of dimensions to return</p>
+</td></tr>
+<tr valign="top"><td><code>perplexity</code></td>
+<td>
+<p>tSNE param: perplexity</p>
+</td></tr>
+<tr valign="top"><td><code>theta</code></td>
+<td>
+<p>tSNE param: theta</p>
+</td></tr>
+<tr valign="top"><td><code>do_PCA_first</code></td>
+<td>
+<p>tSNE param: do PCA before tSNE (default = FALSE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>use of seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>seed number to use</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional tSNE parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>Rtsne</code> for more information about these and other parameters. <br />
+</p>
+
+<ul>
+<li><p> Input for tSNE dimension reduction can be another dimension reduction (default = 'pca')
+</p>
+</li>
+<li><p> To use gene expression as input set dim_reduction_to_use = NULL
+</p>
+</li>
+<li><p> multiple tSNE results can be stored by changing the <em>name</em> of the analysis
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated tSNE dimension recuction
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    runtSNE(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

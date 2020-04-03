@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: writeHMRFresults</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for writeHMRFresults {Giotto}"><tr><td>writeHMRFresults {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>writeHMRFresults</h2>
+
+<h3>Description</h3>
+
+<p>write results from doHMRF to a data.table.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+writeHMRFresults(
+  gobject,
+  HMRFoutput,
+  k = NULL,
+  betas_to_view = NULL,
+  print_command = F
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>HMRFoutput</code></td>
+<td>
+<p>HMRF output from doHMRF</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>k to write results for</p>
+</td></tr>
+<tr valign="top"><td><code>betas_to_view</code></td>
+<td>
+<p>results from different betas that you want to view</p>
+</td></tr>
+<tr valign="top"><td><code>print_command</code></td>
+<td>
+<p>see the python command</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with HMRF results for each b and the selected k
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    writeHMRFresults(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

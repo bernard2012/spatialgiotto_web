@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: addGeneMetadata</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addGeneMetadata {Giotto}"><tr><td>addGeneMetadata {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>addGeneMetadata</h2>
+
+<h3>Description</h3>
+
+<p>adds gene metadata to the giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addGeneMetadata(gobject, new_metadata, by_column = F, column_gene_ID = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>new_metadata</code></td>
+<td>
+<p>new metadata to use</p>
+</td></tr>
+<tr valign="top"><td><code>by_column</code></td>
+<td>
+<p>merge metadata based on gene_ID column in fDataDT</p>
+</td></tr>
+<tr valign="top"><td><code>column_cell_ID</code></td>
+<td>
+<p>column name of new metadata to use if by_column = TRUE</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>You can add additional gene metadata in two manners:
+1. Provide a data.table or data.frame with gene annotations in the same order as the gene_ID column in fDataDT(gobject)
+2. Provide a data.table or data.frame with gene annotations and specificy which column contains the gene IDs,
+these gene IDs need to match with the gene_ID column in fDataDT(gobject)
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    addGeneMetadata(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

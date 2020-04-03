@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: findCPG</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for findCPG {Giotto}"><tr><td>findCPG {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>findCPG</h2>
+
+<h3>Description</h3>
+
+<p>Identifies genes that are differentially expressed due to proximity to other cell types.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+findCPG(
+  gobject,
+  expression_values = "normalized",
+  selected_genes = NULL,
+  cluster_column,
+  spatial_network_name = "Delaunay_network",
+  minimum_unique_cells = 1,
+  minimum_unique_int_cells = 1,
+  diff_test = c("permutation", "limma", "t.test", "wilcox"),
+  mean_method = c("arithmic", "geometric"),
+  offset = 0.1,
+  adjust_method = c("bonferroni", "BH", "holm", "hochberg", "hommel", "BY", "fdr",
+    "none"),
+  nr_permutations = 100,
+  exclude_selected_cells_from_test = T,
+  do_parallel = TRUE,
+  cores = NA
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>selected_genes</code></td>
+<td>
+<p>subset of selected genes (optional)</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for cell types</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_unique_cells</code></td>
+<td>
+<p>minimum number of target cells required</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_unique_int_cells</code></td>
+<td>
+<p>minimum number of interacting cells required</p>
+</td></tr>
+<tr valign="top"><td><code>diff_test</code></td>
+<td>
+<p>which differential expression test</p>
+</td></tr>
+<tr valign="top"><td><code>mean_method</code></td>
+<td>
+<p>method to use to calculate the mean</p>
+</td></tr>
+<tr valign="top"><td><code>offset</code></td>
+<td>
+<p>offset value to use when calculating log2 ratio</p>
+</td></tr>
+<tr valign="top"><td><code>adjust_method</code></td>
+<td>
+<p>which method to adjust p-values</p>
+</td></tr>
+<tr valign="top"><td><code>nr_permutations</code></td>
+<td>
+<p>number of permutations if diff_test = permutation</p>
+</td></tr>
+<tr valign="top"><td><code>exclude_selected_cells_from_test</code></td>
+<td>
+<p>exclude interacting cells other cells</p>
+</td></tr>
+<tr valign="top"><td><code>do_parallel</code></td>
+<td>
+<p>run calculations in parallel with mclapply</p>
+</td></tr>
+<tr valign="top"><td><code>cores</code></td>
+<td>
+<p>number of cores to use if do_parallel = TRUE</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Function to calculate if genes are differentially expressed in cell types
+when they interact (approximated by physical proximity) with other cell types.
+The results data.table in the cpgObject contains - at least - the following columns:
+</p>
+
+<ul>
+<li><p>genes: All or selected list of tested genes
+</p>
+</li>
+<li><p>sel: average gene expression in the interacting cells from the target cell type 
+</p>
+</li>
+<li><p>other: average gene expression in the NOT-interacting cells from the target cell type 
+</p>
+</li>
+<li><p>log2fc: log2 fold-change between sel and other
+</p>
+</li>
+<li><p>diff: spatial expression difference between sel and other
+</p>
+</li>
+<li><p>p.value: associated p-value
+</p>
+</li>
+<li><p>p.adj: adjusted p-value
+</p>
+</li>
+<li><p>cell_type: target cell type
+</p>
+</li>
+<li><p>int_cell_type: interacting cell type
+</p>
+</li>
+<li><p>nr_select: number of cells for selected target cell type
+</p>
+</li>
+<li><p>int_nr_select: number of cells for interacting cell type
+</p>
+</li>
+<li><p>nr_other: number of other cells of selected target cell type
+</p>
+</li>
+<li><p>int_nr_other: number of other cells for interacting cell type
+</p>
+</li>
+<li><p>unif_int: cell-cell interaction
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>cpgObject that contains the differential gene scores
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    findCPG(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

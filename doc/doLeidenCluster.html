@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: doLeidenCluster</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doLeidenCluster {Giotto}"><tr><td>doLeidenCluster {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>doLeidenCluster</h2>
+
+<h3>Description</h3>
+
+<p>cluster cells using a NN-network and the Leiden community detection algorithm
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doLeidenCluster(
+  gobject,
+  name = "leiden_clus",
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  python_path = NULL,
+  resolution = 1,
+  weight_col = "weight",
+  partition_type = c("RBConfigurationVertexPartition", "ModularityVertexPartition"),
+  init_membership = NULL,
+  n_iterations = 1000,
+  return_gobject = TRUE,
+  set_seed = T,
+  seed_number = 1234,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for cluster</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>specify specific path to python if required</p>
+</td></tr>
+<tr valign="top"><td><code>resolution</code></td>
+<td>
+<p>resolution</p>
+</td></tr>
+<tr valign="top"><td><code>weight_col</code></td>
+<td>
+<p>weight column to use for edges</p>
+</td></tr>
+<tr valign="top"><td><code>partition_type</code></td>
+<td>
+<p>The type of partition to use for optimisation.</p>
+</td></tr>
+<tr valign="top"><td><code>init_membership</code></td>
+<td>
+<p>initial membership of cells for the partition</p>
+</td></tr>
+<tr valign="top"><td><code>n_iterations</code></td>
+<td>
+<p>number of interations to run the Leiden algorithm.
+If the number of iterations is negative, the Leiden algorithm is run until
+an iteration in which there was no improvement.</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>set seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>number for seed</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is a wrapper for the Leiden algorithm implemented in python,
+which can detect communities in graphs of millions of nodes (cells),
+as long as they can fit in memory. See the <a href="https://github.com/vtraag/leidenalg">https://github.com/vtraag/leidenalg</a>leidenalg
+github page or the <a href="https://leidenalg.readthedocs.io/en/stable/index.html">https://leidenalg.readthedocs.io/en/stable/index.html</a>readthedocs
+page for more information.
+</p>
+<p>Partition types available and information:
+</p>
+
+<ul>
+<li><p>RBConfigurationVertexPartition: Implements Reichardt and Bornholdt’s Potts model
+with a configuration null model. This quality function is well-defined only for positive edge weights.
+This quality function uses a linear resolution parameter.
+</p>
+</li>
+<li><p>ModularityVertexPartition: Implements modularity.
+This quality function is well-defined only for positive edge weights. It does <em>not</em> use the resolution parameter
+</p>
+</li></ul>
+
+<p>Set <em>weight_col = NULL</em> to give equal weight (=1) to each edge.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with new clusters appended to cell metadata
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    doLeidenCluster(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

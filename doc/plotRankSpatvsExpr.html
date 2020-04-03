@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plotRankSpatvsExpr</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotRankSpatvsExpr {Giotto}"><tr><td>plotRankSpatvsExpr {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plotRankSpatvsExpr</h2>
+
+<h3>Description</h3>
+
+<p>Plots dotplot to compare ligand-receptor rankings from spatial and expression information
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotRankSpatvsExpr(
+  gobject,
+  combCC,
+  expr_rnk_column = "LR_expr_rnk",
+  spat_rnk_column = "LR_spat_rnk",
+  midpoint = 10,
+  size_range = c(0.01, 1.5),
+  xlims = NULL,
+  ylims = NULL,
+  selected_ranks = c(1, 10, 20),
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "plotRankSpatvsExpr"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>combCC</code></td>
+<td>
+<p>combined communinication scores from <code>combCCcom</code></p>
+</td></tr>
+<tr valign="top"><td><code>expr_rnk_column</code></td>
+<td>
+<p>column with expression rank information to use</p>
+</td></tr>
+<tr valign="top"><td><code>spat_rnk_column</code></td>
+<td>
+<p>column with spatial rank information to use</p>
+</td></tr>
+<tr valign="top"><td><code>midpoint</code></td>
+<td>
+<p>midpoint of colors</p>
+</td></tr>
+<tr valign="top"><td><code>size_range</code></td>
+<td>
+<p>size ranges of dotplot</p>
+</td></tr>
+<tr valign="top"><td><code>xlims</code></td>
+<td>
+<p>x-limits, numerical vector of 2</p>
+</td></tr>
+<tr valign="top"><td><code>ylims</code></td>
+<td>
+<p>y-limits, numerical vector of 2</p>
+</td></tr>
+<tr valign="top"><td><code>selected_ranks</code></td>
+<td>
+<p>numerical vector, will be used to print out the percentage of top spatial ranks are recovered</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return plotting object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plotRankSpatvsExpr(CPGscores)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

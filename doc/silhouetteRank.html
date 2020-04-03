@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: silhouetteRank</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for silhouetteRank {Giotto}"><tr><td>silhouetteRank {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>silhouetteRank</h2>
+
+<h3>Description</h3>
+
+<p>This method computes a silhouette score per gene based on the
+spatial distribution of two partitions of cells (expressed L1, and non-expressed L0).
+Here, rather than L2 Euclidean norm, it uses a rank-transformed, exponentially weighted
+function to represent the local physical distance between two cells.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+silhouetteRank(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  metric = "euclidean",
+  subset_genes = NULL,
+  rbp_p = 0.95,
+  examine_top = 0.3,
+  python_path = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>metric</code></td>
+<td>
+<p>distance metric to use</p>
+</td></tr>
+<tr valign="top"><td><code>subset_genes</code></td>
+<td>
+<p>only run on this subset of genes</p>
+</td></tr>
+<tr valign="top"><td><code>rbp_p</code></td>
+<td>
+<p>fractional binarization threshold</p>
+</td></tr>
+<tr valign="top"><td><code>examine_top</code></td>
+<td>
+<p>top fraction to evaluate with silhouette</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>specify specific path to python if required</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with spatial scores
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    silhouetteRank(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

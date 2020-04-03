@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: ggplot_save_function</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for ggplot_save_function {Giotto}"><tr><td>ggplot_save_function {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>ggplot_save_function</h2>
+
+<h3>Description</h3>
+
+<p>Function to automatically save plots to directory of interest
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+ggplot_save_function(
+  gobject,
+  plot_object,
+  save_dir = NULL,
+  save_folder = NULL,
+  save_name = NULL,
+  default_save_name = "giotto_plot",
+  save_format = NULL,
+  show_saved_plot = F,
+  ncol = 1,
+  nrow = 1,
+  scale = 1,
+  base_width = NULL,
+  base_height = NULL,
+  base_aspect_ratio = NULL,
+  units = NULL,
+  dpi = NULL,
+  limitsize = TRUE,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>plot_object</code></td>
+<td>
+<p>ggplot object to plot</p>
+</td></tr>
+<tr valign="top"><td><code>save_dir</code></td>
+<td>
+<p>directory to save to</p>
+</td></tr>
+<tr valign="top"><td><code>save_folder</code></td>
+<td>
+<p>folder in save_dir to save to</p>
+</td></tr>
+<tr valign="top"><td><code>save_name</code></td>
+<td>
+<p>name of plot</p>
+</td></tr>
+<tr valign="top"><td><code>save_format</code></td>
+<td>
+<p>format (e.g. png, tiff, pdf, ...)</p>
+</td></tr>
+<tr valign="top"><td><code>show_saved_plot</code></td>
+<td>
+<p>load &amp; display the saved plot</p>
+</td></tr>
+<tr valign="top"><td><code>ncol</code></td>
+<td>
+<p>number of columns</p>
+</td></tr>
+<tr valign="top"><td><code>nrow</code></td>
+<td>
+<p>number of rows</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>scale</p>
+</td></tr>
+<tr valign="top"><td><code>base_width</code></td>
+<td>
+<p>width</p>
+</td></tr>
+<tr valign="top"><td><code>base_height</code></td>
+<td>
+<p>height</p>
+</td></tr>
+<tr valign="top"><td><code>base_aspect_ratio</code></td>
+<td>
+<p>aspect ratio</p>
+</td></tr>
+<tr valign="top"><td><code>units</code></td>
+<td>
+<p>units</p>
+</td></tr>
+<tr valign="top"><td><code>dpi</code></td>
+<td>
+<p>Plot resolution</p>
+</td></tr>
+<tr valign="top"><td><code>limitsize</code></td>
+<td>
+<p>When TRUE (the default), ggsave will not save images larger than 50x50 inches, to prevent the common error of specifying dimensions in pixels.</p>
+</td></tr>
+</table>
+
+
+<h3>See Also</h3>
+
+<p><code>cowplot::save_plot</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    ggplot_save_function(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

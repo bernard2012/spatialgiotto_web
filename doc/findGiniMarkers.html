@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: findGiniMarkers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for findGiniMarkers {Giotto}"><tr><td>findGiniMarkers {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>findGiniMarkers</h2>
+
+<h3>Description</h3>
+
+<p>Identify marker genes for selected clusters based on gini detection and expression scores.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+findGiniMarkers(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  cluster_column,
+  subset_clusters = NULL,
+  group_1 = NULL,
+  group_2 = NULL,
+  min_expr_gini_score = 0.2,
+  min_det_gini_score = 0.2,
+  detection_threshold = 0,
+  rank_score = 1,
+  min_genes = 5
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>clusters to use</p>
+</td></tr>
+<tr valign="top"><td><code>subset_clusters</code></td>
+<td>
+<p>selection of clusters to compare</p>
+</td></tr>
+<tr valign="top"><td><code>group_1</code></td>
+<td>
+<p>group 1 cluster IDs from cluster_column for pairwise comparison</p>
+</td></tr>
+<tr valign="top"><td><code>group_2</code></td>
+<td>
+<p>group 2 cluster IDs from cluster_column for pairwise comparison</p>
+</td></tr>
+<tr valign="top"><td><code>min_expr_gini_score</code></td>
+<td>
+<p>filter on minimum gini coefficient for expression</p>
+</td></tr>
+<tr valign="top"><td><code>min_det_gini_score</code></td>
+<td>
+<p>filter on minimum gini coefficient for detection</p>
+</td></tr>
+<tr valign="top"><td><code>detection_threshold</code></td>
+<td>
+<p>detection threshold for gene expression</p>
+</td></tr>
+<tr valign="top"><td><code>rank_score</code></td>
+<td>
+<p>rank scores for both detection and expression to include</p>
+</td></tr>
+<tr valign="top"><td><code>min_genes</code></td>
+<td>
+<p>minimum number of top genes to return</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Detection of marker genes using the <a href="https://en.wikipedia.org/wiki/Gini_coefficient">https://en.wikipedia.org/wiki/Gini_coefficient</a>gini
+coefficient is based on the following steps/principles per gene:
+</p>
+
+<ul>
+<li><p>1. calculate average expression per cluster
+</p>
+</li>
+<li><p>2. calculate detection fraction per cluster
+</p>
+</li>
+<li><p>3. calculate gini-coefficient for av. expression values over all clusters
+</p>
+</li>
+<li><p>4. calculate gini-coefficient for detection fractions over all clusters
+</p>
+</li>
+<li><p>5. convert gini-scores to rank scores
+</p>
+</li>
+<li><p>6. for each gene create combined score = detection rank x expression rank x expr gini-coefficient x detection gini-coefficient
+</p>
+</li>
+<li><p>7. for each gene sort on expression and detection rank and combined score
+</p>
+</li></ul>
+
+<p>As a results &quot;top gini&quot; genes are genes that are very selectivily expressed in a specific cluster,
+however not always expressed in all cells of that cluster. In other words highly specific, but
+not necessarily sensitive at the single-cell level.
+</p>
+<p>To perform differential expression between cluster groups you need to specificy cluster IDs
+to the parameters <em>group_1</em> and <em>group_2</em>.
+</p>
+
+
+<h3>Value</h3>
+
+<p>data.table with marker genes
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    findGiniMarkers(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

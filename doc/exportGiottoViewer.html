@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: exportGiottoViewer</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for exportGiottoViewer {Giotto}"><tr><td>exportGiottoViewer {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>exportGiottoViewer</h2>
+
+<h3>Description</h3>
+
+<p>compute highly variable genes
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+exportGiottoViewer(
+  gobject,
+  output_directory = NULL,
+  spat_enr_names = NULL,
+  factor_annotations = NULL,
+  numeric_annotations = NULL,
+  dim_reductions,
+  dim_reduction_names,
+  expression_values = c("scaled", "normalized", "custom"),
+  dim_red_rounding = NULL,
+  dim_red_rescale = c(-20, 20),
+  expression_rounding = 2,
+  overwrite_dir = T,
+  verbose = T
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>output_directory</code></td>
+<td>
+<p>directory where to save the files</p>
+</td></tr>
+<tr valign="top"><td><code>spat_enr_names</code></td>
+<td>
+<p>spatial enrichment results to include for annotations</p>
+</td></tr>
+<tr valign="top"><td><code>factor_annotations</code></td>
+<td>
+<p>giotto cell annotations to view as factor</p>
+</td></tr>
+<tr valign="top"><td><code>numeric_annotations</code></td>
+<td>
+<p>giotto cell annotations to view as numeric</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reductions</code></td>
+<td>
+<p>high level dimension reductions to view</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_names</code></td>
+<td>
+<p>specific dimension reduction names</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use in Viewer</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red_rounding</code></td>
+<td>
+<p>numerical indicating how to round the coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red_rescale</code></td>
+<td>
+<p>numericals to rescale the coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>expression_rounding</code></td>
+<td>
+<p>numerical indicating how to round the expression data</p>
+</td></tr>
+<tr valign="top"><td><code>overwrite_dir</code></td>
+<td>
+<p>overwrite files in the directory if it already existed</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>be verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Giotto Viewer expects the results from Giotto Analyzer in a specific format,
+which is provided by this function. To include enrichment results from <code>createSpatialEnrich</code>
+include the provided spatial enrichment name (default PAGE or rank)
+and add the gene signature names (.e.g cell types) to the numeric annotations parameter.
+</p>
+
+
+<h3>Value</h3>
+
+<p>writes the necessary output to use in Giotto Viewer
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    exportGiottoViewer(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

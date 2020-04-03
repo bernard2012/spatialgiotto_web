@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Help manual for setting up Giotto Viewer</title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable", content="yes">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/prism.css">
+<link rel="stylesheet" href="css/giotto.css">
+
+<script src="js/bootstrap.4.1.0.min.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/prism.js"></script>
+<script src="js/giotto.js"></script>
+</head>
+
+
+<body data-spy="scroll" data-target="#nex2" data-offset="80">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Giotto</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+        </ul>
+     </div>
+   </nav>
+
+
+   <div class="container-fluid">
+     <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentation2.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.dataset.html">
+                            Analyzer dataset tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analyzer.documentation.html">
+                            Analyzer R usage manual
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="live.demo.html">
+                            Viewer live demo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.viewer.setup2.html">
+                            Viewer setup tutorial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html">
+                            Viewer usage manual
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Giotto Viewer: Setting Up a Dataset</h1>
+            </div>
+            <nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+              <ul class="nav nav-pills">
+			    <li class="nav-item">
+				  <a class="nav-link active" href="#s_minimal">Minimal files</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_preprocess">Preprocess</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_preprocess_seqfish">SeqFISH</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_preprocess_visium">Visium</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_preprocess_simple">Others</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_configure_panel">Panels</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_rest_setup">Rest of setup</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_launch_viewer">Launch viewer</a>
+				</li>
+			</ul>
+		  </nav>
+
+In this tutorial we describe how to set up the user's spatial transcriptomic dataset for Giotto Viewer exploration.
+<br><br>
+
+<!--stitch staining images across multiple positions of view, to convert cell coordinates of each position to a stitched coordinate system, to align segmentation data to expression data, and other items. -->
+
+
+The instructions are provided below for various platforms.
+<p>
+
+1) 10X Genomics Visium datasets
+<br>
+2) SeqFISH/SeqFISH+/MerFISH
+<br>
+3) Slide-seq
+<br>
+<br>
+
+<h4 id="s_minimal">1. Setting up minimally required files</h4>
+At minimal, Giotto Viewer requires gene expression matrix (gene by cell or gene by bead/spot), cell coordinate matrix, and annotation files (for cell/bead/spot).
+<p>
+
+<h5>1a. Option 1: Within Giotto Analyzer</h5>
+Once a dataset has been loaded in R and a Giotto object was created for the dataset, then  
+the <code>exportGiottoViewer()</code> function will export the gene expression matrix, the cluster annotations, unstitched cell coordinates, and tSNE/UMAP cell coordinates. 
+
+<pre><code class="language-R">viewer_folder = '/home/qzhu/Mouse_cortex_viewer/'
+# select annotations, reductions and expression values to view in Giotto Viewer
+exportGiottoViewer(gobject = VC_test, output_directory = viewer_folder, annotations = c('cell_types', 'kmeans', 'global_cell_types', 'sub_cell_types', 'HMRF_k9_b.30'), 
+dim_reductions = c('tsne', 'umap'), dim_reduction_names = c('tsne', 'umap'), 
+expression_values = 'scaled', expression_rounding = 3, overwrite_dir = T)</code></pre>
+
+The annotations to output are in lines 4-6 above. Each annotation will produce a *.annot file and a *.txt file.
+<br>
+The dimension reduction cell coordinates to output are in lines 7-8.
+<br>
+The generated files look like the following:
+<pre><code class="language-bash">ls test.ruben/testviewer
+cell_types_annot_information.annot  centroid_locations.txt  kmeans_annot_information.annot  tsne_tsne_dim_coord.txt
+cell_types_annot_information.txt    giotto_expression.csv   kmeans_annot_information.txt    umap_umap_dim_coord.txt</code></pre>
+<b>To save users' time, you can download pre-generated annotation files here: <a href="testviewer.tar.gz">testviewer_annotations</a>.</b>
+<br>
+<br>
+
+<h5>1b. Option 2: Setting up annotations yourself</h5>
+<h5>Gene expression</h5>
+A comma-delimited CSV file with header information. First row consists of cell IDs (integers starting at 1). First column is gene name. Values are distributed in a log-transformed scale, and preferably centered. Z-scores tend to work well.
+<br>
+
+<h5>Cell centroids (unstitched)</h5>
+Cell centroids per field of view. A CSV file, comma-delimited. First row consists of "Field of View, Cell ID, X, Y". <i>Field of View</i> refers to the field ID. <i>Cell ID</i> is an integer starting at 1, and unique in the whole dataset. <i>X, Y</i> are the coordinates.
+<br>
+<h5>Clustering annotations</h5>
+Multiple sets of cell annotations such as spatial domains, cell types can be added to the viewer. To add an annotation set, create two files, which share the same file name but differ only in the file extension. One file has (*.txt) extension and one file has (*.annot) extension. The first *.txt file contains a single-column of integer cluster membership of all cells. Each row is a cell in the same cell order as in gene expression. The second *.annot file is a tab-delimited file showing names of each cluster. e.g. 
+<!--<pre><code>
+1   L2/3 exc neuron
+2   inh neuron
+3   microglia
+4   endothelial
+5   astrocyte
+6   L6 exc neuron
+7   OL
+8   L4 exc neuron
+9   L5 exc neuron </code></pre>
+-->
+Examples of an annotation set: X.txt, X.annot.
+<br>
+<h5>tSNE/UMAP cell coordinates</h5>
+For tSNE, UMAP panel, we need also cell coordinates in tSNE space. This file is a space-delimited two-column (X,Y) format. Coordinates in each dimension should be scaled from (-20, +20).
+Example of tSNE coordinate file: X.coord.txt. 
+
+<br><br><br>
+
+<h4 id="s_preprocess">2. Platform specific preprocessing instructions</h4>
+Before proceeding, data preprocessing steps should be performed. These steps may include image and cell coordinate stitching, other specific image related processing (scaling, rotation), image tiling (for preparing the large image for the viewer), and other steps.
+Preprocessing is specified through a JSON-formatted configuration file. See an example below. This allows users to specify a sequence of actions to be performed on the images.
+<br>
+Rest assured that users usually need not to create this JSON file. They may use the provided script to auto-generate the right JSON template for the specific platform of user's interest.
+
+<br><br>
+<h5 id="s_preprocess_seqfish">2.1. SeqFISH(+)/MerFISH Platform</h5>
+These data have single-cellular resolution. In addition, they have rich staining images, cell segmentations, and transcript information that can be ovelayed.
+While gene expression matrix, cell annotations are handled through the above mechanism in Giotto Analyzer, it does not provide image and cell segmentation handling. Therefore, below we instruct users how to incorporate images, cell segmentations using some additional Python scripts.
+
+<pre><code class="language-bash">~/.local/bin/giotto_setup_image --require-stitch=y --image=y --image-multi-channel=y --segmentation=y --multi-fov=y --output-json=step1.json
+</code></pre>
+
+This outputs a template JSON file to instruct about the setup process. The output JSON file will then have sections that it thinks necessary to complete the setup process. Therefore, think of this JSON as the setting file. For example, "--image=y" means that we will have images; "--segmentation=y" means that there will segmentation info. For example, take a look at the resulting JSON file example. 
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseStep1JSON" role="button" aria-expanded="false" aria-controls="collapseStep1JSON">Output JSON</a>
+<div class="collapse" id="collapseStep1JSON">
+<div class="card card-body">
+Generated step1.json template:
+<pre><code class="language-json">{
+    "tiff_width": 4028,
+    "tiff_height": 4028,
+    "positions": [0, 1, 2, 3, 4],
+    "stain_ids": [0, 1, 2, 3, 4],
+	"offset": "GENERIC_offset.txt",
+    "new_task_1": {
+        "task": "decouple_tiff",
+        "priority": 1,
+        "input": "GENERIC_[POSITION].tif",
+        "output_prefix": "pos[POSITION]",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_2": {
+        "task": "extract_roi_zip",
+        "priority": 2,
+        "input": "GENERIC_Roi_Pos[POSITION]_real.zip",
+        "output": "roi/roi.pos[POSITION].all.txt",
+        "tmp": "/tmp/pos[POSITION]",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_3": {
+        "task": "stitch_image",
+        "priority": 3,
+        "input": "pos[POSITION].[STAINID].tif",
+        "output": "pos[STAINID].joined.tif",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4],
+        "stain_ids": [0, 1, 2, 3, 4]
+    },
+    "new_task_4": {
+        "task": "stitch_coord",
+        "priority": 4,
+        "input": "GENERIC_centroids.csv",
+        "output": "cell.centroid.stitched.pos.all.cells.txt",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_5": {
+        "task": "stitch_segmentation_roi",
+        "priority": 5,
+        "input": "roi/roi.pos[POSITION].all.txt",
+        "output": "roi.stitched.pos.all.cells.txt",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_6": {
+        "task": "align_segmentation_and_cell_centroid",
+        "priority": 6,
+        "input_cell_centroid": "cell.centroid.stitched.pos.all.cells.txt",
+        "input_segmentation": "roi.stitched.pos.all.cells.txt",
+        "output": "segmentation.to.cell.centroid.map.txt"
+    },
+    "new_task_7": {
+        "task": "tiling_image",
+        "priority": 7,
+        "input": "Pos.ch[STAINID].joined.tif",
+        "output_dir": "tiles.[STAINID]",
+        "zoom": 6,
+        "stain_ids": [0, 1, 2, 3, 4]
+    },
+    "new_task_8": {
+        "task": "prepare_gene_expression",
+        "priority": 8,
+        "input": "giotto_expression.csv",
+        "output_dir": "all.genes",
+        "csv_sep": ",",
+        "csv_header": 0,
+        "csv_index_col": 0,
+        "num_genes_per_file": 100
+    }
+}</pre></code>
+</div>
+</div>
+Here, then you will see that step1.json specifies the actual sequence of tasks to be performed. 
+
+<br><br>
+Next, modify the generated JSON file
+<pre><code class="language-bash">~/.local/bin/giotto_step1_modify_json --input step1.json --add-image "segmentation_staining_1_MMStack_Pos[POSITION].ome.tif" --output step1.json
+~/.local/bin/giotto_step1_modify_json --input step1.json --change-positions 0 1 2 3 4 --output step1.json
+~/.local/bin/giotto_step1_modify_json --input step1.json --change-stain-ids 0 4 7 --output step1.json
+~/.local/bin/giotto_step1_modify_json --input step1.json --change-offset offset.txt --output step1.json
+~/.local/bin/giotto_step1_modify_json --input step1.json --change-segmentation "RoiSet_Pos[POSITION]_real.zip" --output step1.json
+</code></pre>
+
+Giotto_step1_modify_json's job is to modify a section in the JSON file (step1.json) without having user to manually write this file. Without this step, the original template will simply have placeholder values as inputs in the JSON. Thus, this script defines the specific parameters.
+<br><i>Notes:</i>
+<ul>
+<li>--add-image can accept multiple images. The wild character [POSITION] can be used as a placeholder for position IDs.</li>
+<li>--change-segmentation can also accept segmentations for multiple images. The RoiSet_Pos[POSITION]_real.zip for example.</li>
+<li>--change-stain-ids: Stain refers to Nissl, DAPI, polyA, etc. Since each tiff is a multi-image stack, stain-id refers to the ID within each TIFF that refers to Nissl, DAPI, or polyA </li>
+</ul>
+
+Your result step1.json will look like this. 
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseStep1JSON2" role="button" aria-expanded="false" aria-controls="collapseStep1JSON2">Output JSON</a>
+<div class="collapse" id="collapseStep1JSON2">
+<div class="card card-body">
+<pre><code class="language-json">{
+    "tiff_width": -1,
+    "tiff_height": -1,
+    "positions": [0, 1, 2, 3, 4],
+    "stain_ids": [0, 4, 7],
+    "new_task_1": {
+        "task": "decouple_tiff",
+        "priority": 1,
+        "input": "./segmentation_staining_1_MMStack_Pos[POSITION].ome.tif",
+        "output_prefix": "pos[POSITION]",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_2": {
+        "task": "extract_roi_zip",
+        "priority": 2,
+        "input": "RoiSet_Pos[POSITION]_real.zip",
+        "output": "roi/roi.pos[POSITION].all.txt",
+        "tmp": "/tmp/pos[POSITION]",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_3": {
+        "task": "stitch_image",
+        "priority": 3,
+        "input": "pos[POSITION].[STAINID].tif",
+        "output": "pos[STAINID].joined.tif",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4],
+        "stain_ids": [0, 4, 7]
+    },
+    "new_task_4": {
+        "task": "stitch_coord",
+        "priority": 4,
+        "input": "Cell_centroids.csv",
+        "output": "cell.centroid.stitched.pos.all.cells.txt",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_5": {
+        "task": "stitch_segmentation_roi",
+        "priority": 5,
+        "input": "roi/roi.pos[POSITION].all.txt",
+        "output": "roi.stitched.pos.all.cells.txt",
+        "offset": "offset.txt",
+        "positions": [0, 1, 2, 3, 4]
+    },
+    "new_task_6": {
+        "task": "align_segmentation_and_cell_centroid",
+        "priority": 6,
+        "input_cell_centroid": "cell.centroid.stitched.pos.all.cells.txt",
+        "input_segmentation": "roi.stitched.pos.all.cells.txt",
+        "output": "segmentation.to.cell.centroid.map.txt"
+    },
+    "new_task_7": {
+        "task": "tiling_image",
+        "priority": 7,
+        "input": "Pos.ch[STAINID].joined.tif",
+        "output_dir": "tiles.[STAINID]",
+        "zoom": 6,
+        "stain_ids": [0, 4, 7]
+    },
+    "new_task_8": {
+        "task": "prepare_gene_expression",
+        "priority": 8,
+        "input": "giotto_expression.csv",
+        "output_dir": "all.genes",
+        "csv_sep": ",",
+        "csv_header": 0,
+        "csv_index_col": 0,
+        "num_genes_per_file": 100
+    }
+}</code></pre>
+</div>
+</div>
+
+<br>
+Once we have finished modifying, we can then use the step1.json to run the actual tasks.
+<pre><code class="language-bash">~/.local/bin/smfish_step1_setup -c step1.json
+</code></pre>
+
+<br>
+<h5>2.2. Will this setup instruction accept multiple images? Does it handle stitching of images/coordinates?</h5>
+Yes to all of these questions! In giotto_setup_image above, --require-stitch=y --image=y --multi-fov=y, are created exactly for this purpose. With this stitching template, you need to specify the offset.txt file that defines how you want the images to be stitched to each other:
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseOffset" role="button" aria-expanded="false" aria-controls="collapseOffset">Offset file</a>
+<div class="collapse" id="collapseOffset">
+<div class="card card-body">
+<pre><code>Pos0.x  Pos0.y  0   0
+Pos1.x  Pos1.y  1654.97 0
+Pos2.x  Pos2.y  Pos1.x+1750.75  0
+Pos3.x  Pos3.y  Pos2.x+1674.35  0
+Pos4.x  Pos4.y  Pos3.x+675.5    1438.02</code></pre>
+</div>
+</div>
+<br>
+Then, in giotto_step1_modify_json, remember to specify offset: --change-offset offset.txt.
+<br>
+Not only are images stitched, but also the coordinates of the cells, the segmentations of the cells are also stitched according to the same offset file. (see sections "stitch_coord", "stitch_segmentation_roi" in step1.json file)
+<br>
+As such, the input cell coordinates, segmentations should be given unstitched.
+<br>
+<br>
+<h5 id="s_preprocess_visium">2.3. 10X Genomics Visium Platform</h5>
+10X visium has made all the files standardized with standard file names and they are relatively easy to setup.
+Visium provides also the underlying staining image for visualization. It is incorporated into the viewer.
+
+<pre><code class="language-bash">#create step1 json template for Visium
+~/.local/bin/giotto_setup_image --require-stitch=n --image=y --image-multi-channel=n --segmentation=n --multi-fov=n --output-json=step1.json
+#automatically fill in image dimension in the step1 json file
+~/.local/bin/giotto_step1_modify_json --add-image V1_Adult_Mouse_Brain_image.tif --input step1.json --output step1.json
+#do the step1 actions
+~/.local/bin/smfish_step1_setup -c step1.json
+</code></pre>
+Note in the second step, V1_Adult_Mouse_Brain_image.tif needs to be the <b>RAW</b> or full size images, not the reduced size. It should be 300-500 MB.
+<br>
+<br>
+<h5 id="s_preprocess_simple">2.4. Slide-seq Platform or Other Simple Dataset</h5>
+We use the slide-seq example to illustrate how users will setup a viewer instance without images or segmentations.
+<pre><code class="language-bash">#create step1 json template for Visium
+~/.local/bin/giotto_setup_image --require-stitch=n --image=n --image-multi-channel=n --segmentation=n --multi-fov=n --output-json=step1.json
+#do the step1 actions
+~/.local/bin/smfish_step1_setup -c step1.json
+</code></pre>
+<br><br><br>
+
+<h4 id="s_configure_panel">3. Setting up Giotto viewer panels</h4>
+The way Giotto Viewer is organized on the screen is a set of panels. Each panel can be one of Physical Space Panel, Expression Space Panel (i.e. UMAP or tSNE), Transcript Localization Panel. 
+Panels may be arranged horizontally or vertically. Multiple panels can be composed on the screen (such as 2, 4, 6, etc) which would enable a comparison of multi-modality information.
+<br>
+<img src="sample.panel.2.png" width="20%"></img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="sample.panel.4.png" width="20%"></img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="sample.panel.6.png" width="20%"></img>
+<br>
+Viewer panels are setup also through a JSON setting file. But this JSON is different from the step1.json so do not confuse the two.
+<br>
+<br>
+<h5>3.1. SeqFISH(+)/MerFISH Platform</h5>
+<h6>3.1.1: Case 1: Setting up two-panel configuration</h6>
+<pre><code class="language-bash">~/.local/bin/giotto_setup_viewer --num-panel=2 --input-preprocess-json=step1.json --panel-1=PanelPhysical --panel-2=PanelTsne --output-json=step2.json --input-annotation-list=annotation_list.txt
+</code></pre>
+The annotation_list.txt is generated in previous step by exportGiotto function. This viewer setup will put two panels in horizontal configuration.
+<br>
+<h6>3.1.2: Case 2: Setting up four-panel configuration</h6>
+<pre><code class="language-bash">~/.local/bin/giotto_setup_viewer --num-panel=4 --input-preprocess-json=step1.json --panel-1=PanelPhysical --panel-2=PanelTsne --panel-3=PanelPhysical --panel-4=PanelTsne --output-json=step2.json --input-annotation-list=annotation_list.txt
+</code></pre>
+Open the generated step2.json file and make sure it looks similar to this.
+
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseStep2JSON" role="button" aria-expanded="false" aria-controls="collapseStep2JSON">Output JSON</a>
+<div class="collapse" id="collapseStep2JSON">
+<div class="card card-body">
+<pre><code class="language-json">{
+	"num_panel": 4,
+	"annotation_set": {
+		"num_annot": 2,
+		"annot_1": {
+			"file": "testviewer/cell_types_annot_information.txt",
+			"name": "cell.type.unsup"
+		},
+		"annot_2": {
+			"file": "testviewer/kmeans_annot_information.txt",
+			"name": "kmeans"
+		}
+	},
+	"map_1": {
+		"type": "PanelPhysical",
+		"maxBound": 4096,
+		"id": 1,
+		"annot": "cell.type.unsup",
+		"tile": "nissl",
+		"dir_polyA": "imapr26.4",
+		"dir_nissl": "imapr26.0",
+		"dir_dapi": "imapr26.7",
+		"gene_map": "10k.genes/gene.map",
+		"segmentation_map": "segmentation.to.cell.centroid.map.txt",
+		"segmentation": "roi.stitched.pos.all.cells.txt",
+		"dir_gene_expression": "10k.genes",
+		"gene_list": "gene.list.10k",
+		"map_height": "500px"
+	},
+	"map_2": {
+		"type": "PanelTsne",
+		"maxBound": 500,
+		"id": 2,
+		"file_tsne": "test.cell.type.unsupervised.id.txt",
+		"annot": "cell.type.unsup",
+		"map_height": "500px"
+	},
+	"map_3": {
+		"type": "PanelPhysical",
+		"maxBound": 4096,
+		"id": 3,
+		"annot": "cell.type.unsup",
+		"tile": "nissl",
+		"dir_polyA": "imapr26.4",
+		"dir_nissl": "imapr26.0",
+		"dir_dapi": "imapr26.7",
+		"gene_map": "10k.genes/gene.map",
+		"segmentation_map": "segmentation.to.cell.centroid.map.txt",
+		"segmentation": "roi.stitched.pos.all.cells.txt",
+		"dir_gene_expression": "10k.genes",
+		"gene_list": "gene.list.10k",
+		"map_height": "500px"
+	},
+	"map_4": {
+		"type": "PanelTsne",
+		"maxBound": 500,
+		"id": 4,
+		"file_tsne": "test.cell.type.unsupervised.id.txt",
+		"annot": "cell.type.unsup",
+		"map_height": "500px"
+	},
+	"interact_1": ["map_1", "map_2", "map_3", "map_4"],
+	"sync_1": ["map_1", "map_3"],
+	"sync_2": ["map_2", "map_4"]
+}</code></pre>
+</div>
+</div>
+
+<br><br>
+<h5>3.2. 10X Genomics Visium Platform</h5>
+We will use 2-panel configuration for illustration, but 4-panel configuration setup is similar.
+<pre><code class="language-bash">~/.local/bin/giotto_setup_viewer --num-panel=2 --input-preprocess-json=step1.json --panel-1=PanelPhysical10X --panel-2=PanelTsne --output-json=step2.json --input-annotation-list=annotation_list.txt
+</code></pre>
+Note the panel type for physical panel is PanelPhysical10X. PanelTsne stays the same.
+<br><br>
+
+<h5>3.3. Slide-seq Platform or Other Simple Dataset</h5>
+We will use 2-panel configuration for illustration, but 4-panel configuration setup is similar.
+<pre><code class="language-bash">~/.local/bin/giotto_setup_viewer --num-panel=2 --input-preprocess-json=step1.json --panel-1=PanelPhysicalSimple --panel-2=PanelTsne --output-json=step2.json --input-annotation-list=annotation_list.txt
+</code></pre>
+Note the panel type for physical panel is PanelPhysicalSimple. PanelTsne stays the same.
+<br><br>
+
+<br>
+
+<h4>4. Optional: customize linking and interactions between panels (>=4 panels)</h4>
+For 4-panel case, we can specify how we want the panels to be linked. Open the step2.json that is generated in previous step by giotto_setup_viewer. At the end of the JSON, look for parameters
+<pre><code class="language-json">"interact_1": ["map_1", "map_2", "map_3", "map_4"],
+	"sync_1": ["map_1", "map_3"],
+	"sync_2": ["map_2", "map_4"]"
+</code></pre>
+Map_1, map_2 refers to Panel 1, Panel 2, etc. "interact_1" specifies that all 4 panels are linked to each other (i.e. mouseover events in one panel will triger the corresponding cell in the other 3 panels). 
+<br>
+"sync_1" means that map_1 and map_3 are further synchronized. Eg. as you pan or zoom panel 1, then panel 3 will also automatically update its pan and zoom to be the same as panel 1.
+<br>"sync_2" means that map_2 and map_4 are further synchronized. Eg. as you pan or zoom panel 2, then panel 4 will also automatically update its pan and zoom to be the same as panel 2.
+<br>"sync_1" and "sync_2" are separate events.
+<br>You can only sync panels of the same type (either both PanelPhysical or both PanelTsne).
+
+<br><br><br>
+
+<h4 id="s_rest_setup">5. Complete the rest of setup</h4>
+Use the step2.json to complete the rest: auto-generate webpages.
+<pre><code class="language-bash">#do the step2 actions
+~/.local/bin/smfish_read_config -c step2.json -o test.dec6.js -p test.dec6.html -q test.dec6.css
+#copy extra js and css folders
+~/.local/bin/giotto_copy_js_css --output .
+python3 -m http.server
+</code></pre>
+After this step, you will see three webpage files, one JS, one HTML, and one CSS (test.dec6.js, test.dec6.html, and test.dec6.css) in the current directory. The whole purpose of step2.json is to auto-generate dynamic webpages for the viewer, customized to your dataset and to your viewer panel settings.
+With the generated webpages, you can then view it in your favorite browser. Launch a simple webserver if you have not already done (the line: python3 -m https.server)
+
+<br><br><br>
+
+<h4 id="s_launch_viewer">6. Launch the Giotto Viewer</h4>
+<b>Open your browser, navigate to http://localhost:8000/. Then click on the file "test.dec6.html" to see the viewer.</b>
+
+<br><br><br>
+
+<h4>7. Exporting cell selections for Giotto Analyzer reanalysis</h4>
+Suppose a user makes two cell selections using the Giotto Viewer, saves each selection separately to a file (/tmp/selection.1.txt and /tmp/selection.2.txt). The following shows how to perform differential expression analysis involving these two selections of cells in Giotto Analyzer, demonstrating iterative analysis.
+
+<pre><code class="language-R">#load existing cell annotations
+cell_metadata=pDataDT(VC_test)
+annot = 1:nrow(cell_metadata)
+annot[1:length(annot)] = 0
+#read selected cell indices (1)
+yy<-read.table("/tmp/selection.1.txt", header=F, row.names=NULL)
+annot[t(t(yy))] = 1
+#read selected cell indices (2)
+yy<-read.table("/tmp/selection.2.txt", header=F, row.names=NULL)
+annot[t(t(yy))] = 2
+#create a new column in cell metadata
+cell_metadata=base::cbind(cell_metadata, annot)
+VC_test@cell_metadata = cell_metadata
+#do one-vs-all comparison for selected cells
+markers = findMarkers_one_vs_all(gobject = VC_test, expression_values = 'normalized', cluster_column = 'annot', method = 'scran', pval = 0.01, logFC = 0.5) 
+#do a pairwise comparison between two cell selections
+markers = findMarkers(gobject = VC_test, expression_values = 'normalized', method = 'scran', cluster_column = 'annot', group_1 = 1, group_2 = 2)
+</code></pre>
+
+</main>
+
+
+</div>
+</div>
+</body>
+</html>
+

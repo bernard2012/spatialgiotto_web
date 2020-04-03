@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createMetagenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createMetagenes {Giotto}"><tr><td>createMetagenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createMetagenes</h2>
+
+<h3>Description</h3>
+
+<p>This function creates an average metagene for gene clusters.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createMetagenes(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  gene_clusters,
+  name = "metagene",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>Giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>gene_clusters</code></td>
+<td>
+<p>numerical vector with genes as names</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name of the metagene results</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>return giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>An example for the 'gene_clusters' could be like this:
+cluster_vector = c(1, 1, 2, 2); names(cluster_vector) = c('geneA', 'geneB', 'geneC', 'geneD')
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createMetagenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

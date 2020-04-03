@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: plotTSNE_3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for plotTSNE_3D {Giotto}"><tr><td>plotTSNE_3D {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>plotTSNE_3D</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells according to dimension reduction coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+plotTSNE_3D(
+  gobject,
+  dim_reduction_name = "tsne",
+  default_save_name = "TSNE_3D",
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>tsne dimension reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>dim1_to_use</code></td>
+<td>
+<p>dimension to use on x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim2_to_use</code></td>
+<td>
+<p>dimension to use on y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim3_to_use</code></td>
+<td>
+<p>dimension to use on z-axis</p>
+</td></tr>
+<tr valign="top"><td><code>show_NN_network</code></td>
+<td>
+<p>show underlying NN network</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use, if show_NN_network = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color</code></td>
+<td>
+<p>color for cells (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>color_as_factor</code></td>
+<td>
+<p>convert color column to factor</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_code</code></td>
+<td>
+<p>named vector with colors</p>
+</td></tr>
+<tr valign="top"><td><code>select_cell_groups</code></td>
+<td>
+<p>select subset of cells/clusters based on cell_color parameter</p>
+</td></tr>
+<tr valign="top"><td><code>select_cells</code></td>
+<td>
+<p>select subset of cells based on cell IDs</p>
+</td></tr>
+<tr valign="top"><td><code>show_other_cells</code></td>
+<td>
+<p>display not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_cell_color</code></td>
+<td>
+<p>color of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_point_size</code></td>
+<td>
+<p>size of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>show_cluster_center</code></td>
+<td>
+<p>plot center of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>show_center_label</code></td>
+<td>
+<p>plot label of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>center_point_size</code></td>
+<td>
+<p>size of center points</p>
+</td></tr>
+<tr valign="top"><td><code>label_size</code></td>
+<td>
+<p>size of labels</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha</code></td>
+<td>
+<p>column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>plotly
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    plotTSNE_3D(gobject)
+
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

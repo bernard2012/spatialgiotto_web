@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: write_giotto_viewer_dim_reduction</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for write_giotto_viewer_dim_reduction {Giotto}"><tr><td>write_giotto_viewer_dim_reduction {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>write_giotto_viewer_dim_reduction</h2>
+
+<h3>Description</h3>
+
+<p>write out dimensional reduction data from a giotto object for the Viewer
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+write_giotto_viewer_dim_reduction(
+  dim_reduction_cell,
+  dim_red = NULL,
+  dim_red_name = NULL,
+  dim_red_rounding = NULL,
+  dim_red_rescale = c(-20, 20),
+  output_directory = getwd()
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>dim_reduction_cell</code></td>
+<td>
+<p>dimension reduction slot from giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red</code></td>
+<td>
+<p>high level name of dimension reduction</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red_name</code></td>
+<td>
+<p>specific name of dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red_rounding</code></td>
+<td>
+<p>numerical indicating how to round the coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>dim_red_rescale</code></td>
+<td>
+<p>numericals to rescale the coordinates</p>
+</td></tr>
+<tr valign="top"><td><code>output_directory</code></td>
+<td>
+<p>directory where to save the files</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>write a .txt and .annot file for the selection annotation
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

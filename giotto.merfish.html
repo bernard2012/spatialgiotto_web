@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+	 	    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+		</ul>
+		</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">merFISH dataset </h1>
+			</div>
+
+<!--
+<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Data loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_subset">Spatial subsets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_dist">Spatial distr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotate_clust">Annotate clusters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_analyses_paper">Analyses (paper)</a>
+    </li>
+  </ul>
+</nav>
+-->
+<p>The merFISH data to run this tutorial can be found <a href="https://github.com/RubD/spatial-datasets/tree/master/data/2018_merFISH_science_hypo_preoptic">here</a></p>
+
+<h5>Giotto global instructions</h5>
+
+<pre><code class="language-R">library(Giotto)
+## create instructions
+## instructions allow us to automatically save all plots into a chosen results folder
+## Here we will automatically save plots, for an example without automatic saving see the visium brain dataset
+my_python_path = &quot;/your/python/path/python&quot;
+results_folder = &#39;/your/results/path/&#39;
+instrs = createGiottoInstructions(python_path = my_python_path,
+                                  save_dir = results_folder,
+                                  show_plot = F, return_plot = T, save_plot = T,
+                                  plot_format = &#39;png&#39;, dpi = 300, height = 9, width = 9)
+</code></pre>
+
+<h5>part 1: Data input</h5>
+
+<p><a href="https://science.sciencemag.org/content/362/6416/eaau5324">Moffitt et al.</a> created a 3D spatial expression dataset consisting of 155 genes from ~1 million single cells acquired over the mouse hypothalamic preoptic regions.</p>
+
+<pre><code class="language-R">data_dir = &#39;path/to/merFISH_data/&#39;
+expr = read.table(paste0(data_dir, &#39;/&#39;, &#39;count_matrix/merFISH_3D_data_expression.txt&#39;))
+cell_loc = read.table(paste0(data_dir, &#39;/&#39;, &#39;cell_locations/merFISH_3D_data_cell_locations.txt&#39;))
+cell_type = read.table(paste0(data_dir, &#39;/&#39;, &#39;raw_data/merFISH_3D_data_cell_types.txt&#39;))
+</code></pre>
+
+<h5>part 2: Create Giotto object &amp; process data</h5>
+
+<pre><code class="language-R">## 2. Create &amp; Process Giotto ####
+merFISH_test &lt;- createGiottoObject(raw_exprs = expr, spatial_locs = cell_loc, instructions = instrs)
+# add layer information
+layer_ID = cell_loc$z
+merFISH_test = addCellMetadata(merFISH_test, new_metadata = layer_ID)
+annot = cell_type$x
+merFISH_test = addCellMetadata(merFISH_test, new_metadata = annot)
+## filter raw data
+# 1. pre-test filter parameters
+filterDistributions(merFISH_test, detection = &#39;genes&#39;)
+filterDistributions(merFISH_test, detection = &#39;cells&#39;)
+filterCombinations(merFISH_test, expression_thresholds = c(0,1e-6,1e-5), gene_det_in_min_cells = c(500, 1000, 1500), min_det_genes_per_cell = c(1, 5, 10))
+# 2. filter data
+merFISH_test &lt;- filterGiotto(gobject = merFISH_test,
+                             gene_det_in_min_cells = 0,
+                             min_det_genes_per_cell = 0)
+## normalize
+merFISH_test &lt;- normalizeGiotto(gobject = merFISH_test, scalefactor = 10000, verbose = T)
+merFISH_test &lt;- addStatistics(gobject = merFISH_test)
+merFISH_test &lt;- adjustGiottoMatrix(gobject = merFISH_test, expression_values = c(&#39;normalized&#39;),
+                                   batch_columns = NULL, covariate_columns = c(&#39;nr_genes&#39;, &#39;total_expr&#39;),
+                                   return_gobject = TRUE,
+                                   update_slot = c(&#39;custom&#39;))
+# save according to giotto instructions
+# 2D
+spatPlot(gobject = merFISH_test, point_size = 1.5, 
+         save_param = list(save_name = &#39;2_spatial_locations2D&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/2_spatial_locations2D.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R"># 3D
+spatPlot3D(gobject = merFISH_test, point_size = 2.0, axis_scale = &#39;real&#39;,
+           save_param = list(save_name = &#39;2_spatial_locations3D&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/1_screenshot_spatial_locations.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>part 3: dimension reduction</h5>
+
+<pre><code class="language-R"># only 155 genes, use them all (default)
+merFISH_test &lt;- runPCA(gobject = merFISH_test, genes_to_use = NULL, scale_unit = F)
+merFISH_test &lt;- runUMAP(merFISH_test, dimensions_to_use = 1:8, n_components = 3, n_threads = 4)
+plotUMAP_3D(gobject = merFISH_test, point_size = 1.5,
+            save_param = list(save_name = &#39;3_UMAP_reduction&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/2_screenshot_UMAP_reduction.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>part 4:  cluster</h5>
+
+<pre><code class="language-R">## sNN network (default)
+merFISH_test &lt;- createNearestNetwork(gobject = merFISH_test, dimensions_to_use = 1:8, k = 15)
+## Leiden clustering
+merFISH_test &lt;- doLeidenCluster(gobject = merFISH_test, resolution = 0.2, n_iterations = 100,
+                                name = &#39;leiden_0.2&#39;)
+plotUMAP_3D(gobject = merFISH_test, cell_color = &#39;leiden_0.2&#39;, point_size = 1.5, show_center_label = F,
+            save_param = list(save_name = &#39;4_UMAP_leiden&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/3_screenshot_leiden.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>part 5: co-visualize</h5>
+
+<pre><code class="language-R">spatDimPlot3D(gobject = merFISH_test, show_center_label = F,
+              cell_color = &#39;leiden_0.2&#39;, dim3_to_use = 3,
+              axis_scale = &#39;real&#39;, spatial_point_size = 2.0,
+              save_param = list(save_name = &#39;5_covis_leiden&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/4_screenshot_covisualization.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.5, 
+           cell_color = &#39;leiden_0.2&#39;, 
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(1, 12, 2)),
+           save_param = list(save_name = &#39;5_leiden_2D&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/5_leiden_2D.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>part 6: cell type marker gene detection</h5>
+
+<pre><code class="language-R">markers = findMarkers_one_vs_all(gobject = merFISH_test,
+                                 method = &#39;gini&#39;,
+                                 expression_values = &#39;normalized&#39;,
+                                 cluster_column = &#39;leiden_0.2&#39;,
+                                 min_genes = 1, rank_score = 2)
+markers[, head(.SD, 2), by = &#39;cluster&#39;]
+# violinplot
+topgini_genes = unique(markers[, head(.SD, 2), by = &#39;cluster&#39;]$genes)
+violinPlot(merFISH_test, genes = topgini_genes, cluster_column = &#39;leiden_0.2&#39;, strip_position = &#39;right&#39;,
+           save_param = c(save_name = &#39;6_violinplot&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/5_violinplot.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>part 7: cell-type annotation</h5>
+
+<h5>Annotation</h5>
+
+<pre><code class="language-R"># known markers and DEGs
+selected_genes = c(&#39;Myh11&#39;, &#39;Klf4&#39;, &#39;Fn1&#39;, &#39;Cd24a&#39;, &#39;Cyr61&#39;, &#39;Nnat&#39;, &#39;Trh&#39;, &#39;Selplg&#39;, &#39;Pou3f2&#39;, &#39;Aqp4&#39;, &#39;Traf4&#39;,
+                   &#39;Pdgfra&#39;, &#39;Opalin&#39;, &#39;Mbp&#39;, &#39;Ttyh2&#39;, &#39;Fezf1&#39;, &#39;Cbln1&#39;, &#39;Slc17a6&#39;, &#39;Scg2&#39;, &#39;Isl1&#39;, &#39;Gad1&#39;)
+cluster_order = c(1, 2, 3, 5, 7, 13, 8, 4, 12, 9, 6, 10, 11)
+plotMetaDataHeatmap(merFISH_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;leiden_0.2&#39;),
+                    selected_genes = selected_genes,
+                    custom_gene_order = rev(selected_genes),
+                    custom_cluster_order = cluster_order,
+                    save_param = c(save_name = &#39;7_clusterheatmap_markers&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_clusterheatmap_markers.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">## name clusters
+clusters_cell_types_hypo = c(&#39;Inhibitory&#39;, &#39;Inhibitory&#39;, &#39;Excitatory&#39;,  &#39;OD Mature&#39;,&#39;OD Mature&#39;,&#39;OD Mature&#39;, &#39;OD Immature&#39;, 
+                             &#39;Astrocyte&#39;, &#39;Microglia&#39;, &#39;Ependymal&#39;, &#39;Endothelial&#39;,&#39;Endothelial&#39;, &#39;Ambiguous&#39;)
+names(clusters_cell_types_hypo) = as.character(cluster_order)
+merFISH_test = annotateGiotto(gobject = merFISH_test, annotation_vector = clusters_cell_types_hypo,
+                              cluster_column = &#39;leiden_0.2&#39;, name = &#39;cell_types&#39;)
+## show heatmap
+plotMetaDataHeatmap(merFISH_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;cell_types&#39;),
+                    selected_genes = selected_genes,
+                    custom_gene_order = rev(selected_genes),
+                    custom_cluster_order = clusters_cell_types_hypo,
+                    save_param = c(save_name = &#39;7_clusterheatmap_markers_celltypes&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_clusterheatmap_markers_celltypes.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>Visualization</h5>
+
+<pre><code class="language-R">## visualize ##
+mycolorcode = c(&#39;red&#39;, &#39;lightblue&#39;, &#39;yellowgreen&#39;,&#39;purple&#39;, &#39;darkred&#39;, &#39;magenta&#39;, &#39;mediumblue&#39;, &#39;yellow&#39;, &#39;gray&#39;)
+names(mycolorcode) = c(&#39;Inhibitory&#39;, &#39;Excitatory&#39;,&#39;OD Mature&#39;, &#39;OD Immature&#39;, &#39;Astrocyte&#39;, &#39;Microglia&#39;, &#39;Ependymal&#39;,&#39;Endothelial&#39;, &#39;Ambiguous&#39;)
+
+plotUMAP_3D(merFISH_test, cell_color = &#39;cell_types&#39;, point_size = 1.5, cell_color_code = mycolorcode,
+            save_param = c(save_name = &#39;7_umap_cell_types&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_umap_cell_types.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot3D(merFISH_test,
+           cell_color = &#39;cell_types&#39;, axis_scale = &#39;real&#39;,
+           sdimx = &#39;sdimx&#39;, sdimy = &#39;sdimy&#39;, sdimz = &#39;sdimz&#39;,
+           show_grid = F, cell_color_code = mycolorcode,
+           save_param = c(save_name = &#39;7_spatPlot_cell_types_all&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot_cell_types_all.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.0,
+           cell_color = &#39;cell_types&#39;, cell_color_code = mycolorcode,
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(260, -290, -100)),
+           save_param = c(save_name = &#39;7_spatPlot2D_cell_types_all&#39;))
+
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot2D_cell_types_all.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>Excitatory cells only</h5>
+
+<pre><code class="language-R">spatPlot3D(merFISH_test,
+           cell_color = &#39;cell_types&#39;, axis_scale = &#39;real&#39;,
+           sdimx = &#39;sdimx&#39;, sdimy = &#39;sdimy&#39;, sdimz = &#39;sdimz&#39;,
+           show_grid = F, cell_color_code = mycolorcode,
+           select_cell_groups = &#39;Excitatory&#39;, show_other_cells = F,
+           save_param = c(save_name = &#39;7_spatPlot_cell_types_excit&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot_cell_types_excit.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.0, 
+           cell_color = &#39;cell_types&#39;, cell_color_code = mycolorcode,
+           select_cell_groups = &#39;Excitatory&#39;, show_other_cells = F,
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(260, -290, -100)),
+           save_param = c(save_name = &#39;7_spatPlot2D_cell_types_excit&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot2D_cell_types_excit.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>Inhibitory cells only</h5>
+
+<pre><code class="language-R"># inhibitory
+spatPlot3D(merFISH_test,
+           cell_color = &#39;cell_types&#39;, axis_scale = &#39;real&#39;,
+           sdimx = &#39;sdimx&#39;, sdimy = &#39;sdimy&#39;, sdimz = &#39;sdimz&#39;,
+           show_grid = F, cell_color_code = mycolorcode,
+           select_cell_groups = &#39;Inhibitory&#39;, show_other_cells = F,
+           save_param = c(save_name = &#39;7_spatPlot_cell_types_inhib&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot_cell_types_inhib.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.0, 
+           cell_color = &#39;cell_types&#39;, cell_color_code = mycolorcode,
+           select_cell_groups = &#39;Inhibitory&#39;, show_other_cells = F,
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(260, -290, -100)),
+           save_param = c(save_name = &#39;7_spatPlot2D_cell_types_inhib&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot2D_cell_types_inhib.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>OD and astrocytes only</h5>
+
+<pre><code class="language-R">spatPlot3D(merFISH_test,
+           cell_color = &#39;cell_types&#39;, axis_scale = &#39;real&#39;,
+           sdimx = &#39;sdimx&#39;, sdimy = &#39;sdimy&#39;, sdimz = &#39;sdimz&#39;,
+           show_grid = F, cell_color_code = mycolorcode,
+           select_cell_groups = c(&#39;Astrocyte&#39;, &#39;OD Mature&#39;, &#39;OD Immature&#39;), show_other_cells = F,
+           save_param = c(save_name = &#39;7_spatPlot_cell_types_ODandAstro&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot_cell_types_ODandAstro.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.0, 
+           cell_color = &#39;cell_types&#39;, cell_color_code = mycolorcode,
+           select_cell_groups = c(&#39;Astrocyte&#39;, &#39;OD Mature&#39;, &#39;OD Immature&#39;), show_other_cells = F,
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(260, -290, -100)),
+           save_param = c(save_name = &#39;7_spatPlot2D_cell_types_ODandAstro&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot2D_cell_types_ODandAstro.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<h5>Other cells only</h5>
+
+<pre><code class="language-R">spatPlot3D(merFISH_test,
+           cell_color = &#39;cell_types&#39;, axis_scale = &#39;real&#39;,
+           sdimx = &#39;sdimx&#39;, sdimy = &#39;sdimy&#39;, sdimz = &#39;sdimz&#39;,
+           show_grid = F, cell_color_code = mycolorcode,
+           select_cell_groups = c(&#39;Microglia&#39;, &#39;Ependymal&#39;, &#39;Endothelial&#39;), show_other_cells = F,
+           save_param = c(save_name = &#39;7_spatPlot_cell_types_other&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot_cell_types_other.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+<pre><code class="language-R">spatPlot2D(gobject = merFISH_test, point_size = 1.0, 
+           cell_color = &#39;cell_types&#39;, cell_color_code = mycolorcode,
+           select_cell_groups = c(&#39;Microglia&#39;, &#39;Ependymal&#39;, &#39;Endothelial&#39;), show_other_cells = F,
+           group_by = &#39;layer_ID&#39;, cow_n_col = 2, group_by_subset = c(seq(260, -290, -100)),
+           save_param = c(save_name = &#39;7_spatPlot2D_cell_types_other&#39;))
+</code></pre>
+
+<p><img src="figures/merfish/7_spatPlot2D_cell_types_other.png" class="img-fluid" style="max-width:50%"></img> </p>
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: create_average_detection_DT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for create_average_detection_DT {Giotto}"><tr><td>create_average_detection_DT {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>create_average_detection_DT</h2>
+
+<h3>Description</h3>
+
+<p>calculates average gene detection for a cell metadata factor (e.g. cluster)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+create_average_detection_DT(
+  gobject,
+  meta_data_name,
+  expression_values = c("normalized", "scaled", "custom"),
+  detection_threshold = 0
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>meta_data_name</code></td>
+<td>
+<p>name of metadata column to use</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>which expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>detection_threshold</code></td>
+<td>
+<p>detection threshold to consider a gene detected</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>data.table with average gene epression values for each factor
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

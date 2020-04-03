@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: combCCcom</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for combCCcom {Giotto}"><tr><td>combCCcom {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>combCCcom</h2>
+
+<h3>Description</h3>
+
+<p>Combine spatial and expression based cell-cell communication data.tables
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+combCCcom(
+  spatialCC,
+  exprCC,
+  min_lig_nr = 3,
+  min_rec_nr = 3,
+  min_padj_value = 1,
+  min_log2fc = 0,
+  min_av_diff = 0
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>spatialCC</code></td>
+<td>
+<p>spatial cell-cell communication scores</p>
+</td></tr>
+<tr valign="top"><td><code>exprCC</code></td>
+<td>
+<p>expression cell-cell communication scores</p>
+</td></tr>
+<tr valign="top"><td><code>min_lig_nr</code></td>
+<td>
+<p>minimum number of ligand cells</p>
+</td></tr>
+<tr valign="top"><td><code>min_rec_nr</code></td>
+<td>
+<p>minimum number of receptor cells</p>
+</td></tr>
+<tr valign="top"><td><code>min_padj_value</code></td>
+<td>
+<p>minimum adjusted p-value</p>
+</td></tr>
+<tr valign="top"><td><code>min_log2fc</code></td>
+<td>
+<p>minimum log2 fold-change</p>
+</td></tr>
+<tr valign="top"><td><code>min_av_diff</code></td>
+<td>
+<p>minimum average expression difference</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>combined data.table with spatial and expression communication data
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    combCCcom(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

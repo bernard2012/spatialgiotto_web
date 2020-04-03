@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: cellProximityHeatmap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cellProximityHeatmap {Giotto}"><tr><td>cellProximityHeatmap {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cellProximityHeatmap</h2>
+
+<h3>Description</h3>
+
+<p>Create heatmap from cell-cell proximity scores
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cellProximityHeatmap(
+  gobject,
+  CPscore,
+  scale = T,
+  order_cell_types = T,
+  color_breaks = NULL,
+  color_names = NULL,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "cellProximityHeatmap"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>CPscore</code></td>
+<td>
+<p>CPscore, output from cellProximityEnrichment()</p>
+</td></tr>
+<tr valign="top"><td><code>scale</code></td>
+<td>
+<p>scale cell-cell proximity interaction scores</p>
+</td></tr>
+<tr valign="top"><td><code>order_cell_types</code></td>
+<td>
+<p>order cell types based on enrichment correlation</p>
+</td></tr>
+<tr valign="top"><td><code>color_breaks</code></td>
+<td>
+<p>numerical vector of length 3 to represent min, mean and maximum</p>
+</td></tr>
+<tr valign="top"><td><code>color_names</code></td>
+<td>
+<p>character color vector of length 3</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function creates a heatmap that shows the  spatial proximity
+enrichment or depletion of cell type pairs.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot heatmap
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    cellProximityHeatmap(CPscore)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

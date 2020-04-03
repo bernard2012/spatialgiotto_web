@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="giotto.dataset.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.osmFISH.html">
+                            osmFISH dataset
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq.html">
+                            slideSeq part 1
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.slideseq2.html">
+                            slideSeq part 2
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.cycif.html">
+                            cyCIF dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.seqfish.html">
+                            seqFISH+ dataset
+                        </a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.codex.html">
+                            CODEX spleen
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.brain.html">
+                            Visium brain
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.visium.kidney.html">
+                            Visium kidney
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.merfish.html">
+                            merFISH hypothalamus
+                        </a>
+		    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.starmap.html">
+                            STARmap dataset
+                        </a>
+		    </li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">CODEX dataset </h1>
+			</div>
+
+<!--
+<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_create_giotto">Data loading</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_clustering">Clustering</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_marker_gene">Marker genes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_subset">Spatial subsets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_spatial_dist">Spatial distr</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_annotate_clust">Annotate clusters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_analyses_paper">Analyses (paper)</a>
+    </li>
+  </ul>
+</nav>
+-->
+
+<p>The CODEX data to run this tutorial can be found <a href="https://github.com/RubD/spatial-datasets/tree/master/data/2018_codex_spleen">here</a></p>
+
+<h4>Giotto global instructions</h4>
+
+<pre><code class="language-R">## 0. Giotto global instructions ####
+# this example works with Giotto v.0.3.0
+library(Giotto)
+## create instructions
+## instructions allow you to automatically save all plots into a chosen results folder
+## Here we will not automatically save plots, for an example see the seqFISH+ or Visium dataset
+## instructions allow us to automatically save all plots into a chosen results folder
+my_python_path = &quot;/your/python/path/python&quot;
+results_folder = &#39;/your/results/path/&#39;
+instrs = createGiottoInstructions(python_path = my_python_path,
+                                  show_plot = T,
+                                  return_plot = F,
+                                  save_plot = F)
+</code></pre>
+
+<h5>Part 1: Data input</h5>
+<p><a href="https://www.cell.com/cell/pdf/S0092-8674(18">Goltsev et al.</a>30904-8.pdf) created a multiplexed datasets of normal and lupus (MRL/lpr) murine spleens using CODEX technique. The dataset consists of 30 protein markers from 734,101 single cells. In this tutorial, 83,787 cells from sampel &ldquo;BALBc-3&rdquo; were selected for the analysis. </p>
+
+<img src="figures/codex/cortex_image_demo.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">## load expression and cell location
+data_dir = &#39;/path/to/data/CODEX_3D/&#39;
+expr = fread(paste0(data_dir, &#39;/&#39;, &#39;count_matrix/codex_BALBc_3_expression.csv.gz&#39;))
+cell_loc = fread(paste0(data_dir, &#39;/&#39;, &#39;cell_locations/codex_BALBc_3_coord_annot.csv.gz&#39;))
+## remove duplicated locations
+duplicated_locs = duplicated(cell_loc[,c(&quot;X.X&quot;, &quot;Y.Y&quot;, &quot;sample_Xtile_Ytile&quot;)])
+cell_loc_dedup = cell_loc[!duplicated_locs,]
+expr_dedup = expr[!duplicated_locs,]
+expr_dedup_transpose = t(expr_dedup)
+colnames(expr_dedup_transpose)=cell_loc_dedup$cellID
+## stitch x.y tile coordinates to global coordinates 
+xtilespan = 1344;
+ytilespan = 1008;
+stitch_file = stitchTileCoordinates(location_file = cell_loc_dedup, Xtilespan = xtilespan, Ytilespan = ytilespan);
+stitch_file = stitch_file[,.(Xcoord, Ycoord)]
+## exlude ambiguous cells from analysis ##
+sub_set = cell_loc_dedup$Imaging_phenotype_annotation != &quot;dirt&quot; &amp; cell_loc_dedup$Imaging_phenotype_annotation != &quot;noid&quot; &amp; cell_loc_dedup$Imaging_phenotype_annotation != &quot;capsule&quot;
+</code></pre>
+
+<h5>Part 2: Create Giotto object &amp; process data</h5>
+
+<pre><code class="language-R">## create
+codex_test &lt;- createGiottoObject(raw_exprs = expr_dedup_transpose[,sub_set], spatial_locs = stitch_file[sub_set,],
+                              offset_file = NULL, instructions = instrs)
+codex_test = addCellMetadata(codex_test, new_metadata = cell_loc_dedup[sub_set,])
+## filter
+codex_test &lt;- filterGiotto(gobject = codex_test,
+                        expression_threshold = 1,
+                        gene_det_in_min_cells = 10,
+                        min_det_genes_per_cell = 2,
+                        expression_values = c(&#39;raw&#39;),
+                        verbose = T)
+codex_test &lt;- normalizeGiotto(gobject = codex_test, scalefactor = 6000, verbose = T,
+                              log_norm = FALSE,library_size_norm = FALSE,scale_genes = FALSE,scale_cells = TRUE)
+## add gene &amp; cell statistics
+codex_test &lt;- addStatistics(gobject = codex_test,expression_values = &quot;normalized&quot;)
+## adjust expression matrix for technical or known variables
+codex_test &lt;- adjustGiottoMatrix(gobject = codex_test, 
+                              expression_values = c(&#39;normalized&#39;),
+                              batch_columns = NULL, 
+                              covariate_columns = NULL,
+                              return_gobject = TRUE,
+                              update_slot = c(&#39;custom&#39;))
+## visualize
+spatPlot(gobject = codex_test,point_size = 0.1, 
+         coord_fix_ratio = 1,point_shape = &#39;no_border&#39;)
+spatPlot(gobject = codex_test, point_size = 0.2, coord_fix_ratio = 1, cell_color = &#39;sample_Xtile_Ytile&#39;,
+         legend_symbol_size = 3,legend_text = 5)
+</code></pre>
+
+<p>
+<img src="figures/codex/cell_loc.png" alt=""/>
+<img src="figures/codex/sample_tile.png" alt=""/>
+ </p>
+
+<h5>Part 3: Dimension reduction</h5>
+
+<pre><code class="language-R"># use all Abs
+# PCA
+codex_test &lt;- runPCA(gobject = codex_test, expression_values = &#39;normalized&#39;, scale_unit = T)
+signPCA(codex_test, scale_unit = T, scree_ylim = c(0, 3))
+plotPCA(gobject = codex_test, point_shape = &#39;no_border&#39;, point_size = 0.2)
+# UMAP
+codex_test &lt;- runUMAP(codex_test, dimensions_to_use = 1:14, n_components = 2, n_threads = 12)
+plotUMAP(gobject = codex_test, point_shape = &#39;no_border&#39;, point_size = 0.2)
+</code></pre>
+
+<p>
+<img src="figures/codex/scree_plot.png" alt=""/>
+<img src="figures/codex/pca_plot.png" alt=""/>
+<img src="figures/codex/umap_plot.png" alt=""/>
+ </p>
+
+<h5>Part 4: Cluster</h5>
+
+<pre><code class="language-R">## sNN network (default)
+codex_test &lt;- createNearestNetwork(gobject = codex_test, dimensions_to_use = 1:14, k = 20)
+## 0.1 resolution
+codex_test &lt;- doLeidenCluster(gobject = codex_test, resolution = 0.5, n_iterations = 100, name = &#39;leiden&#39;,python_path = my_python_path)
+codex_metadata = pDataDT(codex_test)
+leiden_colors = Giotto:::getDistinctColors(length(unique(codex_metadata$leiden)))
+names(leiden_colors) = unique(codex_metadata$leiden)
+plotUMAP(gobject = codex_test, cell_color = &#39;leiden&#39;, point_shape = &#39;no_border&#39;, point_size = 0.2, cell_color_code = leiden_colors)
+spatPlot(gobject = codex_test, cell_color = &#39;leiden&#39;, point_shape = &#39;no_border&#39;, point_size = 0.2, 
+         cell_color_code = leiden_colors, coord_fix_ratio = 1,label_size =2,
+         legend_text = 5,legend_symbol_size = 2)
+</code></pre>
+
+<p>
+<img src="figures/codex/leiden_clustering.png" alt=""/>
+<img src="figures/codex/spat_leiden.png" alt=""/>
+ </p>
+
+<h5>Part 5: Co-visualize</h5>
+
+<pre><code class="language-R">spatDimPlot2D(gobject = codex_test, cell_color = &#39;leiden&#39;, spat_point_shape = &#39;no_border&#39;, 
+              spat_point_size = 0.2, dim_point_shape = &#39;no_border&#39;, dim_point_size = 0.2, 
+              cell_color_code = leiden_colors,plot_alignment = c(&quot;horizontal&quot;))
+</code></pre>
+
+<p>
+<img src="figures/codex/covis_leiden.png" alt=""/>
+ </p>
+
+<h5>Part 6: Differential expression</h5>
+
+<pre><code class="language-R"># resolution 0.5
+cluster_column = &#39;leiden&#39;
+markers_scran = findMarkers_one_vs_all(gobject=codex_test, method=&quot;scran&quot;,
+                                       expression_values=&quot;norm&quot;, cluster_column=cluster_column, min_genes=3)
+markergenes_scran = unique(markers_scran[, head(.SD, 5), by=&quot;cluster&quot;][[&quot;genes&quot;]])
+plotMetaDataHeatmap(codex_test, expression_values = &quot;norm&quot;, metadata_cols = c(cluster_column), 
+                    selected_genes = markergenes_scran,
+                    y_text_size = 8, show_values = &#39;zscores_rescaled&#39;)
+topgenes_scran = markers_scran[, head(.SD, 1), by = &#39;cluster&#39;]$genes
+violinPlot(codex_test, genes = unique(topgenes_scran)[1:8], cluster_column = cluster_column,
+           strip_text = 8, strip_position = &#39;right&#39;)
+# gini
+markers_gini = findMarkers_one_vs_all(gobject=codex_test, method=&quot;gini&quot;, expression_values=&quot;norm&quot;,
+                                      cluster_column=cluster_column, min_genes=5)
+markergenes_gini = unique(markers_gini[, head(.SD, 5), by=&quot;cluster&quot;][[&quot;genes&quot;]])
+plotMetaDataHeatmap(codex_test, expression_values = &quot;norm&quot;, metadata_cols = c(cluster_column), selected_genes = markergenes_gini,
+                    show_values = &#39;zscores_rescaled&#39;)
+topgenes_gini = markers_gini[, head(.SD, 1), by = &#39;cluster&#39;]$genes
+violinPlot(codex_test, genes = unique(topgenes_gini), cluster_column = cluster_column,
+           strip_text = 8, strip_position = &#39;right&#39;)
+</code></pre>
+
+<p>
+<img src="figures/codex/scran_de.png" alt=""/>
+<img src="figures/codex/scran_violin.png" alt=""/>
+<img src="figures/codex/gini_heatmap.png" alt=""/>
+<img src="figures/codex/gini_violin.png" alt=""/>
+ </p>
+
+<h5>Part 7: Cell type annotation</h5>
+
+<pre><code class="language-R">clusters_cell_types = c(&#39;erythroblasts-F4/80(+) mphs&#39;,&#39;B cells&#39;,&#39;CD8(+) T cells&#39;, 
+                        &#39;CD4(+) T cells&#39;, &#39;B cells&#39;,&#39;CD11c(+)MHCII(+) cells&#39;,
+                        &#39;CD4(+) T cells&#39;,&#39;Ter119(+)&#39;, &#39;marginal zone mphs&#39;, 
+                        &#39;CD31(+)ERTR7(+)&#39;, &#39;FDCs&#39;, &#39;B220(+) DN T cells&#39;,
+                        &#39;CD3(+) other markers&#39;,&#39;NK cells&#39;,&#39;granulocytes&#39;,
+                        &#39;plasma cells&#39;,&#39;ambiguous&#39;,&#39;CD44(+)CD1632(+)Ly6C(+) cells&#39;)
+names(clusters_cell_types) = c(1:18)
+codex_test = annotateGiotto(gobject = codex_test, annotation_vector = clusters_cell_types,
+                           cluster_column = &#39;leiden&#39;, name = &#39;cell_types&#39;)
+plotMetaDataHeatmap(codex_test, expression_values = &#39;scaled&#39;,
+                    metadata_cols = c(&#39;cell_types&#39;),y_text_size = 6)
+# create consistent color code
+mynames = unique(pDataDT(codex_test)$cell_types)
+mycolorcode = Giotto:::getDistinctColors(n = length(mynames))
+names(mycolorcode) = mynames
+plotUMAP(gobject = codex_test, cell_color = &#39;cell_types&#39;,point_shape = &#39;no_border&#39;,   point_size = 0.2,
+         cell_color_code = mycolorcode,
+         show_center_label = F,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+spatPlot(gobject = codex_test, cell_color = &#39;cell_types&#39;, point_shape = &#39;no_border&#39;, point_size = 0.2, 
+        cell_color_code = mycolorcode,
+        coord_fix_ratio = 1,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+</code></pre>
+
+<p>
+<img src="figures/codex/cell_type_annotation_heatmap.png" alt=""/>
+<img src="figures/codex/cell_types_umap.png" alt=""/>
+<img src="figures/codex/cell_types_spat.png" alt=""/>
+ </p>
+
+<h5>part 8: Visualize cell types and gene expression in selected zones</h5>
+
+<pre><code class="language-R">codex_test_zone1 = subsetGiotto(codex_test, cell_ids = codex_test@cell_metadata$cell_ID[codex_test@cell_metadata$sample_Xtile_Ytile==&quot;BALBc-3_X04_Y08&quot;])
+plotUMAP(gobject = codex_test_zone1, cell_color = &#39;cell_types&#39;,point_shape = &#39;no_border&#39;,   point_size = 1,
+         cell_color_code = mycolorcode,
+         show_center_label = F,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+spatPlot(gobject = codex_test_zone1, cell_color = &#39;cell_types&#39;, point_shape = &#39;no_border&#39;, point_size = 1, 
+        cell_color_code = mycolorcode,
+        coord_fix_ratio = 1,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+spatDimGenePlot(codex_test_zone1, 
+                expression_values = &#39;scaled&#39;,
+                genes = c(&quot;CD8a&quot;,&quot;CD19&quot;),
+                spat_point_shape = &#39;no_border&#39;,
+                dim_point_shape = &#39;no_border&#39;,
+                genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/codex/zone1_cell_type_spat.png" alt=""/>
+<img src="figures/codex/zone1_cell_type_umap.png" alt=""/>
+<img src="figures/codex/zone1_gene.png" alt=""/>
+ </p>
+
+<pre><code class="language-R">codex_test_zone2 = subsetGiotto(codex_test, cell_ids = codex_test@cell_metadata$cell_ID[codex_test@cell_metadata$sample_Xtile_Ytile==&quot;BALBc-3_X04_Y03&quot;])
+plotUMAP(gobject = codex_test_zone2, cell_color = &#39;cell_types&#39;,point_shape = &#39;no_border&#39;,   point_size = 1,
+         cell_color_code = mycolorcode,
+         show_center_label = F,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+spatPlot(gobject = codex_test_zone2, cell_color = &#39;cell_types&#39;, point_shape = &#39;no_border&#39;, point_size = 1, 
+        cell_color_code = mycolorcode,
+        coord_fix_ratio = 1,
+         label_size =2,
+         legend_text = 5,
+         legend_symbol_size = 2)
+spatDimGenePlot(codex_test_zone2, 
+                expression_values = &#39;scaled&#39;,
+                genes = c(&quot;CD4&quot;, &quot;CD106&quot;),
+                spat_point_shape = &#39;no_border&#39;,
+                dim_point_shape = &#39;no_border&#39;,
+                genes_high_color = &#39;red&#39;, genes_mid_color = &#39;white&#39;, genes_low_color = &#39;darkblue&#39;)
+</code></pre>
+
+<p>
+<img src="figures/codex/zone2_spat.png" alt=""/>
+<img src="figures/codex/zone2_umap.png" alt=""/>
+<img src="figures/codex/zone2_gene.png" alt=""/>
+ </p>
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

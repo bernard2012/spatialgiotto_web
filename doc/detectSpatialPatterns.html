@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: detectSpatialPatterns</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for detectSpatialPatterns {Giotto}"><tr><td>detectSpatialPatterns {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>detectSpatialPatterns</h2>
+
+<h3>Description</h3>
+
+<p>Identify spatial patterns through PCA on average expression in a spatial grid.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+detectSpatialPatterns(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  spatial_grid_name = "spatial_grid",
+  min_cells_per_grid = 4,
+  scale_unit = F,
+  ncp = 100,
+  show_plot = T,
+  PC_zscore = 1.5
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use (default = 'spatial_grid')</p>
+</td></tr>
+<tr valign="top"><td><code>min_cells_per_grid</code></td>
+<td>
+<p>minimum number of cells in a grid to be considered</p>
+</td></tr>
+<tr valign="top"><td><code>scale_unit</code></td>
+<td>
+<p>scale features</p>
+</td></tr>
+<tr valign="top"><td><code>ncp</code></td>
+<td>
+<p>number of principal components to calculate</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>PC_zscore</code></td>
+<td>
+<p>minimum z-score of variance explained by a PC</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Steps to identify spatial patterns:
+</p>
+
+<ul>
+<li><p>1. average gene expression for cells within a grid, see createSpatialGrid
+</p>
+</li>
+<li><p>2. perform PCA on the average grid expression profiles
+</p>
+</li>
+<li><p>3. convert variance of principlal components (PCs) to z-scores and select PCs based on a z-score threshold
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>spatial pattern object 'spatPatObj'
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    detectSpatialPatterns(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

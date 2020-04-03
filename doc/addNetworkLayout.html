@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: addNetworkLayout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addNetworkLayout {Giotto}"><tr><td>addNetworkLayout {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>addNetworkLayout</h2>
+
+<h3>Description</h3>
+
+<p>Add a network layout for a selected nearest neighbor network
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addNetworkLayout(
+  gobject,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  layout_type = c("drl"),
+  options_list = NULL,
+  layout_name = "layout",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>kNN or sNN</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to be used</p>
+</td></tr>
+<tr valign="top"><td><code>layout_type</code></td>
+<td>
+<p>layout algorithm to use</p>
+</td></tr>
+<tr valign="top"><td><code>options_list</code></td>
+<td>
+<p>list of options for selected layout</p>
+</td></tr>
+<tr valign="top"><td><code>layout_name</code></td>
+<td>
+<p>name for layout</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function creates layout coordinates based on the provided kNN or sNN.
+Currently only the force-directed graph layout &quot;drl&quot;, see <code>layout_with_drl</code>,
+is implemented. This provides an alternative to tSNE or UMAP based visualizations.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated layout for selected NN network
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    addNetworkLayout(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

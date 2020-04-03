@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: doHMRF</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for doHMRF {Giotto}"><tr><td>doHMRF {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>doHMRF</h2>
+
+<h3>Description</h3>
+
+<p>Run HMRF
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+doHMRF(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  spatial_network_name = "Delaunay_network",
+  spatial_genes = NULL,
+  spatial_dimensions = c("sdimx", "sdimy", "sdimz"),
+  dim_reduction_to_use = NULL,
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  name = "test",
+  k = 10,
+  betas = c(0, 2, 50),
+  tolerance = 1e-10,
+  zscore = c("none", "rowcol", "colrow"),
+  numinit = 100,
+  python_path = NULL,
+  output_folder = NULL,
+  overwrite_output = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use for HMRF</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_genes</code></td>
+<td>
+<p>spatial genes to use for HMRF</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_dimensions</code></td>
+<td>
+<p>select spatial dimensions to use, default is all possible dimensions</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>use another dimension reduction set as input</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>name of dimension reduction set to use</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>number of dimensions to use as input</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name of HMRF run</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of HMRF domains</p>
+</td></tr>
+<tr valign="top"><td><code>betas</code></td>
+<td>
+<p>betas to test for</p>
+</td></tr>
+<tr valign="top"><td><code>tolerance</code></td>
+<td>
+<p>tolerance</p>
+</td></tr>
+<tr valign="top"><td><code>zscore</code></td>
+<td>
+<p>zscore</p>
+</td></tr>
+<tr valign="top"><td><code>numinit</code></td>
+<td>
+<p>number of initializations</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>python path to use</p>
+</td></tr>
+<tr valign="top"><td><code>output_folder</code></td>
+<td>
+<p>output folder to save results</p>
+</td></tr>
+<tr valign="top"><td><code>overwrite_output</code></td>
+<td>
+<p>overwrite output folder</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of HMRF parameters ...
+</p>
+
+
+<h3>Value</h3>
+
+<p>Creates a directory with results that can be viewed with viewHMRFresults
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    doHMRF(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

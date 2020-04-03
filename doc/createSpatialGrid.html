@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createSpatialGrid</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createSpatialGrid {Giotto}"><tr><td>createSpatialGrid {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createSpatialGrid</h2>
+
+<h3>Description</h3>
+
+<p>Create a spatial grid.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createSpatialGrid(
+  gobject,
+  sdimx_stepsize = NULL,
+  sdimy_stepsize = NULL,
+  sdimz_stepsize = NULL,
+  minimum_padding = 1,
+  name = "spatial_grid",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>sdimx_stepsize</code></td>
+<td>
+<p>stepsize along the x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>sdimy_stepsize</code></td>
+<td>
+<p>stepsize along the y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>sdimz_stepsize</code></td>
+<td>
+<p>stepsize along the z-axis</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_padding</code></td>
+<td>
+<p>minimum padding on the edges</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for spatial grid (default = 'spatial_grid')</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a spatial grid with defined x, y (and z) dimensions.
+The dimension units are based on the provided spatial location units.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated spatial grid slot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createSpatialGrid(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

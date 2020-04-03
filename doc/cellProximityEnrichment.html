@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: cellProximityEnrichment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for cellProximityEnrichment {Giotto}"><tr><td>cellProximityEnrichment {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>cellProximityEnrichment</h2>
+
+<h3>Description</h3>
+
+<p>Compute cell-cell interaction enrichment (observed vs expected)
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+cellProximityEnrichment(
+  gobject,
+  spatial_network_name = "Delaunay_network",
+  cluster_column,
+  number_of_simulations = 1000,
+  adjust_method = c("none", "fdr", "bonferroni", "BH", "holm", "hochberg", "hommel",
+    "BY")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>number_of_simulations</code></td>
+<td>
+<p>number of simulations to create expected observations</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Spatial proximity enrichment or depletion between pairs of cell types
+is calculated by calculating the observed over the expected frequency
+of cell-cell proximity interactions. The expected frequency is the average frequency
+calculated from a number of spatial network simulations. Each individual simulation is
+obtained by reshuffling the cell type labels of each node (cell)
+in the spatial network.
+</p>
+
+
+<h3>Value</h3>
+
+<p>List of cell Proximity scores (CPscores) in data.table format. The first
+data.table (raw_sim_table) shows the raw observations of both the original and
+simulated networks. The second data.table (enrichm_res) shows the enrichment results.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    cellProximityEnrichment(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

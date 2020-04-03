@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: filterGiotto</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for filterGiotto {Giotto}"><tr><td>filterGiotto {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>filterGiotto</h2>
+
+<h3>Description</h3>
+
+<p>filter Giotto object based on expression threshold
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+filterGiotto(
+  gobject,
+  expression_values = c("raw", "normalized", "scaled", "custom"),
+  expression_threshold = 1,
+  gene_det_in_min_cells = 100,
+  min_det_genes_per_cell = 100,
+  verbose = F
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>expression_threshold</code></td>
+<td>
+<p>threshold to consider a gene expressed</p>
+</td></tr>
+<tr valign="top"><td><code>gene_det_in_min_cells</code></td>
+<td>
+<p>minimum # of cells that need to express a gene</p>
+</td></tr>
+<tr valign="top"><td><code>min_det_genes_per_cell</code></td>
+<td>
+<p>minimum # of genes that need to be detected in a cell</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The function <code>filterCombinations</code> can be used to explore the effect of different parameter values.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    filterGiotto(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: normalizeGiotto</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for normalizeGiottoOld {Giotto}"><tr><td>normalizeGiottoOld {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>normalizeGiotto</h2>
+
+<h3>Description</h3>
+
+<p>normalize and/or scale expresion values of Giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+normalizeGiottoOld(
+  gobject,
+  norm_methods = c("standard", "osmFISH"),
+  library_size_norm = TRUE,
+  scalefactor = 6000,
+  log_norm = TRUE,
+  logbase = 2,
+  scale_genes = T,
+  scale_cells = T,
+  scale_order = c("first_genes", "first_cells"),
+  verbose = F
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>norm_methods</code></td>
+<td>
+<p>normalization method to use</p>
+</td></tr>
+<tr valign="top"><td><code>library_size_norm</code></td>
+<td>
+<p>normalize cells by library size</p>
+</td></tr>
+<tr valign="top"><td><code>scalefactor</code></td>
+<td>
+<p>scale factor to use after library size normalization</p>
+</td></tr>
+<tr valign="top"><td><code>log_norm</code></td>
+<td>
+<p>transform values to log-scale</p>
+</td></tr>
+<tr valign="top"><td><code>logbase</code></td>
+<td>
+<p>log base to use to log normalize expression values</p>
+</td></tr>
+<tr valign="top"><td><code>scale_genes</code></td>
+<td>
+<p>z-score genes over all cells</p>
+</td></tr>
+<tr valign="top"><td><code>scale_cells</code></td>
+<td>
+<p>z-score cells over all genes</p>
+</td></tr>
+<tr valign="top"><td><code>scale_order</code></td>
+<td>
+<p>order to scale genes and cells</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>be verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Currently there are two 'methods' to normalize your raw counts data.
+</p>
+<p>A. The standard method follows the standard protocol which can be adjusted using
+the provided parameters and follows the following order: <br />
+</p>
+
+<ul>
+<li><p>1. Data normalization for total library size and scaling by a custom scale-factor.
+</p>
+</li>
+<li><p>2. Log transformation of data.
+</p>
+</li>
+<li><p>3. Z-scoring of data by genes and/or cells.
+</p>
+</li></ul>
+
+<p>B. The normalization method as provided by the osmFISH paper is also implemented: <br />
+</p>
+
+<ul>
+<li><p>1. First normalize genes, for each gene divide the counts by the total gene count and
+multiply by the total number of genes.
+</p>
+</li>
+<li><p>2. Next normalize cells, for each cell divide the normalized gene counts by the total
+counts per cell and multiply by the total number of cells.
+</p>
+</li></ul>
+
+<p>This data will be saved in the Giotto slot for custom expression.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    normalizeGiotto(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

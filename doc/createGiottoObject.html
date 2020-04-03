@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: create Giotto object</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createGiottoObject {Giotto}"><tr><td>createGiottoObject {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>create Giotto object</h2>
+
+<h3>Description</h3>
+
+<p>Function to create a giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createGiottoObject(
+  raw_exprs,
+  spatial_locs = NULL,
+  norm_expr = NULL,
+  norm_scaled_expr = NULL,
+  custom_expr = NULL,
+  cell_metadata = NULL,
+  gene_metadata = NULL,
+  spatial_network = NULL,
+  spatial_network_name = NULL,
+  spatial_grid = NULL,
+  spatial_grid_name = NULL,
+  spatial_enrichment = NULL,
+  spatial_enrichment_name = NULL,
+  dimension_reduction = NULL,
+  nn_network = NULL,
+  offset_file = NULL,
+  instructions = NULL
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>raw_exprs</code></td>
+<td>
+<p>matrix with raw expression counts [required]</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_locs</code></td>
+<td>
+<p>data.table or data.frame with coordinates for cell centroids</p>
+</td></tr>
+<tr valign="top"><td><code>norm_expr</code></td>
+<td>
+<p>normalized expression values</p>
+</td></tr>
+<tr valign="top"><td><code>norm_scaled_expr</code></td>
+<td>
+<p>scaled expression values</p>
+</td></tr>
+<tr valign="top"><td><code>custom_expr</code></td>
+<td>
+<p>custom expression values</p>
+</td></tr>
+<tr valign="top"><td><code>cell_metadata</code></td>
+<td>
+<p>cell annotation metadata</p>
+</td></tr>
+<tr valign="top"><td><code>gene_metadata</code></td>
+<td>
+<p>gene annotation metadata</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network</code></td>
+<td>
+<p>list of spatial network(s)</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>list of spatial network name(s)</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid</code></td>
+<td>
+<p>list of spatial grid(s)</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>list of spatial grid name(s)</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_enrichment</code></td>
+<td>
+<p>list of spatial enrichment score(s) for each spatial region</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_enrichment_name</code></td>
+<td>
+<p>list of spatial enrichment name(s)</p>
+</td></tr>
+<tr valign="top"><td><code>dimension_reduction</code></td>
+<td>
+<p>list of dimension reduction(s)</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network</code></td>
+<td>
+<p>list of nearest neighbor network(s)</p>
+</td></tr>
+<tr valign="top"><td><code>offset_file</code></td>
+<td>
+<p>file used to stitch fields together (optional)</p>
+</td></tr>
+<tr valign="top"><td><code>instructions</code></td>
+<td>
+<p>list of instructions or output result from createGiottoInstructions</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>[<strong>Requirements</strong>] To create a giotto object you need to provide at least a matrix with genes as
+row names and cells as column names. To include spatial information about cells (or regions)
+you need to provide a data.table or data.frame with coordinates for all spatial dimensions.
+This can be 2D (x and y) or 3D (x, y, x).The row order for the cell coordinates should be
+the same as the column order for the provided expression data.
+</p>
+<p>[<strong>Instructions</strong>] Additionally an instruction file, generated manually or with <code>createGiottoInstructions</code>
+can be provided to instructions, if not a default instruction file will be created
+for the Giotto object.
+</p>
+<p>[<strong>Multiple fields</strong>] In case a dataset consists of multiple fields, like seqFISH+ for example,
+an offset file can be provided to stitch the different fields together. <code>stitchFieldCoordinates</code>
+can be used to generate such an offset file.
+</p>
+<p>[<strong>Processed data</strong>] Processed count data, such as normalized data, can be provided using
+one of the different expression slots (norm_expr, norm_scaled_expr, custom_expr).
+</p>
+<p>[<strong>Metadata</strong>] Cell and gene metadata can be provided using the cell and gene metadata slots.
+This data can also be added afterwards using the <code>addGeneMetadata</code> or <code>addCellMetadata</code> functions.
+</p>
+<p>[<strong>Other information</strong>] Additional information can be provided through the appropriate slots:
+</p>
+
+<ul>
+<li><p>spatial networks
+</p>
+</li>
+<li><p>spatial girds
+</p>
+</li>
+<li><p>spatial enrichments
+</p>
+</li>
+<li><p>dimensions reductions
+</p>
+</li>
+<li><p>nearest neighbours networks
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>giotto object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createGiottoObject(raw_exprs, spatial_locs)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

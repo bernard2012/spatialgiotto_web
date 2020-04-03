@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: spatDimGenePlot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for spatDimGenePlot {Giotto}"><tr><td>spatDimGenePlot {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>spatDimGenePlot</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells according to spatial AND dimension reduction coordinates in ggplot mode
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+spatDimGenePlot(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  plot_alignment = c("vertical", "horizontal"),
+  genes,
+  dim_reduction_to_use = "umap",
+  dim_reduction_name = "umap",
+  dim1_to_use = 1,
+  dim2_to_use = 2,
+  dim_point_shape = c("border", "no_border"),
+  dim_point_size = 1,
+  dim_point_border_col = "black",
+  dim_point_border_stroke = 0.1,
+  show_NN_network = F,
+  show_spatial_network = F,
+  show_spatial_grid = F,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  edge_alpha_dim = NULL,
+  scale_alpha_with_expression = FALSE,
+  spatial_network_name = "Delaunay_network",
+  spatial_grid_name = "spatial_grid",
+  spat_point_shape = c("border", "no_border"),
+  spat_point_size = 1,
+  spat_point_border_col = "black",
+  spat_point_border_stroke = 0.1,
+  midpoint = 0,
+  genes_high_color = "red",
+  genes_mid_color = "white",
+  genes_low_color = "blue",
+  show_legend = T,
+  legend_text = 8,
+  dim_background_color = "white",
+  spat_background_color = "white",
+  axis_text = 8,
+  axis_title = 8,
+  cow_n_col = 2,
+  cow_rel_h = 1,
+  cow_rel_w = 1,
+  cow_align = "h",
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "spatDimGenePlot"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>plot_alignment</code></td>
+<td>
+<p>direction to align plot</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to show</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>dimension reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>dim1_to_use</code></td>
+<td>
+<p>dimension to use on x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim2_to_use</code></td>
+<td>
+<p>dimension to use on y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim_point_shape</code></td>
+<td>
+<p>dimension points with border or not (border or no_border)</p>
+</td></tr>
+<tr valign="top"><td><code>dim_point_size</code></td>
+<td>
+<p>dim reduction plot: point size</p>
+</td></tr>
+<tr valign="top"><td><code>dim_point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>dim_point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>show_NN_network</code></td>
+<td>
+<p>show underlying NN network</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use, if show_NN_network = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha_dim</code></td>
+<td>
+<p>dim reduction plot: column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>scale_alpha_with_expression</code></td>
+<td>
+<p>scale expression with ggplot alpha parameter</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>spat_point_shape</code></td>
+<td>
+<p>spatial points with border or not (border or no_border)</p>
+</td></tr>
+<tr valign="top"><td><code>spat_point_size</code></td>
+<td>
+<p>spatial plot: point size</p>
+</td></tr>
+<tr valign="top"><td><code>spat_point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>spat_point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>midpoint</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>legend_text</code></td>
+<td>
+<p>size of legend text</p>
+</td></tr>
+<tr valign="top"><td><code>dim_background_color</code></td>
+<td>
+<p>color of plot background for dimension plot</p>
+</td></tr>
+<tr valign="top"><td><code>spat_background_color</code></td>
+<td>
+<p>color of plot background for spatial plot</p>
+</td></tr>
+<tr valign="top"><td><code>axis_text</code></td>
+<td>
+<p>size of axis text</p>
+</td></tr>
+<tr valign="top"><td><code>axis_title</code></td>
+<td>
+<p>size of axis title</p>
+</td></tr>
+<tr valign="top"><td><code>cow_n_col</code></td>
+<td>
+<p>cowplot param: how many columns</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_h</code></td>
+<td>
+<p>cowplot param: relative height</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_w</code></td>
+<td>
+<p>cowplot param: relative width</p>
+</td></tr>
+<tr valign="top"><td><code>cow_align</code></td>
+<td>
+<p>cowplot param: how to align</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>spatDimGenePlot3D</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    spatDimGenePlot(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

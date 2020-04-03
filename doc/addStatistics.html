@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: addStatistics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addStatistics {Giotto}"><tr><td>addStatistics {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>addStatistics</h2>
+
+<h3>Description</h3>
+
+<p>adds genes and cells statistics to the giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addStatistics(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  detection_threshold = 0,
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>detection_threshold</code></td>
+<td>
+<p>detection threshold to consider a gene detected</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>addGeneStatistics</code> and <code>addCellStatistics</code>
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object if return_gobject = TRUE, else a list with results
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    addStatistics(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

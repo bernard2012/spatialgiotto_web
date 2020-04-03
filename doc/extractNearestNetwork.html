@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: extractNearestNetwork</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for extractNearestNetwork {Giotto}"><tr><td>extractNearestNetwork {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>extractNearestNetwork</h2>
+
+<h3>Description</h3>
+
+<p>Extracts a NN-network from a Giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+extractNearestNetwork(
+  gobject,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  output = c("igraph", "data.table")
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>kNN or sNN</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to be used</p>
+</td></tr>
+<tr valign="top"><td><code>output</code></td>
+<td>
+<p>return a igraph or data.table object</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>igraph or data.table object
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    extractNearestNetwork(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

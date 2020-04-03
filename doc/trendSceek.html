@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: trendSceek</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for trendSceek {Giotto}"><tr><td>trendSceek {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>trendSceek</h2>
+
+<h3>Description</h3>
+
+<p>Compute spatial variable genes with trendsceek method
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+trendSceek(
+  gobject,
+  expression_values = c("normalized", "raw"),
+  subset_genes = NULL,
+  nrand = 100,
+  ncores = 8,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>Giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>subset_genes</code></td>
+<td>
+<p>subset of genes to run trendsceek on</p>
+</td></tr>
+<tr valign="top"><td><code>nrand</code></td>
+<td>
+<p>An integer specifying the number of random resamplings of the mark distribution as to create the null-distribution.</p>
+</td></tr>
+<tr valign="top"><td><code>ncores</code></td>
+<td>
+<p>An integer specifying the number of cores to be used by BiocParallel</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Additional parameters to the <code>trendsceek_test</code> function</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function is a wrapper for the trendsceek_test method implemented in the trendsceek package
+</p>
+
+
+<h3>Value</h3>
+
+<p>data.frame with trendsceek spatial genes results
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    trendSceek(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

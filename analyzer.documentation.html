@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Documentations for Giotto</title>
+<meta charset="utf-8">
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable", content="yes">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/prism.css">
+<link rel="stylesheet" href="css/giotto.css">
+
+<script src="js/bootstrap.4.1.0.min.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/prism.js"></script>
+<script src="js/giotto.js"></script>
+</head>
+
+
+<body data-spy="scroll" data-target="#nex2" data-offset="80">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Giotto</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+        </ul>
+     </div>
+   </nav>
+
+
+   <div class="container-fluid">
+     <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentation2.html">
+                            Main page <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.dataset.html">
+                            Analyzer dataset tutorials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="analyzer.documentation.html">
+                            Analyzer R usage manual
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="live.demo.html">
+                            Viewer live demo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="giotto.viewer.setup2.html">
+                            Viewer setup tutorial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html">
+                            Viewer usage manual
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">Giotto Analyzer: Usage Manual</h1>
+            </div>
+
+		<!--
+            <nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+              <ul class="nav nav-pills">
+			    <li class="nav-item">
+				  <a class="nav-link active" href="#s_copy_js_css">giotto_copy_js_css</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_setup_image">giotto_setup_image</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_step1_modify_json">giotto_step1_modify_json</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_setup_viewer">giotto_setup_viewer</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_step1_setup">smfish_step1_setup</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#s_read_config">smfish_read_config</a>
+				</li>
+			</ul>
+		  </nav>
+-->
+<ul>
+<li><a href="doc/adapt_aspect_ratio.html">adapt_aspect_ratio</a></li>
+<li><a href="doc/addCellIntMetadata.html">addCellIntMetadata</a></li>
+<li><a href="doc/addCellMetadata.html">addCellMetadata</a></li>
+<li><a href="doc/addCellStatistics.html">addCellStatistics</a></li>
+<li><a href="doc/addGeneMetadata.html">addGeneMetadata</a></li>
+<li><a href="doc/addGeneStatistics.html">addGeneStatistics</a></li>
+<li><a href="doc/addHMRF.html">addHMRF</a></li>
+<li><a href="doc/addNetworkLayout.html">addNetworkLayout</a></li>
+<li><a href="doc/addStatistics.html">addStatistics</a></li>
+<li><a href="doc/adjustGiottoMatrix.html">adjustGiottoMatrix</a></li>
+<li><a href="doc/aes_string2.html">aes_string2</a></li>
+<li><a href="doc/all_plots_save_function.html">all_plots_save_function</a></li>
+<li><a href="doc/annotateGiotto.html">annotateGiotto</a></li>
+<li><a href="doc/annotateSpatialNetwork.html">annotateSpatialNetwork</a></li>
+<li><a href="doc/annotate_spatlocs_with_spatgrid_2D.html">annotate_spatlocs_with_spatgrid_2D</a></li>
+<li><a href="doc/annotate_spatlocs_with_spatgrid_3D.html">annotate_spatlocs_with_spatgrid_3D</a></li>
+<li><a href="doc/average_gene_gene_expression_in_groups.html">average_gene_gene_expression_in_groups</a></li>
+<li><a href="doc/binSpect.html">binSpect</a></li>
+<li><a href="doc/calculateHVG.html">calculateHVG</a></li>
+<li><a href="doc/calculateMetaTableCells.html">calculateMetaTableCells</a></li>
+<li><a href="doc/calculateMetaTable.html">calculateMetaTable</a></li>
+<li><a href="doc/cellProximityBarplot.html">cellProximityBarplot</a></li>
+<li><a href="doc/cellProximityEnrichment.html">cellProximityEnrichment</a></li>
+<li><a href="doc/cellProximityHeatmap.html">cellProximityHeatmap</a></li>
+<li><a href="doc/cellProximityNetwork.html">cellProximityNetwork</a></li>
+<li><a href="doc/cellProximitySpatPlot2D.html">cellProximitySpatPlot2D</a></li>
+<li><a href="doc/cellProximitySpatPlot3D.html">cellProximitySpatPlot3D</a></li>
+<li><a href="doc/cellProximitySpatPlot.html">cellProximitySpatPlot</a></li>
+<li><a href="doc/cellProximityVisPlot_2D_ggplot.html">cellProximityVisPlot_2D_ggplot</a></li>
+<li><a href="doc/cellProximityVisPlot_2D_plotly.html">cellProximityVisPlot_2D_plotly</a></li>
+<li><a href="doc/cellProximityVisPlot_3D_plotly.html">cellProximityVisPlot_3D_plotly</a></li>
+<li><a href="doc/cellProximityVisPlot.html">cellProximityVisPlot</a></li>
+<li><a href="doc/changeGiottoInstructions.html">changeGiottoInstructions</a></li>
+<li><a href="doc/clusterCells.html">clusterCells</a></li>
+<li><a href="doc/clusterSpatialCorGenes.html">clusterSpatialCorGenes</a></li>
+<li><a href="doc/combCCcom.html">combCCcom</a></li>
+<li><a href="doc/combineCellProximityGenes.html">combineCellProximityGenes</a></li>
+<li><a href="doc/combineCellProximityGenes_per_interaction.html">combineCellProximityGenes_per_interaction</a></li>
+<li><a href="doc/combineCPG.html">combineCPG</a></li>
+<li><a href="doc/combineMetadata.html">combineMetadata</a></li>
+<li><a href="doc/convertEnsemblToGeneSymbol.html">convertEnsemblToGeneSymbol</a></li>
+<li><a href="doc/convert_to_full_spatial_network.html">convert_to_full_spatial_network</a></li>
+<li><a href="doc/convert_to_reduced_spatial_network.html">convert_to_reduced_spatial_network</a></li>
+<li><a href="doc/create_2d_mesh_grid_line_obj.html">create_2d_mesh_grid_line_obj</a></li>
+<li><a href="doc/create_average_detection_DT.html">create_average_detection_DT</a></li>
+<li><a href="doc/create_average_DT.html">create_average_DT</a></li>
+<li><a href="doc/create_cell_type_random_cell_IDs.html">create_cell_type_random_cell_IDs</a></li>
+<li><a href="doc/create_cluster_matrix.html">create_cluster_matrix</a></li>
+<li><a href="doc/createCrossSection.html">createCrossSection</a></li>
+<li><a href="doc/create_crossSection_object.html">create_crossSection_object</a></li>
+<li><a href="doc/create_delaunayNetwork2D.html">create_delaunayNetwork2D</a></li>
+<li><a href="doc/create_delaunayNetwork3D.html">create_delaunayNetwork3D</a></li>
+<li><a href="doc/create_delaunayNetwork_deldir.html">create_delaunayNetwork_deldir</a></li>
+<li><a href="doc/create_delaunayNetwork_geometry_3D.html">create_delaunayNetwork_geometry_3D</a></li>
+<li><a href="doc/create_delaunayNetwork_geometry.html">create_delaunayNetwork_geometry</a></li>
+<li><a href="doc/create_delaunayNetwork_RTriangle.html">create_delaunayNetwork_RTriangle</a></li>
+<li><a href="doc/create_dimObject.html">create_dimObject</a></li>
+<li><a href="doc/createGiottoInstructions.html">createGiottoInstructions</a></li>
+<li><a href="doc/createGiottoObject.html">createGiottoObject</a></li>
+<li><a href="doc/createHeatmap_DT.html">createHeatmap_DT</a></li>
+<li><a href="doc/create_KNNnetwork_dbscan.html">create_KNNnetwork_dbscan</a></li>
+<li><a href="doc/create_mesh_grid_lines.html">create_mesh_grid_lines</a></li>
+<li><a href="doc/createMetagenes.html">createMetagenes</a></li>
+<li><a href="doc/createNearestNetwork.html">createNearestNetwork</a></li>
+<li><a href="doc/createSpatialDelaunayNetwork.html">createSpatialDelaunayNetwork</a></li>
+<li><a href="doc/createSpatialEnrich.html">createSpatialEnrich</a></li>
+<li><a href="doc/createSpatialGrid_2D.html">createSpatialGrid_2D</a></li>
+<li><a href="doc/createSpatialGrid_3D.html">createSpatialGrid_3D</a></li>
+<li><a href="doc/createSpatialGrid.html">createSpatialGrid</a></li>
+<li><a href="doc/createSpatialKNNnetwork.html">createSpatialKNNnetwork</a></li>
+<li><a href="doc/createSpatialNetwork.html">createSpatialNetwork</a></li>
+<li><a href="doc/create_spatialNetworkObject.html">create_spatialNetworkObject</a></li>
+<li><a href="doc/crossSectionGenePlot3D.html">crossSectionGenePlot3D</a></li>
+<li><a href="doc/crossSectionGenePlot.html">crossSectionGenePlot</a></li>
+<li><a href="doc/crossSectionPlot3D.html">crossSectionPlot3D</a></li>
+<li><a href="doc/crossSectionPlot.html">crossSectionPlot</a></li>
+<li><a href="doc/decide_cluster_order.html">decide_cluster_order</a></li>
+<li><a href="doc/detectSpatialCorGenes.html">detectSpatialCorGenes</a></li>
+<li><a href="doc/detectSpatialPatterns.html">detectSpatialPatterns</a></li>
+<li><a href="doc/dimCellPlot2D.html">dimCellPlot2D</a></li>
+<li><a href="doc/dimCellPlot.html">dimCellPlot</a></li>
+<li><a href="doc/dimGenePlot2D.html">dimGenePlot2D</a></li>
+<li><a href="doc/dimGenePlot3D.html">dimGenePlot3D</a></li>
+<li><a href="doc/dimGenePlot.html">dimGenePlot</a></li>
+<li><a href="doc/dimPlot2D.html">dimPlot2D</a></li>
+<li><a href="doc/dimPlot2D_single.html">dimPlot2D_single</a></li>
+<li><a href="doc/dimPlot3D.html">dimPlot3D</a></li>
+<li><a href="doc/dimPlot.html">dimPlot</a></li>
+<li><a href="doc/do_cell_proximity_test.html">do_cell_proximity_test</a></li>
+<li><a href="doc/doHclust.html">doHclust</a></li>
+<li><a href="doc/doHMRF.html">doHMRF</a></li>
+<li><a href="doc/doKmeans.html">doKmeans</a></li>
+<li><a href="doc/doLeidenCluster.html">doLeidenCluster</a></li>
+<li><a href="doc/doLeidenSubCluster.html">doLeidenSubCluster</a></li>
+<li><a href="doc/do_limmatest.html">do_limmatest</a></li>
+<li><a href="doc/doLouvainCluster_community.html">doLouvainCluster_community</a></li>
+<li><a href="doc/doLouvainCluster.html">doLouvainCluster</a></li>
+<li><a href="doc/doLouvainCluster_multinet.html">doLouvainCluster_multinet</a></li>
+<li><a href="doc/doLouvainSubCluster_community.html">doLouvainSubCluster_community</a></li>
+<li><a href="doc/doLouvainSubCluster.html">doLouvainSubCluster</a></li>
+<li><a href="doc/doLouvainSubCluster_multinet.html">doLouvainSubCluster_multinet</a></li>
+<li><a href="doc/do_multi_permuttest_random.html">do_multi_permuttest_random</a></li>
+<li><a href="doc/do_page_permutation.html">do_page_permutation</a></li>
+<li><a href="doc/do_permuttest_original.html">do_permuttest_original</a></li>
+<li><a href="doc/do_permuttest_random.html">do_permuttest_random</a></li>
+<li><a href="doc/doRandomWalkCluster.html">doRandomWalkCluster</a></li>
+<li><a href="doc/do_rank_permutation.html">do_rank_permutation</a></li>
+<li><a href="doc/doSNNCluster.html">doSNNCluster</a></li>
+<li><a href="doc/do_spatial_grid_averaging.html">do_spatial_grid_averaging</a></li>
+<li><a href="doc/do_spatial_knn_smoothing.html">do_spatial_knn_smoothing</a></li>
+<li><a href="doc/do_ttest.html">do_ttest</a></li>
+<li><a href="doc/DT_removeNA.html">DT_removeNA</a></li>
+<li><a href="doc/dt_to_matrix.html">dt_to_matrix</a></li>
+<li><a href="doc/exportGiottoViewer.html">exportGiottoViewer</a></li>
+<li><a href="doc/exprCellCellcom.html">exprCellCellcom</a></li>
+<li><a href="doc/extended_gini_fun.html">extended_gini_fun</a></li>
+<li><a href="doc/extend_vector.html">extend_vector</a></li>
+<li><a href="doc/extractNearestNetwork.html">extractNearestNetwork</a></li>
+<li><a href="doc/fDataDT.html">fDataDT</a></li>
+<li><a href="doc/filterCellProximityGenes.html">filterCellProximityGenes</a></li>
+<li><a href="doc/filterCombinations.html">filterCombinations</a></li>
+<li><a href="doc/filterCPG.html">filterCPG</a></li>
+<li><a href="doc/filterDistributions.html">filterDistributions</a></li>
+<li><a href="doc/filterGiotto.html">filterGiotto</a></li>
+<li><a href="doc/findCellProximityGenes.html">findCellProximityGenes</a></li>
+<li><a href="doc/findCellProximityGenes_per_interaction.html">findCellProximityGenes_per_interaction</a></li>
+<li><a href="doc/findCPG.html">findCPG</a></li>
+<li><a href="doc/findGiniMarkers.html">findGiniMarkers</a></li>
+<li><a href="doc/findGiniMarkers_one_vs_all.html">findGiniMarkers_one_vs_all</a></li>
+<li><a href="doc/find_grid_2D.html">find_grid_2D</a></li>
+<li><a href="doc/find_grid_3D.html">find_grid_3D</a></li>
+<li><a href="doc/find_grid_x.html">find_grid_x</a></li>
+<li><a href="doc/find_grid_y.html">find_grid_y</a></li>
+<li><a href="doc/find_grid_z.html">find_grid_z</a></li>
+<li><a href="doc/findMarkers.html">findMarkers</a></li>
+<li><a href="doc/findMarkers_one_vs_all.html">findMarkers_one_vs_all</a></li>
+<li><a href="doc/findMastMarkers.html">findMastMarkers</a></li>
+<li><a href="doc/findMastMarkers_one_vs_all.html">findMastMarkers_one_vs_all</a></li>
+<li><a href="doc/findScranMarkers.html">findScranMarkers</a></li>
+<li><a href="doc/findScranMarkers_one_vs_all.html">findScranMarkers_one_vs_all</a></li>
+<li><a href="doc/find_x_y_ranges.html">find_x_y_ranges</a></li>
+<li><a href="doc/general_save_function.html">general_save_function</a></li>
+<li><a href="doc/get10Xmatrix.html">get10Xmatrix</a></li>
+<li><a href="doc/getClusterSimilarity.html">getClusterSimilarity</a></li>
+<li><a href="doc/get_cross_section_coordinates.html">get_cross_section_coordinates</a></li>
+<li><a href="doc/getDendrogramSplits.html">getDendrogramSplits</a></li>
+<li><a href="doc/getDistinctColors.html">getDistinctColors</a></li>
+<li><a href="doc/get_meanCellDistance.html">get_meanCellDistance</a></li>
+<li><a href="doc/get_sectionThickness.html">get_sectionThickness</a></li>
+<li><a href="doc/ggplot_save_function.html">ggplot_save_function</a></li>
+<li><a href="doc/giotto-class.html">giotto-class</a></li>
+<li><a href="doc/heatmSpatialCorGenes.html">heatmSpatialCorGenes</a></li>
+<li><a href="doc/hyperGeometricEnrich.html">hyperGeometricEnrich</a></li>
+<li><a href="doc/insertCrossSectionSpatPlot3D.html">insertCrossSectionSpatPlot3D</a></li>
+<li><a href="doc/kmeans_binarize.html">kmeans_binarize</a></li>
+<li><a href="doc/loadHMRF.html">loadHMRF</a></li>
+<li><a href="doc/makeSignMatrixPAGE.html">makeSignMatrixPAGE</a></li>
+<li><a href="doc/makeSignMatrixRank.html">makeSignMatrixRank</a></li>
+<li><a href="doc/make_simulated_network.html">make_simulated_network</a></li>
+<li><a href="doc/mergeClusters.html">mergeClusters</a></li>
+<li><a href="doc/my_arowMeans.html">my_arowMeans</a></li>
+<li><a href="doc/mygini_fun.html">mygini_fun</a></li>
+<li><a href="doc/my_growMeans.html">my_growMeans</a></li>
+<li><a href="doc/my_rowMeans.html">my_rowMeans</a></li>
+<li><a href="doc/nnDT_to_kNN.html">nnDT_to_kNN</a></li>
+<li><a href="doc/node_clusters.html">node_clusters</a></li>
+<li><a href="doc/normalizeGiotto.html">normalizeGiotto</a></li>
+<li><a href="doc/normalizeGiottoOld.html">normalizeGiottoOld</a></li>
+<li><a href="doc/PAGEEnrich.html">PAGEEnrich</a></li>
+<li><a href="doc/pDataDT.html">pDataDT</a></li>
+<li><a href="doc/pipe.html">pipe</a></li>
+<li><a href="doc/plotCCcomDotplot.html">plotCCcomDotplot</a></li>
+<li><a href="doc/plotCCcomHeatmap.html">plotCCcomHeatmap</a></li>
+<li><a href="doc/plotCellProximityGenes.html">plotCellProximityGenes</a></li>
+<li><a href="doc/plotCombineCCcom.html">plotCombineCCcom</a></li>
+<li><a href="doc/plotCombineCellCellCommunication.html">plotCombineCellCellCommunication</a></li>
+<li><a href="doc/plotCombineCellProximityGenes.html">plotCombineCellProximityGenes</a></li>
+<li><a href="doc/plotCombineCPG.html">plotCombineCPG</a></li>
+<li><a href="doc/plotCPG.html">plotCPG</a></li>
+<li><a href="doc/plotHeatmap.html">plotHeatmap</a></li>
+<li><a href="doc/plotICG.html">plotICG</a></li>
+<li><a href="doc/plotInteractionChangedGenes.html">plotInteractionChangedGenes</a></li>
+<li><a href="doc/plotly_axis_scale_2D.html">plotly_axis_scale_2D</a></li>
+<li><a href="doc/plotly_axis_scale_3D.html">plotly_axis_scale_3D</a></li>
+<li><a href="doc/plotly_grid.html">plotly_grid</a></li>
+<li><a href="doc/plotly_network.html">plotly_network</a></li>
+<li><a href="doc/plotMetaDataCellsHeatmap.html">plotMetaDataCellsHeatmap</a></li>
+<li><a href="doc/plotMetaDataHeatmap.html">plotMetaDataHeatmap</a></li>
+<li><a href="doc/plot_network_layer_ggplot.html">plot_network_layer_ggplot</a></li>
+<li><a href="doc/plotPCA_2D.html">plotPCA_2D</a></li>
+<li><a href="doc/plotPCA_3D.html">plotPCA_3D</a></li>
+<li><a href="doc/plotPCA.html">plotPCA</a></li>
+<li><a href="doc/plot_point_layer_ggplot.html">plot_point_layer_ggplot</a></li>
+<li><a href="doc/plot_point_layer_ggplot_noFILL.html">plot_point_layer_ggplot_noFILL</a></li>
+<li><a href="doc/plotRankSpatvsExpr.html">plotRankSpatvsExpr</a></li>
+<li><a href="doc/plotRecovery.html">plotRecovery</a></li>
+<li><a href="doc/plotRecovery_sub.html">plotRecovery_sub</a></li>
+<li><a href="doc/plot_spat_point_layer_ggplot.html">plot_spat_point_layer_ggplot</a></li>
+<li><a href="doc/plot_spat_point_layer_ggplot_noFILL.html">plot_spat_point_layer_ggplot_noFILL</a></li>
+<li><a href="doc/plotStatDelaunayNetwork.html">plotStatDelaunayNetwork</a></li>
+<li><a href="doc/plotTSNE_2D.html">plotTSNE_2D</a></li>
+<li><a href="doc/plotTSNE_3D.html">plotTSNE_3D</a></li>
+<li><a href="doc/plotTSNE.html">plotTSNE</a></li>
+<li><a href="doc/plotUMAP_2D.html">plotUMAP_2D</a></li>
+<li><a href="doc/plotUMAP_3D.html">plotUMAP_3D</a></li>
+<li><a href="doc/plotUMAP.html">plotUMAP</a></li>
+<li><a href="doc/print.giotto.html">print.giotto</a></li>
+<li><a href="doc/proj_dist.html">proj_dist</a></li>
+<li><a href="doc/projection_fun.html">projection_fun</a></li>
+<li><a href="doc/rank_binarize.html">rank_binarize</a></li>
+<li><a href="doc/rankEnrich.html">rankEnrich</a></li>
+<li><a href="doc/rankSpatialCorGroups.html">rankSpatialCorGroups</a></li>
+<li><a href="doc/read_crossSection.html">read_crossSection</a></li>
+<li><a href="doc/readGiottoInstructions.html">readGiottoInstructions</a></li>
+<li><a href="doc/removeCellAnnotation.html">removeCellAnnotation</a></li>
+<li><a href="doc/removeGeneAnnotation.html">removeGeneAnnotation</a></li>
+<li><a href="doc/replaceGiottoInstructions.html">replaceGiottoInstructions</a></li>
+<li><a href="doc/reshape_to_data_point.html">reshape_to_data_point</a></li>
+<li><a href="doc/reshape_to_mesh_grid_obj.html">reshape_to_mesh_grid_obj</a></li>
+<li><a href="doc/runPCA.html">runPCA</a></li>
+<li><a href="doc/runtSNE.html">runtSNE</a></li>
+<li><a href="doc/runUMAP.html">runUMAP</a></li>
+<li><a href="doc/select_expression_values.html">select_expression_values</a></li>
+<li><a href="doc/selectPatternGenes.html">selectPatternGenes</a></li>
+<li><a href="doc/select_spatialNetwork.html">select_spatialNetwork</a></li>
+<li><a href="doc/showClusterDendrogram.html">showClusterDendrogram</a></li>
+<li><a href="doc/showClusterHeatmap.html">showClusterHeatmap</a></li>
+<li><a href="doc/showGiottoInstructions.html">showGiottoInstructions</a></li>
+<li><a href="doc/show-giotto-method.html">show-giotto-method</a></li>
+<li><a href="doc/showPattern2D.html">showPattern2D</a></li>
+<li><a href="doc/showPattern3D.html">showPattern3D</a></li>
+<li><a href="doc/showPatternGenes.html">showPatternGenes</a></li>
+<li><a href="doc/showPattern.html">showPattern</a></li>
+<li><a href="doc/showProcessingSteps.html">showProcessingSteps</a></li>
+<li><a href="doc/showSpatialCorGenes.html">showSpatialCorGenes</a></li>
+<li><a href="doc/signPCA.html">signPCA</a></li>
+<li><a href="doc/silhouetteRank.html">silhouetteRank</a></li>
+<li><a href="doc/sort_combine_two_DT_columns.html">sort_combine_two_DT_columns</a></li>
+<li><a href="doc/spatCellCellcom.html">spatCellCellcom</a></li>
+<li><a href="doc/spatCellPlot2D.html">spatCellPlot2D</a></li>
+<li><a href="doc/spatCellPlot.html">spatCellPlot</a></li>
+<li><a href="doc/spatDimCellPlot2D.html">spatDimCellPlot2D</a></li>
+<li><a href="doc/spatDimCellPlot.html">spatDimCellPlot</a></li>
+<li><a href="doc/spatDimGenePlot2D.html">spatDimGenePlot2D</a></li>
+<li><a href="doc/spatDimGenePlot3D.html">spatDimGenePlot3D</a></li>
+<li><a href="doc/spatDimGenePlot.html">spatDimGenePlot</a></li>
+<li><a href="doc/spatDimPlot2D.html">spatDimPlot2D</a></li>
+<li><a href="doc/spatDimPlot3D.html">spatDimPlot3D</a></li>
+<li><a href="doc/spatDimPlot.html">spatDimPlot</a></li>
+<li><a href="doc/spat_fish_func.html">spat_fish_func</a></li>
+<li><a href="doc/spatGenePlot2D.html">spatGenePlot2D</a></li>
+<li><a href="doc/spatGenePlot3D.html">spatGenePlot3D</a></li>
+<li><a href="doc/spatGenePlot.html">spatGenePlot</a></li>
+<li><a href="doc/spatialAEH.html">spatialAEH</a></li>
+<li><a href="doc/Spatial_AEH.html">Spatial_AEH</a></li>
+<li><a href="doc/spatialDE.html">spatialDE</a></li>
+<li><a href="doc/Spatial_DE.html">Spatial_DE</a></li>
+<li><a href="doc/spatNetwDistributionsDistance.html">spatNetwDistributionsDistance</a></li>
+<li><a href="doc/spatNetwDistributions.html">spatNetwDistributions</a></li>
+<li><a href="doc/spatNetwDistributionsKneighbors.html">spatNetwDistributionsKneighbors</a></li>
+<li><a href="doc/spat_OR_func.html">spat_OR_func</a></li>
+<li><a href="doc/spatPlot2D.html">spatPlot2D</a></li>
+<li><a href="doc/spatPlot2D_single.html">spatPlot2D_single</a></li>
+<li><a href="doc/spatPlot3D.html">spatPlot3D</a></li>
+<li><a href="doc/spatPlot.html">spatPlot</a></li>
+<li><a href="doc/specificCellCellcommunicationScores.html">specificCellCellcommunicationScores</a></li>
+<li><a href="doc/split_dendrogram_in_two.html">split_dendrogram_in_two</a></li>
+<li><a href="doc/stitchFieldCoordinates.html">stitchFieldCoordinates</a></li>
+<li><a href="doc/stitchTileCoordinates.html">stitchTileCoordinates</a></li>
+<li><a href="doc/subClusterCells.html">subClusterCells</a></li>
+<li><a href="doc/subsetGiotto.html">subsetGiotto</a></li>
+<li><a href="doc/subsetGiottoLocs.html">subsetGiottoLocs</a></li>
+<li><a href="doc/transform_2d_mesh_to_3d_mesh.html">transform_2d_mesh_to_3d_mesh</a></li>
+<li><a href="doc/trendSceek.html">trendSceek</a></li>
+<li><a href="doc/viewHMRFresults2D.html">viewHMRFresults2D</a></li>
+<li><a href="doc/viewHMRFresults3D.html">viewHMRFresults3D</a></li>
+<li><a href="doc/viewHMRFresults.html">viewHMRFresults</a></li>
+<li><a href="doc/violinPlot.html">violinPlot</a></li>
+<li><a href="doc/visDimGenePlot_2D_ggplot.html">visDimGenePlot_2D_ggplot</a></li>
+<li><a href="doc/visDimGenePlot_3D_plotly.html">visDimGenePlot_3D_plotly</a></li>
+<li><a href="doc/visDimGenePlot.html">visDimGenePlot</a></li>
+<li><a href="doc/visDimPlot_2D_ggplot.html">visDimPlot_2D_ggplot</a></li>
+<li><a href="doc/visDimPlot_2D_plotly.html">visDimPlot_2D_plotly</a></li>
+<li><a href="doc/visDimPlot_3D_plotly.html">visDimPlot_3D_plotly</a></li>
+<li><a href="doc/visDimPlot.html">visDimPlot</a></li>
+<li><a href="doc/visForceLayoutPlot.html">visForceLayoutPlot</a></li>
+<li><a href="doc/visGenePlot_2D_ggplot.html">visGenePlot_2D_ggplot</a></li>
+<li><a href="doc/visGenePlot_3D_plotly.html">visGenePlot_3D_plotly</a></li>
+<li><a href="doc/visGenePlot.html">visGenePlot</a></li>
+<li><a href="doc/visPlot_2D_ggplot.html">visPlot_2D_ggplot</a></li>
+<li><a href="doc/visPlot_2D_plotly.html">visPlot_2D_plotly</a></li>
+<li><a href="doc/visPlot_3D_plotly.html">visPlot_3D_plotly</a></li>
+<li><a href="doc/visPlot.html">visPlot</a></li>
+<li><a href="doc/visSpatDimGenePlot_2D.html">visSpatDimGenePlot_2D</a></li>
+<li><a href="doc/visSpatDimGenePlot_3D.html">visSpatDimGenePlot_3D</a></li>
+<li><a href="doc/visSpatDimGenePlot.html">visSpatDimGenePlot</a></li>
+<li><a href="doc/visSpatDimPlot_2D.html">visSpatDimPlot_2D</a></li>
+<li><a href="doc/visSpatDimPlot_3D.html">visSpatDimPlot_3D</a></li>
+<li><a href="doc/visSpatDimPlot.html">visSpatDimPlot</a></li>
+<li><a href="doc/write_giotto_viewer_annotation.html">write_giotto_viewer_annotation</a></li>
+<li><a href="doc/write_giotto_viewer_dim_reduction.html">write_giotto_viewer_dim_reduction</a></li>
+<li><a href="doc/write_giotto_viewer_numeric_annotation.html">write_giotto_viewer_numeric_annotation</a></li>
+<li><a href="doc/writeHMRFresults.html">writeHMRFresults</a></li>
+</ul>
+</main>
+
+
+</div>
+</div>
+</body>
+</html>
+

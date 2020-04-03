@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createNearestNetwork</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createNearestNetwork {Giotto}"><tr><td>createNearestNetwork {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createNearestNetwork</h2>
+
+<h3>Description</h3>
+
+<p>create a nearest neighbour (NN) network
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createNearestNetwork(
+  gobject,
+  type = c("sNN", "kNN"),
+  dim_reduction_to_use = "pca",
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  genes_to_use = NULL,
+  expression_values = c("normalized", "scaled", "custom"),
+  name = "sNN.pca",
+  return_gobject = TRUE,
+  k = 30,
+  minimum_shared = 5,
+  top_shared = 3,
+  verbose = T,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>type</code></td>
+<td>
+<p>sNN or kNN</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction method to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>name of dimension reduction set to use</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>number of dimensions to use as input</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>if dim_reduction_to_use = NULL, which genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>arbitrary name for NN network</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of k neighbors to use</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_shared</code></td>
+<td>
+<p>minimum shared neighbors</p>
+</td></tr>
+<tr valign="top"><td><code>top_shared</code></td>
+<td>
+<p>keep at ...</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>be verbose</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional parameters for kNN and sNN functions from dbscan</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function creates a k-nearest neighbour (kNN) or shared nearest neighbour (sNN) network
+based on the provided dimension reduction space. To run it directly on the gene expression matrix
+set <em>dim_reduction_to_use = NULL</em>.
+</p>
+<p>See also <code>kNN</code> and <code>sNN</code> for more information about
+how the networks are created.
+</p>
+<p>Output for kNN:
+</p>
+
+<ul>
+<li><p>from: cell_ID for source cell
+</p>
+</li>
+<li><p>to: cell_ID for target cell
+</p>
+</li>
+<li><p>distance: distance between cells
+</p>
+</li>
+<li><p>weight: weight = 1/(1 + distance)
+</p>
+</li></ul>
+
+<p>Output for sNN:
+</p>
+
+<ul>
+<li><p>from: cell_ID for source cell
+</p>
+</li>
+<li><p>to: cell_ID for target cell
+</p>
+</li>
+<li><p>distance: distance between cells
+</p>
+</li>
+<li><p>weight: 1/(1 + distance)
+</p>
+</li>
+<li><p>shared: number of shared neighbours
+</p>
+</li>
+<li><p>rank: ranking of pairwise cell neighbours
+</p>
+</li></ul>
+
+<p>For sNN networks two additional parameters can be set:
+</p>
+
+<ul>
+<li><p>minimum_shared: minimum number of shared neighbours needed
+</p>
+</li>
+<li><p>top_shared: keep this number of the top shared neighbours, irrespective of minimum_shared setting
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated NN network
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createNearestNetwork(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

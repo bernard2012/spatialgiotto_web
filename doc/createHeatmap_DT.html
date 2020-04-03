@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createHeatmap_DT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createHeatmap_DT {Giotto}"><tr><td>createHeatmap_DT {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createHeatmap_DT</h2>
+
+<h3>Description</h3>
+
+<p>creates order for clusters
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createHeatmap_DT(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes,
+  cluster_column = NULL,
+  cluster_order = c("size", "correlation", "custom"),
+  cluster_custom_order = NULL,
+  cluster_cor_method = "pearson",
+  cluster_hclust_method = "ward.D",
+  gene_order = c("correlation", "custom"),
+  gene_custom_order = NULL,
+  gene_cor_method = "pearson",
+  gene_hclust_method = "complete"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>name of column to use for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_order</code></td>
+<td>
+<p>method to determine cluster order</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_custom_order</code></td>
+<td>
+<p>custom order for clusters</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_cor_method</code></td>
+<td>
+<p>method for cluster correlation</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_hclust_method</code></td>
+<td>
+<p>method for hierarchical clustering of clusters</p>
+</td></tr>
+<tr valign="top"><td><code>gene_order</code></td>
+<td>
+<p>method to determine gene order</p>
+</td></tr>
+<tr valign="top"><td><code>gene_custom_order</code></td>
+<td>
+<p>custom order for genes</p>
+</td></tr>
+<tr valign="top"><td><code>gene_cor_method</code></td>
+<td>
+<p>method for gene correlation</p>
+</td></tr>
+<tr valign="top"><td><code>gene_hclust_method</code></td>
+<td>
+<p>method for hierarchical clustering of genes</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates input data.tables for plotHeatmap function.
+</p>
+
+
+<h3>Value</h3>
+
+<p>list
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createHeatmap_DT(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

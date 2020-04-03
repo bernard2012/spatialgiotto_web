@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: specificCellCellcommunicationScores</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for specificCellCellcommunicationScores {Giotto}"><tr><td>specificCellCellcommunicationScores {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>specificCellCellcommunicationScores</h2>
+
+<h3>Description</h3>
+
+<p>Specific Cell-Cell communication scores based on spatial expression of interacting cells
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+specificCellCellcommunicationScores(
+  gobject,
+  spatial_network_name = "Delaunay_network",
+  cluster_column = "cell_types",
+  random_iter = 100,
+  cell_type_1 = "astrocyte",
+  cell_type_2 = "endothelial",
+  gene_set_1,
+  gene_set_2,
+  log2FC_addendum = 0.1,
+  min_observations = 2,
+  adjust_method = c("fdr", "bonferroni", "BH", "holm", "hochberg", "hommel", "BY",
+    "none"),
+  adjust_target = c("genes", "cells"),
+  verbose = T
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>spatial network to use for identifying interacting cells</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_column</code></td>
+<td>
+<p>cluster column with cell type information</p>
+</td></tr>
+<tr valign="top"><td><code>random_iter</code></td>
+<td>
+<p>number of iterations</p>
+</td></tr>
+<tr valign="top"><td><code>cell_type_1</code></td>
+<td>
+<p>first cell type</p>
+</td></tr>
+<tr valign="top"><td><code>cell_type_2</code></td>
+<td>
+<p>second cell type</p>
+</td></tr>
+<tr valign="top"><td><code>gene_set_1</code></td>
+<td>
+<p>first specific gene set from gene pairs</p>
+</td></tr>
+<tr valign="top"><td><code>gene_set_2</code></td>
+<td>
+<p>second specific gene set from gene pairs</p>
+</td></tr>
+<tr valign="top"><td><code>log2FC_addendum</code></td>
+<td>
+<p>addendum to add when calculating log2FC</p>
+</td></tr>
+<tr valign="top"><td><code>min_observations</code></td>
+<td>
+<p>minimum number of interactions needed to be considered</p>
+</td></tr>
+<tr valign="top"><td><code>adjust_method</code></td>
+<td>
+<p>which method to adjust p-values</p>
+</td></tr>
+<tr valign="top"><td><code>adjust_target</code></td>
+<td>
+<p>adjust multiple hypotheses at the cell or gene level</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>verbose</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Statistical framework to identify if pairs of genes (such as ligand-receptor combinations)
+are expressed at higher levels than expected based on a reshuffled null distribution
+of gene expression values in cells that are spatially in proximity to eachother..
+More details will follow soon.
+</p>
+
+
+<h3>Value</h3>
+
+<p>Cell-Cell communication scores for gene pairs based on spatial interaction
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    specificCellCellcommunicationScores(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

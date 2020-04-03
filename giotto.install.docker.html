@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.2.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Dataset Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="giotto.install.2.html">
+							Main page <span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="giotto.install.native.html">
+							Native install
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="giotto.install.docker.html">
+							Docker image install
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Installation </h1>
+			</div>
+			<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a> -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_download">Download image</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_test">Test image</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_real_run">Real run</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_finish">Finishing and restarting</a>
+    </li>
+  </ul>
+</nav>
+
+<br>
+<h4>1. Docker image (cross-platform)</h4>
+Docker image is the fastest way to test-drive Giotto or to deploy Giotto on your machine. You can skip all the installation instructions and start using Giotto right away.
+
+The Docker image is compatible with all environments where Docker can be installed (that means Windows, macOS, Linux). We have built a Docker image containing the latest version of Giotto Analyzer and Giotto Viewer. 
+
+<br><br>
+<h5 id="s_download">1.1. Download the image <a href="../docker-giotto-4.7z">docker-giotto-4.7z</a> (~700 MB)</h5>
+<h6>Commit version: c4a6dfe, Mar 22, 2020</h6>
+
+Unzip the 7zip image file: Linux: 
+<pre><code class="language-bash">7z e docker-giotto-4.7z</code></pre>
+Windows and macOS: use the 7zip app to extract
+<br>
+Open a shell/command line/terminal and enter the following command:
+<pre><code class="language-bash">$ docker import docker-giotto-4 giotto-4
+$ docker images
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+giotto-4                  latest              08220188737e        2 hours ago         2.74GB
+</code></pre>
+
+<h5 id="s_test">1.2. Testing the image</h5>
+<pre><code class="language-bash">$ docker run -it giotto-4 /bin/bash
+root@c5d1aed738df:/# </code></pre>
+What happened was that docker has created a <b>container</b> for this image (a container is an instance of image). The container name is c5d1aed738df.
+
+<br>Now test if giotto library can be loaded
+<pre><code class="language-bash">root@c5d1aed738df:/# R
+R version 3.6.0 (2019-04-26) -- "Planting of a Tree"
+...
+> library(Giotto)
+Loading required package: data.table
+data.table 1.12.8 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+Loading required package: ggplot2
+> </code></pre>
+
+Exit R (<code>exit</code>). Then exit the docker container (<code>exit</code>). The status of the container should be changed to exited:
+<pre><code class="language-bash">$ docker ps -a
+CONTAINER ID        IMAGE                     COMMAND             CREATED             STATUS                         PORTS               NAMES
+76e20588af31        giotto-4                 "/bin/bash"         4 minutes ago       Up 4 minutes                                       angry_moser
+</code></pre> 
+Note that this container preserves all the changes (files, etc) after exiting. Next time you start "docker run -it" it will create a new container of a different name. So, let's delete the container with the following command, so that we can start image properly (note that the container name is indicated in the last column (NAMES)). 
+<pre><code class="language-bash">docker rm angry_moser</code></pre>
+<br>
+<h5 id="s_real_run">1.3. Real Run</h5>
+<b>Start using Giotto</b>. Requirements: 
+<br>- need to open the port 8000 and link it to host (for Giotto Viewer). 
+<br>- need to open the port 8787 and link it to host (for RStudio).
+<br>- need to define a volume on host to share with the docker image, so that changes made within docker will persist after exiting docker. Host volume that's shared with docker will allow modifications.
+
+<br><br>
+Designate a volume to share with host. <b>How to share a volume on host with docker?</b> <a href="https://token2shell.com/howto/docker/sharing-windows-folders-with-containers/">Check out this tutorial</a>. Afterward, run:
+<pre><code class="language-bash">docker run -it -p 8000:8000 -p 8787:8787 -v c:/Users/longc/tmp_dir:/data giotto-3 /bin/bash
+</code></pre>
+Done! Here, port 8000 is mapped to 8000 on host. Port 8787 (used for RStudio environment) is also linked. The host directory <code>c:/Users/longc/tmp_dir</code> is shared and mounted in <code>/data</code> within the docker image.
+You can dump your datasets, images, etc within <code>c:/Users/longc/tmp_dir</code>. It is the work directory.
+The next step is follow along the Giotto vignettes and the Giotto Viewer tutorial.
+<br><br>
+We recommend working in RStudio so you can have all the benefits of the R environment.
+Once in docker, restart rstudio server in case it is not:
+<br><code>rstudio-server restart</code>
+<br>Then open a browser and enter <b>http://localhost:8787</b>. 
+You should be greeted with a RStudio welcome screen. <b>Enter username: dean, password: dean</b>. Then you have entered R environment. 
+<br>In R, set the working directory to /data: <code>setwd("/data")</code>
+<p>
+<h5 id="s_finish">1.4. Finishing and restarting</h5>
+When you are finished, you can exit the container.
+Note that after exiting, the changes (files, etc) will persist into the container. There is no need to delete the container if you plan to use the same container in future. To start an existing container in future, do the following:
+<br>
+<pre><code class="language-bash">docker start stupefied_nightingale
+docker attach stupefied_nightingale</code></pre>
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: clusterCells</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for clusterCells {Giotto}"><tr><td>clusterCells {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>clusterCells</h2>
+
+<h3>Description</h3>
+
+<p>cluster cells using a variety of different methods
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+clusterCells(
+  gobject,
+  cluster_method = c("leiden", "louvain_community", "louvain_multinet", "randomwalk",
+    "sNNclust", "kmeans", "hierarchical"),
+  name = "cluster_name",
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  pyth_leid_resolution = 1,
+  pyth_leid_weight_col = "weight",
+  pyth_leid_part_type = c("RBConfigurationVertexPartition", "ModularityVertexPartition"),
+  pyth_leid_init_memb = NULL,
+  pyth_leid_iterations = 1000,
+  pyth_louv_resolution = 1,
+  pyth_louv_weight_col = NULL,
+  python_louv_random = F,
+  python_path = NULL,
+  louvain_gamma = 1,
+  louvain_omega = 1,
+  walk_steps = 4,
+  walk_clusters = 10,
+  walk_weights = NA,
+  sNNclust_k = 20,
+  sNNclust_eps = 4,
+  sNNclust_minPts = 16,
+  borderPoints = TRUE,
+  expression_values = c("normalized", "scaled", "custom"),
+  genes_to_use = NULL,
+  dim_reduction_to_use = c("cells", "pca", "umap", "tsne"),
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  distance_method = c("original", "pearson", "spearman", "euclidean", "maximum",
+    "manhattan", "canberra", "binary", "minkowski"),
+  km_centers = 10,
+  km_iter_max = 100,
+  km_nstart = 1000,
+  km_algorithm = "Hartigan-Wong",
+  hc_agglomeration_method = c("ward.D2", "ward.D", "single", "complete", "average",
+    "mcquitty", "median", "centroid"),
+  hc_k = 10,
+  hc_h = NULL,
+  return_gobject = TRUE,
+  set_seed = T,
+  seed_number = 1234
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>cluster_method</code></td>
+<td>
+<p>community cluster method to use</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for new clustering result</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_leid_resolution</code></td>
+<td>
+<p>resolution for leiden</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_leid_weight_col</code></td>
+<td>
+<p>column to use for weights</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_leid_part_type</code></td>
+<td>
+<p>partition type to use</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_leid_init_memb</code></td>
+<td>
+<p>initial membership</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_leid_iterations</code></td>
+<td>
+<p>number of iterations</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_louv_resolution</code></td>
+<td>
+<p>resolution for louvain</p>
+</td></tr>
+<tr valign="top"><td><code>pyth_louv_weight_col</code></td>
+<td>
+<p>python louvain param: weight column</p>
+</td></tr>
+<tr valign="top"><td><code>python_louv_random</code></td>
+<td>
+<p>python louvain param: random</p>
+</td></tr>
+<tr valign="top"><td><code>python_path</code></td>
+<td>
+<p>specify specific path to python if required</p>
+</td></tr>
+<tr valign="top"><td><code>louvain_gamma</code></td>
+<td>
+<p>louvain param: gamma or resolution</p>
+</td></tr>
+<tr valign="top"><td><code>louvain_omega</code></td>
+<td>
+<p>louvain param: omega</p>
+</td></tr>
+<tr valign="top"><td><code>walk_steps</code></td>
+<td>
+<p>randomwalk: number of steps</p>
+</td></tr>
+<tr valign="top"><td><code>walk_clusters</code></td>
+<td>
+<p>randomwalk: number of clusters</p>
+</td></tr>
+<tr valign="top"><td><code>walk_weights</code></td>
+<td>
+<p>randomwalk: weight column</p>
+</td></tr>
+<tr valign="top"><td><code>sNNclust_k</code></td>
+<td>
+<p>SNNclust: k neighbors to use</p>
+</td></tr>
+<tr valign="top"><td><code>sNNclust_eps</code></td>
+<td>
+<p>SNNclust: epsilon</p>
+</td></tr>
+<tr valign="top"><td><code>sNNclust_minPts</code></td>
+<td>
+<p>SNNclust: min points</p>
+</td></tr>
+<tr valign="top"><td><code>borderPoints</code></td>
+<td>
+<p>SNNclust: border points</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>= NULL,</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>name of reduction 'pca',</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>dimensions to use</p>
+</td></tr>
+<tr valign="top"><td><code>distance_method</code></td>
+<td>
+<p>distance method</p>
+</td></tr>
+<tr valign="top"><td><code>km_centers</code></td>
+<td>
+<p>kmeans centers</p>
+</td></tr>
+<tr valign="top"><td><code>km_iter_max</code></td>
+<td>
+<p>kmeans iterations</p>
+</td></tr>
+<tr valign="top"><td><code>km_nstart</code></td>
+<td>
+<p>kmeans random starting points</p>
+</td></tr>
+<tr valign="top"><td><code>km_algorithm</code></td>
+<td>
+<p>kmeans algorithm</p>
+</td></tr>
+<tr valign="top"><td><code>hc_agglomeration_method</code></td>
+<td>
+<p>hierarchical clustering method</p>
+</td></tr>
+<tr valign="top"><td><code>hc_k</code></td>
+<td>
+<p>hierachical number of clusters</p>
+</td></tr>
+<tr valign="top"><td><code>hc_h</code></td>
+<td>
+<p>hierarchical tree cutoff</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>set seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>number for seed</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Wrapper for the different clustering methods.
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with new clusters appended to cell metadata
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>doLeidenCluster</code>, <code>doLouvainCluster_community</code>, <code>doLouvainCluster_multinet</code>,
+<code>doLouvainCluster</code>, <code>doRandomWalkCluster</code>, <code>doSNNCluster</code>,
+<code>doKmeans</code>, <code>doHclust</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    clusterCells(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

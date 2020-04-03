@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giotto</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css">
+	<link rel="stylesheet" href="css/carousel.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="css/giotto.css">
+	<script src="js/bootstrap.4.1.0.min.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/prism.js"></script>
+	<script src="js/giotto.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#nex2" data-offset="80">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Giotto</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="giotto.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="documentation2.html">Documentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.install.html">Installation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.dataset.html">Spatial Datasets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.example.html">Examples</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="giotto.download.html">Download</a>
+          </li>
+<!--
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+-->
+        </ul>
+    </nav>
+    <div class="container-fluid">
+	 <div class="row">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<div class="sidebar-sticky">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">
+							Giotto analyzer <span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							Giotto viewer
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+				<h1 class="h2">Installation </h1>
+			</div>
+			<nav id="nex2" class="navbar sticky-top navbar-light bg-light">
+<!--  <a class="navbar-brand" href="#">Navbar</a> -->
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" href="#s_R">R install</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_python_tools">Python tools</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_viewer">Viewer module</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_viewer_ubuntu">Viewer (Ubuntu)</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#s_viewer_macosx">Viewer (MacOSX)</a>
+    </li>
+  </ul>
+</nav>
+
+Giotto consists of two modules: analyzer and viewer. The requirements of Giotto installation are:
+<ul>
+<li>R (at least 3.5.1)</li>
+<li>Python (at least 3.0)</li>
+<li>Java 1.6+</li>
+<li>Unix / Linux environment</li>
+</ul>
+
+<!--<div data-spy="scroll" data-target="#nex2" data-offset="0">-->
+<h4 id="s_R">R installation</h4>
+You can install (approx. 1-5 mins) the development version of Giotto with:
+
+<pre><code class="language-R">library(remotes)
+# to install the latest stable version (advised)
+remotes::install_github("RubD/Giotto")
+# to install a specific release version (example)
+remotes::install_github("RubD/Giotto@v0.1.0")
+# install HMRF required by Giotto
+install.packages("devtools")
+library(devtools)
+install_bitbucket("qzhudfci/smfishhmrf-r", ref="default")
+</code></pre>
+
+Depending on how many pre-requisites are automatically installed, this step my take up to 30 minutes for the first time installation. 
+
+<br><br>
+<h4 id="s_python_tools">Python tools</h4>
+
+This is necessary to run all available analyses, including Leiden / Louvain clustering and to build and use the interactive visualization tool. An alternative, but less flexible, R version for Louvain clustering is also available. It is advisable to install everything within a specific conda environment and specify the python path in the R function when required. 
+
+<br><br>
+The required python modules are:
+<ul>
+<li>pandas</li>
+<li>igraph</li>
+<li>networkx</li>
+<li>leidenalg</li>
+<li>community</li>
+<li>smfishHmrf</li>
+</ul>
+
+To install each using the the <b>pip</b> package manager, get a terminal in unix/linux and enter:
+<pre><code class="language-bash">#pip3 install --user &lt;package name&gt;
+pip3 install --user pandas igraph networkx leidenalg community smfishHmrf
+#For smfishHmrf package, if upgrading from a previous installation, then do force install:
+pip3 install --user --upgrade --no-cache-dir --no-deps smfishHmrf</code></pre>
+
+
+<br>
+
+If using the <b>conda</b> environment, install these packages by:
+<pre><code class="language-bash"># pandas:
+conda install -c anaconda pandas
+# python-igraph, run one of the following:
+conda install -c conda-forge python-igraph
+conda install -c conda-forge/label/gcc7 python-igraph
+conda install -c conda-forge/label/cf201901 python-igraph
+# networkx:
+conda install -c anaconda networkx
+# louvain, run one of the following:
+conda install -c conda-forge python-louvain
+conda install -c conda-forge/label/gcc7 python-louvain
+conda install -c conda-forge/label/cf201901 python-louvain
+# leidenalg:
+conda install -c conda-forge leidenalg
+# smfishHmrf:
+conda install -c conda-forge smfishHmrf
+</code></pre>
+<br><br>
+
+
+<h4 id="s_viewer">Viewer module</h4>
+The viewer module gives you the ability to do interactive visualization of cells in physical and expression spaces, and is therefore required for an integrative experience with Giotto analyzer. 
+<br><br>
+The viewer requires the following:
+<ul>
+<li>scikit-image, scikit-learn, opencv-python, smfish-image-processing (Python)</li>
+<li>tileup (Ruby)</li>
+<li>ImageMagick 6.7</li>
+<li>Java 1.7+</li>
+</ul>
+
+<h5 id="s_viewer_ubuntu">Ubuntu linux instructions</h5>
+<pre><code class="language-bash">#install imagemagick
+sudo apt-get install imagemagick
+
+#install ruby (if not already)
+sudo apt install ruby
+sudo apt install ruby-dev
+
+#install tileup package (which is a ruby package)
+sudo apt install libmagickwand-dev
+sudo gem install tileup
+
+#install python packages with pip3
+pip3 install --user scikit-image 
+pip3 install --user opencv-python 
+pip3 install --user scikit-learn
+pip3 install --user smfish-image-processing
+pip3 install --user giotto-viewer
+</code></pre>
+<br><br>
+
+<h5 id="s_viewer_macosx">MacOS X Homebrew environment instructions</h5>
+For MacOS X, there are two instructions: the Homebrew environment (this section) or the Conda environment (next section).
+<br><br>
+It is easiest to install ImageMagick within Homebrew. If you don't have Homebrew, visit <a href="https://brew.sh">https://brew.sh</a> to learn how to install it.
+Once Homebrew is installed, check ~/.bash_profile that you have added /usr/local/bin to $PATH variable. 
+<pre><code class="language-R">cat ~/.bash_profile
+
+#if the /usr/local/bin is missing from PATH variable within .bash_profile then please uncomment below line and do:
+#echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+</code></pre>
+
+Afterwards, do:
+<pre><code class="language-bash">brew install imagemagick
+brew install python@2
+brew install ruby
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
+brew unlink imagemagick
+brew install imagemagick@6
+brew link imagemagick@6 --force
+echo 'export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"' >> ~/.bash_profile
+</code></pre>
+Note imagemagick v6 is required for Mac OSX. Version 7 is known to have compatibility problem with Ruby rmagick package, and is therefore avoided.
+After doing the above, close the terminal. Open the terminal to refresh environment. Then check that the command convert works:
+<pre><code class="language-bash">convert -version</code></pre>
+
+Next install tileup in MacOS:
+<pre><code class="language-bash">/usr/local/opt/ruby/bin/gem install rmagick
+/usr/local/opt/ruby/bin/gem install tileup
+echo 'export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"' >> ~/.bash_profile   #check gems version is correct
+</code></pre>
+
+Install the necessary python packages (Python 3.6):
+<pre><code class="language-bash">which python
+#Then do the following:
+pip3 install -U scikit-image
+pip3 install opencv-python
+pip3 install scikit-learn
+pip3 install smfish-image-processing
+pip3 install giotto-viewer
+</code></pre>
+
+<h5>MacOS X conda environment instructions</h5>
+To be updated
+
+<br><br>
+
+
+
+
+		</main>			
+ 	  </div>
+	</div>
+  </body>
+</html>

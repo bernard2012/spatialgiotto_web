@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createSpatialNetwork</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createSpatialNetwork {Giotto}"><tr><td>createSpatialNetwork {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createSpatialNetwork</h2>
+
+<h3>Description</h3>
+
+<p>Create a spatial network based on cell centroid physical distances.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createSpatialNetwork(
+  gobject,
+  name = NULL,
+  dimensions = "all",
+  method = c("Delaunay", "kNN"),
+  delaunay_method = c("delaunayn_geometry", "RTriangle", "deldir"),
+  maximum_distance_delaunay = "auto",
+  options = "Pp",
+  Y = TRUE,
+  j = TRUE,
+  S = 0,
+  minimum_k = 0,
+  knn_method = "dbscan",
+  k = 4,
+  maximum_distance_knn = NULL,
+  verbose = F,
+  return_gobject = TRUE,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>name for spatial network (default = 'spatial_network')</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions</code></td>
+<td>
+<p>which spatial dimensions to use (default = all)</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>which method to use to create a spatial network. (default = Delaunay)</p>
+</td></tr>
+<tr valign="top"><td><code>delaunay_method</code></td>
+<td>
+<p>Delaunay method to use</p>
+</td></tr>
+<tr valign="top"><td><code>maximum_distance_delaunay</code></td>
+<td>
+<p>distance cuttof for nearest neighbors to consider for Delaunay network</p>
+</td></tr>
+<tr valign="top"><td><code>options</code></td>
+<td>
+<p>(geometry) String containing extra control options for the underlying Qhull command; see the Qhull documentation (../doc/qhull/html/qdelaun.html) for the available options. (default = 'Pp', do not report precision problems)</p>
+</td></tr>
+<tr valign="top"><td><code>Y</code></td>
+<td>
+<p>(RTriangle) If TRUE prohibits the insertion of Steiner points on the mesh boundary.</p>
+</td></tr>
+<tr valign="top"><td><code>j</code></td>
+<td>
+<p>(RTriangle) If TRUE jettisons vertices that are not part of the final triangulation from the output.</p>
+</td></tr>
+<tr valign="top"><td><code>S</code></td>
+<td>
+<p>(RTriangle) Specifies the maximum number of added Steiner points.</p>
+</td></tr>
+<tr valign="top"><td><code>minimum_k</code></td>
+<td>
+<p>minimum nearest neigbhours if maximum_distance != NULL</p>
+</td></tr>
+<tr valign="top"><td><code>knn_method</code></td>
+<td>
+<p>method to create kNN network</p>
+</td></tr>
+<tr valign="top"><td><code>k</code></td>
+<td>
+<p>number of nearest neighbors based on physical distance</p>
+</td></tr>
+<tr valign="top"><td><code>maximum_distance_knn</code></td>
+<td>
+<p>distance cuttof for nearest neighbors to consider for kNN network</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>verbose</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Creates a spatial network connecting single-cells based on their physical distance to each other.
+For Delaunay method, neighbors will be decided by delaunay triangulation and a maximum distance criteria. For kNN method, number of neighbors can be determined by k, or maximum distance from each cell with or without
+setting a minimum k for each cell.
+</p>
+<p><strong>dimensions: </strong> default = 'all' which takes all possible dimensions.
+Alternatively you can provide a character vector that specififies the spatial dimensions to use, e.g. c(&quot;sdimx', &quot;sdimy&quot;)
+or a numerical vector, e.g. 2:3
+</p>
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated spatial network slot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createSpatialNetwork(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: makeSignMatrixRank</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeSignMatrixRank {Giotto}"><tr><td>makeSignMatrixRank {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>makeSignMatrixRank</h2>
+
+<h3>Description</h3>
+
+<p>Function to convert a single-cell count matrix
+and a corresponding single-cell cluster vector into
+a rank matrix that can be used with the Rank enrichment option.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeSignMatrixRank(sc_matrix, sc_cluster_ids, gobject = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>sc_matrix</code></td>
+<td>
+<p>matrix of single-cell RNAseq expression data</p>
+</td></tr>
+<tr valign="top"><td><code>sc_cluster_ids</code></td>
+<td>
+<p>vector of cluster ids</p>
+</td></tr>
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>if giotto object is given then only genes present in both datasets will be considered</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>matrix
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>rankEnrich</code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    makeSignMatrixRank()
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

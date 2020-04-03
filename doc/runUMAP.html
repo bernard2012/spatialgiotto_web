@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: runUMAP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for runUMAP {Giotto}"><tr><td>runUMAP {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>runUMAP</h2>
+
+<h3>Description</h3>
+
+<p>run UMAP
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+runUMAP(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  reduction = c("cells", "genes"),
+  dim_reduction_to_use = "pca",
+  dim_reduction_name = "pca",
+  dimensions_to_use = 1:10,
+  name = "umap",
+  genes_to_use = NULL,
+  return_gobject = TRUE,
+  n_neighbors = 40,
+  n_components = 2,
+  n_epochs = 400,
+  min_dist = 0.01,
+  n_threads = 1,
+  spread = 5,
+  set_seed = T,
+  seed_number = 1234,
+  ...
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>reduction</code></td>
+<td>
+<p>cells or genes</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>use another dimension reduction set as input</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>name of dimension reduction set to use</p>
+</td></tr>
+<tr valign="top"><td><code>dimensions_to_use</code></td>
+<td>
+<p>number of dimensions to use as input</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>arbitrary name for UMAP run</p>
+</td></tr>
+<tr valign="top"><td><code>genes_to_use</code></td>
+<td>
+<p>if dim_reduction_to_use = NULL, which genes to use</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+<tr valign="top"><td><code>n_neighbors</code></td>
+<td>
+<p>UMAP param: number of neighbors</p>
+</td></tr>
+<tr valign="top"><td><code>n_components</code></td>
+<td>
+<p>UMAP param: number of components</p>
+</td></tr>
+<tr valign="top"><td><code>n_epochs</code></td>
+<td>
+<p>UMAP param: number of epochs</p>
+</td></tr>
+<tr valign="top"><td><code>min_dist</code></td>
+<td>
+<p>UMAP param: minimum distance</p>
+</td></tr>
+<tr valign="top"><td><code>n_threads</code></td>
+<td>
+<p>UMAP param: threads to use</p>
+</td></tr>
+<tr valign="top"><td><code>spread</code></td>
+<td>
+<p>UMAP param: spread</p>
+</td></tr>
+<tr valign="top"><td><code>set_seed</code></td>
+<td>
+<p>use of seed</p>
+</td></tr>
+<tr valign="top"><td><code>seed_number</code></td>
+<td>
+<p>seed number to use</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional UMAP parameters</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>See <code>umap</code> for more information about these and other parameters.
+</p>
+
+<ul>
+<li><p> Input for UMAP dimension reduction can be another dimension reduction (default = 'pca')
+</p>
+</li>
+<li><p> To use gene expression as input set dim_reduction_to_use = NULL
+</p>
+</li>
+<li><p> multiple UMAP results can be stored by changing the <em>name</em> of the analysis
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>giotto object with updated UMAP dimension recuction
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    runUMAP(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

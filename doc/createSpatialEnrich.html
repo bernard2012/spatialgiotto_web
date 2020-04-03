@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: createSpatialEnrich</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for createSpatialEnrich {Giotto}"><tr><td>createSpatialEnrich {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>createSpatialEnrich</h2>
+
+<h3>Description</h3>
+
+<p>Function to calculate gene signature enrichment scores per spatial position using a hypergeometric test.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+createSpatialEnrich(
+  gobject,
+  enrich_method = c("PAGE", "rank", "hypergeometric"),
+  sign_matrix,
+  expression_values = c("normalized", "scaled", "custom"),
+  reverse_log_scale = TRUE,
+  logbase = 2,
+  p_value = TRUE,
+  n_genes = 100,
+  n_times = 1000,
+  top_percentage = 5,
+  output_enrichment = c("original", "zscore"),
+  name = "PAGE",
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>Giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>enrich_method</code></td>
+<td>
+<p>method for gene signature enrichment calculation</p>
+</td></tr>
+<tr valign="top"><td><code>sign_matrix</code></td>
+<td>
+<p>Matrix of signature genes for each cell type / process</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>reverse_log_scale</code></td>
+<td>
+<p>reverse expression values from log scale</p>
+</td></tr>
+<tr valign="top"><td><code>logbase</code></td>
+<td>
+<p>log base to use if reverse_log_scale = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>p_value</code></td>
+<td>
+<p>calculate p-value (default = FALSE)</p>
+</td></tr>
+<tr valign="top"><td><code>n_times</code></td>
+<td>
+<p>(page/rank) number of permutation iterations to calculate p-value</p>
+</td></tr>
+<tr valign="top"><td><code>top_percentage</code></td>
+<td>
+<p>(hyper) percentage of cells that will be considered to have gene expression with matrix binarization</p>
+</td></tr>
+<tr valign="top"><td><code>output_enrichment</code></td>
+<td>
+<p>how to return enrichment output</p>
+</td></tr>
+<tr valign="top"><td><code>name</code></td>
+<td>
+<p>to give to spatial enrichment results, default = PAGE</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>return giotto object</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>For details see the individual functions:
+</p>
+
+<ul>
+<li><p>PAGE: <code>PAGEEnrich</code>
+</p>
+</li>
+<li><p>PAGE: <code>rankEnrich</code>
+</p>
+</li>
+<li><p>PAGE: <code>hyperGeometricEnrich</code>
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>Giotto object or enrichment results if return_gobject = FALSE
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    createSpatialEnrich(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

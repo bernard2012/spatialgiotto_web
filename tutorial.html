@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Help manual for setting up Giotto Viewer</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale">
+<link rel="stylesheet" href="css/bootstrap.4.1.0.min.css"/>
+<link rel="stylesheet" href="css/font-awesome.4.7.0.min.css"/>
+<link rel="stylesheet" href="css/Material.Icons.css"/>
+<link href="css/grid.css" rel="stylesheet"/>
+<link href="css/prism.css" rel="stylesheet"/>
+<script src="js/jquery.3.3.1.min.js"></script>
+<script src="js/bootstrap.4.1.0.min.js"></script>
+<!--<script src="js/plotly-latest.min.js"></script>-->
+
+</head>
+<body>
+<script src="js/prism.js"></script>
+
+<div class="container">
+
+<h3>Giotto Viewer Installation</h3>
+
+In this tutorial we describe how to set up the user's spatial transcriptomic dataset for Giotto Viewer exploration.
+<br><br>
+
+<!--stitch staining images across multiple positions of view, to convert cell coordinates of each position to a stitched coordinate system, to align segmentation data to expression data, and other items. -->
+
+Giotto Viewer may work in any of the two cases:
+<p>
+1) The input data contains only a cell by gene expression matrix, and the spatial coordinates of cell centroids.
+<br>
+2) The input data also contains additional information such as staining images, and cell segmentations.
+<br>
+<br>
+Cell annotations, such as spatial domains, cell types, and tSNE coordinates can also be added in addition to the above.
+<br><br>
+The way Giotto Viewer is organized on the screen is a set of panels. Each panel can be one of Physical Space Panel, Expression Space Panel (i.e. UMAP or tSNE), Transcript Localization Panel. 
+Panels may be arranged horizontally or vertically. Multiple panels can be composed on the screen (such as 2, 4, 6, etc) which would enable a comparison of multi-modality information.
+<br>
+<img src="sample.panel.2.png" width="20%"></img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="sample.panel.4.png" width="20%"></img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="sample.panel.6.png" width="20%"></img>
+<br>
+
+Note that the terms <i>field of view</i> and <i>position</i> are used interchangeably throughout this tutorial.
+We next describe the steps of setup.
+<br><br>
+
+<h4>Input data format required</h4>
+<h5>Gene expression</h5>
+A comma-delimited CSV file with header information. First row consists of cell IDs (integers starting at 1). First column is gene name. Values are distributed in a log-transformed scale, and preferably centered. Z-scores tend to work well.
+<br><br>
+
+<h5>Cell centroids (unstitched)</h5>
+Cell centroids per field of view. A CSV file, comma-delimited. First row consists of "Field of View, Cell ID, X, Y". <i>Field of View</i> refers to the field ID. <i>Cell ID</i> is an integer starting at 1, and unique in the whole dataset. <i>X, Y</i> are the coordinates.
+<br><br>
+
+<h5>Offset file</h5>
+This specifies the relative positions of FOVs. It is tab-delimited, and must be indicated in the below format:
+<pre><code>Pos0.x  Pos0.y  0   0
+Pos1.x  Pos1.y  1654.97 0
+Pos2.x  Pos2.y  Pos1.x+1750.75  0
+Pos3.x  Pos3.y  Pos2.x+1674.35  0
+Pos4.x  Pos4.y  Pos3.x+675.5    1438.02</code></pre>
+
+<h5>Staining images</h5>
+This is a TIFF stack generally containinig DAPI, Nissl, or PolyA staining on one field of view. It is a stack because it contains multiple staining images all in the same TIFF file. The channel ID of individual staining should be noted.
+<br><br>
+
+<h5>Cell segmentations</h5>
+The segmentation of each cell should be located in its own ROI (Region-Of-Interest) file. Then all cells' segmentation files for one FOV should be zipped together in a roi zip file, for example ROI-Pos0.zip for cells in position 0. 
+<br><br>
+
+<h5>Clustering annotations</h5>
+Multiple sets of cell annotations such as spatial domains, cell types can be added to the viewer. To add an annotation set, create two files, which share the same file name but differ only in the file extension. One file has (*.txt) extension and one file has (*.annot) extension. The first *.txt file contains a single-column of integer cluster membership of all cells. Each row is a cell in the same cell order as in gene expression. The second *.annot file is a tab-delimited file showing names of each cluster. e.g. <pre><code>
+1   L2/3 exc neuron
+2   inh neuron
+3   microglia
+4   endothelial
+5   astrocyte
+6   L6 exc neuron
+7   OL
+8   L4 exc neuron
+9   L5 exc neuron </code></pre>
+Examples of an annotation set: X.txt, X.annot.
+<br><br>
+
+<h5>tSNE/UMAP cell coordinates</h5>
+For tSNE, UMAP panel, we need also cell coordinates in tSNE space. This file is a space-delimited two-column (X,Y) format. Coordinates in each dimension should be scaled from (-20, +20).
+Example of tSNE coordinate file: X.coord.txt. 
+
+<br><br><br>
+
+<h4>Sample dataset download</h4>
+Download the sample dataset <a href="cortex.tar.gz">CORTEX (cortex.tar.gz)</a>.
+<p>
+We provide this sample dataset of the mouse visual cortex (seqFISH+) with 10,000 genes and ~500 cells spread across 5 FOVs.
+As you extract the zip file, you will see the following content. These files are good to illustrate the format for the aforementioned input files.
+<pre><code class="language-bash">-rw-r--r-- 1 zqian gcproj 67215245 Jun 28 16:27 segmentation_staining_1_MMStack_Pos0.ome.tif
+-rw-r--r-- 1 zqian gcproj 67195681 Jun 28 16:27 segmentation_staining_1_MMStack_Pos1.ome.tif
+-rw-r--r-- 1 zqian gcproj 67195681 Jun 28 16:27 segmentation_staining_1_MMStack_Pos2.ome.tif
+-rw-r--r-- 1 zqian gcproj 67195681 Jun 28 16:27 segmentation_staining_1_MMStack_Pos3.ome.tif
+-rw-r--r-- 1 zqian gcproj 67195689 Jun 28 16:27 segmentation_staining_1_MMStack_Pos4.ome.tif
+-rw-r--r-- 1 zqian gcproj   102463 Jun 28 16:27 RoiSet_Pos0_real.zip
+-rw-r--r-- 1 zqian gcproj    90112 Jun 28 16:27 RoiSet_Pos1_real.zip
+-rw-r--r-- 1 zqian gcproj    72043 Jun 28 16:27 RoiSet_Pos2_real.zip
+-rw-r--r-- 1 zqian gcproj    78095 Jun 28 16:27 RoiSet_Pos3_real.zip
+-rw-r--r-- 1 zqian gcproj    73859 Jun 28 16:27 RoiSet_Pos4_real.zip
+-rw-r--r-- 1 zqian gcproj 29738555 Jun 28 16:27 cortex_expression_zscore.csv
+-rwxr-xr-x 1 zqian gcproj    17234 Jun 28 16:27 Cell_centroids.csv
+-rw-r--r-- 1 zqian gcproj      134 Jun 28 16:28 offset.txt
+-rw-r--r-- 1 zqian gcproj     2305 Jun 28 16:46 v_cortex_setup.json
+</code></pre>
+<br>
+<br>
+
+<h4>Getting the required input files from Giotto Analyzer</h4>
+Some of the input files are already provided upon finishing analyzing the dataset in Giotto Analyzer. 
+In R, the <code>exportGiottoViewer()</code> function will export the gene expression matrix, the cluster annotations, unstitched cell coordinates, and tSNE/UMAP cell coordinates. 
+
+<pre><code class="line-numbers language-R">viewer_folder = '/home/qzhu/Mouse_cortex_viewer/'
+# select annotations, reductions and expression values to view in Giotto Viewer
+exportGiottoViewer(gobject = VC_test, output_directory = viewer_folder,
+                   annotations = c('cell_types', 'kmeans',
+                                   'global_cell_types', 'sub_cell_types',
+                                   'HMRF_k9_b.30'),
+                   dim_reductions = c('tsne', 'umap'),
+                   dim_reduction_names = c('tsne', 'umap'),
+                   expression_values = 'scaled',
+                   expression_rounding = 3,
+                   overwrite_dir = T)</code></pre>
+
+The annotations to output are in lines 4-6 above. Each annotation will produce a *.annot file and a *.txt file.
+<br>
+The dimension reduction cell coordinates to output are in lines 7-8.
+<br>
+The generated files look like the following:
+<pre><code class="language-bash">ls test.ruben/testviewer
+cell_types_annot_information.annot  centroid_locations.txt  kmeans_annot_information.annot  tsne_tsne_dim_coord.txt
+cell_types_annot_information.txt    giotto_expression.csv   kmeans_annot_information.txt    umap_umap_dim_coord.txt</code></pre>
+
+Note that while these files are conveniently generated by the function, other input files such as <b>offset file, images and segmentation files</b> are not covered in the function and <b>will need to be supplied by the user</b>.
+<br>
+If users intend to run Giotto Viewer with analysis results generated outside, please make sure all the input files are prepared according to the format specified in the input file format section above.
+
+<br><br><br>
+
+<h4>Overview of preprocessing</h4>
+Before proceeding, data preprocessing steps should be performed. These steps include stitching the multiple fields of view (FOV) to a global positioning system (image and cell coordinate stitching), and extraction of cell boundary information from cell segmentations. This preprocessing is a must for the pipeline. 
+Below is an overview of the data preprocessing steps.
+<br>
+<img src="pipeline.overview.png" width="50%"></img>
+<br><br>
+Before proceeding, download the preprocessing scripts <a href="python-v3.tar.gz">python-v3.tar.gz</a>. Note the package is using Python v3.Once extracted, you will see the following content: 
+<pre><code class="language-bash">[ada-zqian][/homes10/zqian/giotto.viewer]# pwd
+/homes10/zqian/giotto.viewer
+[ada-zqian][/homes10/zqian/giotto.viewer]# ls -ltr python-v3
+total 2281
+-rwxr-xr-x 1 zqian gcproj    3128 Jun 28 16:20 do_all_stitch.py
+-rwxr-xr-x 1 zqian gcproj    1843 Jun 28 16:20 stitch_cell_centroid.py
+-rw-r--r-- 1 zqian gcproj    2729 Jun 28 16:20 stitch_cell_centroid.pyc
+-rw-r--r-- 1 zqian gcproj   10151 Jun 28 16:20 image_processing.pyc
+-rw-r--r-- 1 zqian gcproj    1761 Jun 28 16:20 segmentation.py
+drwxr-xr-x 2 zqian gcproj       5 Jun 28 16:20 __pycache__
+-rw-r--r-- 1 zqian gcproj    2656 Jun 28 16:20 segmentation.pyc
+-rw-r--r-- 1 zqian gcproj 2291564 Jun 28 16:32 ij.jar
+-rw-r--r-- 1 zqian gcproj     963 Jun 28 16:32 ReaderROI.class
+-rw-r--r-- 1 zqian gcproj    1704 Jun 28 16:32 ReaderROIList.class
+-rwxr-xr-x 1 zqian gcproj    6688 Jun 28 16:44 step1_setup.py
+-rw-r--r-- 1 zqian gcproj    8695 Jun 28 16:44 image_processing.py
+-rwxr-xr-x 1 zqian gcproj    9571 Jul 24 15:04 read_config.py
+-rwxr-xr-x 1 zqian gcproj    3812 Jul 24 15:04 read_css_template.py
+-rwxr-xr-x 1 zqian gcproj   35465 Jul 24 15:04 read_html_template.py
+</code></pre>
+
+
+<br><br><br>
+
+<h4>Step 1: Preprocessing</h4>
+Preprocessing is specified through a JSON-formatted configuration file (see <a href="v_cortex_setup.json">v_cortex_setup.json</a> in the sample dataset). Here you will specify among the list of accepted choices of what tasks you would like to perform and in what order. An example json for this visual cortex dataset is provided below:
+<!--<pre><code class="line-numbers">{-->
+<pre><code class="line-numbers language-json">{
+	"tiff_width": 2048,
+	"tiff_height": 2048,
+	"positions": [0,1,2,3,4],
+	"stain_ids": [0,4,7],
+	"new_task_1":{
+		"task": "extract_roi_zip",
+		"priority": 0,
+		"input": "RoiSet_Pos[POSITION]_real.zip",
+		"output": "roi/roi.pos[POSITION].all.txt",
+		"tmp": "/tmp/pos[POSITION]",
+		"positions": [0,1,2,3,4]
+	},
+	"new_task_2":{
+		"task": "decouple_tiff",
+		"priority": 1,
+		"input": "segmentation_staining_1_MMStack_Pos[POSITION].ome.tif",
+		"output_prefix": "Pos[POSITION]",
+		"positions": [0,1,2,3,4]
+	},
+	"new_task_3":{
+		"task": "rotate_image",
+		"priority": 2,
+		"input": "Pos[POSITION].[STAINID].tif",
+		"output": "Pos[POSITION].[STAINID].rotate.tif",
+		"angle": "left90",
+		"positions": [0,1,2,3,4],
+		"stain_ids": [0,4,7]
+	},
+	"new_task_4":{
+		"task": "stitch_image",
+		"priority": 3,
+		"input": "Pos[POSITION].[STAINID].rotate.tif",
+		"output": "Pos.ch[STAINID].joined.tif",
+		"offset": "offset.txt",
+		"positions": [0,1,2,3,4],
+		"stain_ids": [0,4,7]
+	},
+	"new_task_5":{
+		"task": "rotate_coord",
+		"priority": 4,
+		"input": "Cell_centroids.csv",
+		"output": "Cell_centroids_rotate.csv",
+		"angle": "left90"
+	},
+	"new_task_6":{
+		"task": "stitch_coord",
+		"priority": 5,
+		"input": "Cell_centroids_rotate.csv",
+		"output": "cell.centroid.stitched.pos.all.cells.txt",
+		"offset": "offset.txt",
+		"positions": [0,1,2,3,4]
+	},
+	"new_task_7":{
+		"task": "rotate_segmentation_roi",
+		"priority": 6,
+		"input": "roi/roi.pos[POSITION].all.txt",
+		"output": "roi/roi.pos[POSITION].rotate.all.txt",
+		"angle": "left90",
+		"positions": [0,1,2,3,4]
+	},
+	"new_task_8":{
+		"task": "stitch_segmentation_roi",
+		"priority": 7,
+		"input": "roi/roi.pos[POSITION].rotate.all.txt",
+		"output": "roi.stitched.pos.all.cells.txt",
+		"offset": "offset.txt",
+		"positions": [0,1,2,3,4]
+	},
+	"new_task_9":{
+		"task": "align_segmentation_and_cell_centroid",
+		"priority": 8,
+		"input_segmentation": "roi.stitched.pos.all.cells.txt",
+		"input_cell_centroid": "cell.centroid.stitched.pos.all.cells.txt",
+		"output": "segmentation.to.cell.centroid.map.txt"
+	},
+	"new_task_10":{
+		"task": "tiling_image",
+		"priority": 9,
+		"input": "Pos.ch[STAINID].joined.tif",
+		"output_dir": "imapr26.[STAINID]",
+		"zoom": 6,
+		"stain_ids": [0,4,7]
+	},
+	"new_task_11":{
+		"task": "prepare_gene_expression",
+		"priority": 10,
+		"input": "cortex_expression_zscore.csv",
+		"output_dir": "10k.genes",
+		"csv_sep": ",",
+		"csv_header": 0,
+		"csv_index_col": 0,
+		"num_genes_per_file": 100
+	}
+}</code></pre>
+
+Here are a few explanations:
+<ul>
+<li><i>tiff_width</i>, <i>tiff_height</i> (lines 2-3) specify the dimension of staining images.
+</li>
+<li>To create a new task, create a new branch in JSON named <i>new_task_X</i> (line 6) where X is the task ID. 
+</li>
+<li>Within the branch, define the <i>task</i> (line 7) field which can be one of "extract_roi_zip", "decouple_tiff", "rotate_image", "stitch_image", 
+"rotate_coord", "stitch_coord", "rotate_segmentation_roi", "stitch_segmentation_roi", 
+"align_segmentation_and_cell_centroid", "tiling_image", "prepare_gene_expression" (see here for more explanations of the tasks). The above JSON file actually performs each task and is a good example to illustrate the usage of each task.
+</li>
+<li>Define a priority level <i>priority</i> (line 8) for the task. Priority specifies the order in which the tasks should be executed. A lower number means higher priority, which means it is executed first before others. Priority level can be a fractional number.
+</li>
+<li>Define a set of task-dependent parameters. 
+</li>
+<li>Note: <i>input</i> and <i>output</i> fields can accept wildcard characters which should be helpful for repeating the same task over several FOVs. We have two space holders that can be used in the input or output file names: <i>[POSITION]</i> which is FOV IDs, and <i>[STAINID]</i> which is the channel of a TIFF file. Specific IDs to loop are located in <i>positions</i> and <i>stain_ids</i> fields.
+</ul>
+
+The above JSON describes a processing pipeline that closely matches the pipeline overview figure above.
+We can use this JSON to run the preprocessing, by next running:
+<pre><code class="language-bash">python3 step1_setup.py -c v_cortex_setup.json
+</code></pre>
+Let this run for a while. On my machine it should take less than 5 minutes. If the input files are specified correctly, image dimensions are correct, and pre-requisite softwares are installed and can be found, then there should be no problems running this script. 
+
+<br><br><br>
+<h4>Step 2: Preparing the cell annotation files</h4>
+
+We need to generate cell annotation files (containing cells cluster membership), and cells' tSNE coordinate file.
+<br><br>
+<h5>From Giotto Analyzer</h5>
+The <code>exportGiottoViewer</code> function should have already exported both of these files. See below for a list of exported files:
+
+<pre><code>cell_types_annot_information.annot
+cell_types_annot_information.txt
+kmeans_annot_information.annot
+kmeans_annot_information.txt
+tsne_tsne_dim_coord.txt
+umap_umap_dim_coord.txt
+</code></pre>
+Note that for each annotation, a *.annot and a *.txt file is has been generated. (e.g. "cell_type_annot_information.annot" and "cell_types_annot_information.txt"). You will need both of these names in setting up the JSON file in the next step.
+
+
+<br><br>
+<h5>Generating by yourself</h5>
+You will need to provide a *.annot file and a *.txt file for each annotation information that you wish to display in the viewer. See input file format section for details.
+
+<br><br><br>
+<h4>Step 3: Creating panels in the Giotto Viewer</h4>
+Now we are at the step of setting up the viewer using the preprocessed data.
+
+The configuration of panels, and what goes into each panel is again a JSON file. See below for an example (also provided as a file named <a href="setup.cortex.jun28.json">setup.cortex.jun28.json</a>):
+<!--<pre><code class="line-numbers">{-->
+<pre><code class="line-numbers language-json">{
+	"num_panel": 4,
+	"annotation_set": {
+		"num_annot": 2,
+		"annot_1": {
+			"file": "test.cell.type.unsupervised.id.txt",
+			"name": "cell.type.unsup"
+		},
+		"annot_2": {
+			"file": "test.hmrf.oct14.spatial.0.99.top100.b24.0.k9.cluster.txt",
+			"name": "spatial_k9"
+		}
+	},
+	"map_1": {
+		"type": "PanelPhysical",
+		"maxBound": 4096,
+		"id": 1,
+		"annot": "cell.type.unsup",
+		"tile": "nissl",
+		"dir_polyA": "imapr26.4",
+		"dir_nissl": "imapr26.0",
+		"dir_dapi": "imapr26.7",
+		"gene_map": "10k.genes/gene.map",
+		"segmentation_map": "segmentation.to.cell.centroid.map.txt",
+		"segmentation": "roi.stitched.pos.all.cells.txt",
+		"dir_gene_expression": "10k.genes",
+		"gene_list": "gene.list.10k",
+		"map_height": "500px"
+	},
+	"map_2": {
+		"type": "PanelTsne",
+		"maxBound": 500,
+		"id": 2,
+		"file_tsne": "test.cell.type.unsupervised.id.txt",
+		"annot": "cell.type.unsup",
+		"map_height": "500px"
+	},
+	"map_3": {
+		"type": "PanelPhysical",
+		"maxBound": 4096,
+		"id": 3,
+		"annot": "cell.type.unsup",
+		"tile": "nissl",
+		"dir_polyA": "imapr26.4",
+		"dir_nissl": "imapr26.0",
+		"dir_dapi": "imapr26.7",
+		"gene_map": "10k.genes/gene.map",
+		"segmentation_map": "segmentation.to.cell.centroid.map.txt",
+		"segmentation": "roi.stitched.pos.all.cells.txt",
+		"dir_gene_expression": "10k.genes",
+		"gene_list": "gene.list.10k",
+		"map_height": "500px"
+	},
+	"map_4": {
+		"type": "PanelTsne",
+		"maxBound": 500,
+		"id": 4,
+		"file_tsne": "test.cell.type.unsupervised.id.txt",
+		"annot": "cell.type.unsup",
+		"map_height": "500px"
+	},
+	"interact_1": ["map_1", "map_2", "map_3", "map_4"],
+	"sync_1": ["map_1", "map_3"],
+	"sync_2": ["map_2", "map_4"]
+}</code></pre>
+
+Most of the settings are self explanatory.
+<ul>
+<li>
+General settings such as cell annotation sets are defined first (lines 3-13).
+</li>
+<li>
+To define a panel, create a branch in JSON called <i>map_X</i> (line 14), where X is ID beginning with 1.
+</li>
+<li>Within the <i>map_X</i> branch, define the field <i>type</i> (line 15), which can be one of "PanelTsne", "PanelPhysical", or "PanelPhysicalSimple". PanelTsne lays out in expression space. PanelPhysical lays out cells in physical space (staining images and segmentation required). PanelPhysicalSimple is a simple version of PanelPhysical where no images nor segmentations are required (instead, cells are drawn as circles).
+</li>
+<li>If the type is PanelTsne, one needs to define <i>file_tsne</i> (line 34) which is the tsne coordinate file.
+</li>
+<li>If the type is PanelPhysical, one needs to specify the directories of staining images (<i>dir_polyA</i>, <i>dir_nissl</i>, <i>dir_dapi</i>, lines 20-22), the segmentation file (<i>segmentation</i>, line 25), and the directory of gene expression data (<i>dir_gene_expression</i>, line 26). 
+</li>
+<li>The <i>annot</i> (line 18) field specifies the name of the default annotation set to display in the panel.
+</li>
+<li>The <i>maxBound</i> (line 16) parameter shows the maximum coordinate boundary of each map. For PanelTsne, it should be fixed at 500. For PanelPhysical, it depends on stitched image dimension and should be set to maximum of X and Y dimensions.
+</li>
+<li>The last 3 lines (lines 62-64) define how panels are linked to each other. They define which panels should be allowed to interact with which others. Which panels should be synched to each other. <i>Interact</i> and <i>Sync</i> are different concepts.
+<ul>
+<li><i>Interact</i> refers to how mouseover events, cell selection events, are linked across panels.
+</li>
+<li><i>Sync</i> refers to how zoom, and move position of panels are linked.
+</li>
+<li>After each <i>interact_X</i> and <i>sync_X</i> tag, follow up with the map IDs as an array - this means that all map IDs specified in each line will interact with each other.
+</li>
+<li>E.g. <i>"interact_1": ["map_1", "map_2"]</i> means that map_1 will interact with map_2 and vice versa.
+</li>
+<li>E.g. <i>"interact_2": ["map_3", "map_4"]</i> means that map_3 will interact with map_4 and vice versa. Note that map_3 does not interact with map_1 nor map_2 since they are not in this array.
+</li>
+<li>E.g. <i>"interact_3": ["map_1", "map_2", "map_3", "map_4"]</i> means that all pairs of maps within this array interact with each other.
+</li>
+</ul>
+</ul>
+With the configuration file ready, we can run the script to generate the webpage for Giotto Viewer for this dataset. 
+<pre><code class="language-bash">python3 read_config.py
+usage: read_config.py [-h] -c CONFIG -o OUTPUT_JS -p OUTPUT_HTML -q OUTPUT_CSS
+
+python3 read_config.py -c setup.cortex.jun28.json -o test.jun28.js -p test.jun28.html -q test.jun28.css
+</code></pre>
+
+The script will generate a set of three files, HTML, CSS, and Javascript files. 
+<br>
+<br>
+Now make sure the prerequisite CSS and JS scripts (for leaflet.js, bootstrap, jQuery, etc) are in place. Download CSS and JS tar balls: <a href="css.tar.gz">css.tar.gz</a>, <a href="js.tar.gz">js.tar.gz</a>.
+<pre><code class="language-bash">-bash-4.2$ tar -zxf css.tar.gz
+-bash-4.2$ tar -zxf js.tar.gz
+-bash-4.2$ ls -ltr js
+total 3852
+-rw-r--r-- 1 qzhu gyuan_lab    3708 Jul 13 16:47 leaflet-lasso.js
+-rw-r--r-- 1 qzhu gyuan_lab   26132 Jul 13 16:47 script.stitched.simple.js
+-rw-r--r-- 1 qzhu gyuan_lab   12637 Jul 13 16:47 script.js
+-rw-r--r-- 1 qzhu gyuan_lab   42810 Jul 13 16:47 leaflet-lasso-2.js
+-rw-r--r-- 1 qzhu gyuan_lab    1526 Jul 13 16:47 L.Control.MousePosition.js
+-rw-r--r-- 1 qzhu gyuan_lab   50676 Jul 13 16:47 bootstrap.4.1.0.min.js
+-rw-r--r-- 1 qzhu gyuan_lab   25711 Jul 13 16:47 script.stitched.2.js
+-rw-r--r-- 1 qzhu gyuan_lab   26728 Jul 13 16:47 script.stitched.js.txt
+-rw-r--r-- 1 qzhu gyuan_lab   11535 Jul 13 16:47 leaflet-lasso.min.js
+-rw-r--r-- 1 qzhu gyuan_lab    4520 Jul 13 16:47 test.jun26.js
+-rw-r--r-- 1 qzhu gyuan_lab     550 Jul 13 16:47 upload.js
+-rw-r--r-- 1 qzhu gyuan_lab    6206 Jul 13 16:47 script.stitched.extra.js
+-rw-r--r-- 1 qzhu gyuan_lab   25674 Jul 13 16:47 script.stitched.js.bac
+-rw-r--r-- 1 qzhu gyuan_lab   21162 Jul 13 16:47 popper.min.js
+-rw-r--r-- 1 qzhu gyuan_lab  141125 Jul 13 16:47 leaflet.js
+-rw-r--r-- 1 qzhu gyuan_lab  335340 Jul 13 16:47 prism.js
+-rw-r--r-- 1 qzhu gyuan_lab  253669 Jul 13 16:47 jquery-ui.min.js
+-rw-r--r-- 1 qzhu gyuan_lab 2734723 Jul 13 16:47 plotly-latest.min.js
+-rw-r--r-- 1 qzhu gyuan_lab   86927 Jul 13 16:47 jquery.3.3.1.min.js
+-rw-r--r-- 1 qzhu gyuan_lab   26752 Jul 13 16:47 script.stitched.js
+-rw-r--r-- 1 qzhu gyuan_lab   10366 Jul 13 16:47 L.Map.Sync.js
+-rw-r--r-- 1 qzhu gyuan_lab   46080 Jul 14 21:10 script.stitched.class.js
+-bash-4.2$ ls -ltr css
+total 256
+-rw-r--r-- 1 qzhu gyuan_lab   5342 Jul 13 16:47 prism.css
+-rw-r--r-- 1 qzhu gyuan_lab  14106 Jul 13 16:47 leaflet.css
+-rw-r--r-- 1 qzhu gyuan_lab    239 Jul 13 16:47 L.Control.MousePosition.css
+-rw-r--r-- 1 qzhu gyuan_lab   1668 Jul 13 16:47 style.stitched.4.css
+-rw-r--r-- 1 qzhu gyuan_lab    474 Jul 13 16:47 Material.Icons.css
+-rw-r--r-- 1 qzhu gyuan_lab    372 Jul 13 16:47 grid.css
+-rw-r--r-- 1 qzhu gyuan_lab  31000 Jul 13 16:47 font-awesome.4.7.0.min.css
+-rw-r--r-- 1 qzhu gyuan_lab   1670 Jul 13 16:47 style.stitched.test.jun26.css
+-rw-r--r-- 1 qzhu gyuan_lab   1248 Jul 13 16:47 style.stitched.css
+-rw-r--r-- 1 qzhu gyuan_lab   1248 Jul 13 16:47 style.css
+-rw-r--r-- 1 qzhu gyuan_lab  32076 Jul 13 16:47 jquery-ui.min.css
+-rw-r--r-- 1 qzhu gyuan_lab 140376 Jul 13 16:47 bootstrap.4.1.0.min.css
+</code></pre>
+
+Next we start the webserver:
+<pre><code class="language-bash">python3 -m http.server</code></pre>
+
+This will start a local webserver based in the current directory. 
+<br>
+Open a web browser, go to the generated HTML file.
+<pre><code class="language-bash">http://localhost:8000/test.jun28.html</code></pre>
+
+<br><br><br>
+
+<h4>Exporting cell selections for Giotto Analyzer reanalysis</h4>
+
+Suppose a user makes two cell selections using the Giotto Viewer, saves each selection separately to a file (/tmp/selection.1.txt and /tmp/selection.2.txt). The following shows how to perform differential expression analysis involving these two selections of cells in Giotto Analyzer, demonstrating iterative analysis.
+
+<pre><code class="language-R">#load existing cell annotations
+cell_metadata=pDataDT(VC_test)
+annot = 1:nrow(cell_metadata)
+annot[1:length(annot)] = 0
+#read selected cell indices (1)
+yy<-read.table("/tmp/selection.1.txt", header=F, row.names=NULL)
+annot[t(t(yy))] = 1
+#read selected cell indices (2)
+yy<-read.table("/tmp/selection.2.txt", header=F, row.names=NULL)
+annot[t(t(yy))] = 2
+#create a new column in cell metadata
+cell_metadata=base::cbind(cell_metadata, annot)
+VC_test@cell_metadata = cell_metadata
+#do one-vs-all comparison for selected cells
+markers = findMarkers_one_vs_all(gobject = VC_test, expression_values = 'normalized', 
+                                 cluster_column = 'annot', 
+                                 method = 'scran', 
+                                 pval = 0.01, 
+                                 logFC = 0.5) 
+#do a pairwise comparison between two cell selections
+markers = findMarkers(gobject = VC_test, expression_values = 'normalized', 
+                      method = 'scran',  
+                      cluster_column = 'annot', 
+                      group_1 = 1, 
+                      group_2 = 2)
+</code></pre>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: spatDimGenePlot3D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for spatDimGenePlot3D {Giotto}"><tr><td>spatDimGenePlot3D {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>spatDimGenePlot3D</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells according to spatial AND dimension reduction coordinates in ggplot mode
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+spatDimGenePlot3D(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  plot_alignment = c("horizontal", "vertical"),
+  dim_reduction_to_use = "umap",
+  dim_reduction_name = "umap",
+  dim1_to_use = 1,
+  dim2_to_use = 2,
+  dim3_to_use = NULL,
+  sdimx = "sdimx",
+  sdimy = "sdimy",
+  sdimz = "sdimz",
+  genes,
+  cluster_column = NULL,
+  select_cell_groups = NULL,
+  select_cells = NULL,
+  show_other_cells = T,
+  other_cell_color = "lightgrey",
+  other_point_size = 1.5,
+  show_NN_network = F,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  label_size = 16,
+  genes_low_color = "blue",
+  genes_mid_color = "white",
+  genes_high_color = "red",
+  dim_point_size = 3,
+  nn_network_alpha = 0.5,
+  show_spatial_network = F,
+  spatial_network_name = "Delaunay_network",
+  network_color = "lightgray",
+  spatial_network_alpha = 0.5,
+  show_spatial_grid = F,
+  spatial_grid_name = "spatial_grid",
+  spatial_grid_color = NULL,
+  spatial_grid_alpha = 0.5,
+  spatial_point_size = 3,
+  legend_text_size = 12,
+  axis_scale = c("cube", "real", "custom"),
+  custom_ratio = NULL,
+  x_ticks = NULL,
+  y_ticks = NULL,
+  z_ticks = NULL,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "spatDimGenePlot3D"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>gene expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>plot_alignment</code></td>
+<td>
+<p>direction to align plot</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>dimension reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>dim1_to_use</code></td>
+<td>
+<p>dimension to use on x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim2_to_use</code></td>
+<td>
+<p>dimension to use on y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim3_to_use</code></td>
+<td>
+<p>dimension to use on z-axis</p>
+</td></tr>
+<tr valign="top"><td><code>genes</code></td>
+<td>
+<p>genes to show</p>
+</td></tr>
+<tr valign="top"><td><code>show_NN_network</code></td>
+<td>
+<p>show underlying NN network</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use, if show_NN_network = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>dim_point_size</code></td>
+<td>
+<p>dim reduction plot: point size</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_point_size</code></td>
+<td>
+<p>spatial plot: point size</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plots</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return plotly object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha_dim</code></td>
+<td>
+<p>dim reduction plot: column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>scale_alpha_with_expression</code></td>
+<td>
+<p>scale expression with ggplot alpha parameter</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>plotly
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    spatDimGenePlot3D(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

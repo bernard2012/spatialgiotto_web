@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: dimPlot2D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dimPlot2D {Giotto}"><tr><td>dimPlot2D {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>dimPlot2D</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells according to dimension reduction coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+dimPlot2D(
+  gobject,
+  group_by = NULL,
+  group_by_subset = NULL,
+  dim_reduction_to_use = "umap",
+  dim_reduction_name = "umap",
+  dim1_to_use = 1,
+  dim2_to_use = 2,
+  spat_enr_names = NULL,
+  show_NN_network = F,
+  nn_network_to_use = "sNN",
+  network_name = "sNN.pca",
+  cell_color = NULL,
+  color_as_factor = T,
+  cell_color_code = NULL,
+  cell_color_gradient = c("blue", "white", "red"),
+  gradient_midpoint = NULL,
+  gradient_limits = NULL,
+  select_cell_groups = NULL,
+  select_cells = NULL,
+  show_other_cells = T,
+  other_cell_color = "lightgrey",
+  other_point_size = 0.5,
+  show_cluster_center = F,
+  show_center_label = T,
+  center_point_size = 4,
+  center_point_border_col = "black",
+  center_point_border_stroke = 0.1,
+  label_size = 4,
+  label_fontface = "bold",
+  edge_alpha = NULL,
+  point_shape = c("border", "no_border"),
+  point_size = 1,
+  point_border_col = "black",
+  point_border_stroke = 0.1,
+  title = NULL,
+  show_legend = T,
+  legend_text = 8,
+  legend_symbol_size = 1,
+  background_color = "white",
+  axis_text = 8,
+  axis_title = 8,
+  cow_n_col = 2,
+  cow_rel_h = 1,
+  cow_rel_w = 1,
+  cow_align = "h",
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "dimPlot2D"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>group_by_subset</code></td>
+<td>
+<p>subset the group_by factor column</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_to_use</code></td>
+<td>
+<p>dimension reduction to use</p>
+</td></tr>
+<tr valign="top"><td><code>dim_reduction_name</code></td>
+<td>
+<p>dimension reduction name</p>
+</td></tr>
+<tr valign="top"><td><code>dim1_to_use</code></td>
+<td>
+<p>dimension to use on x-axis</p>
+</td></tr>
+<tr valign="top"><td><code>dim2_to_use</code></td>
+<td>
+<p>dimension to use on y-axis</p>
+</td></tr>
+<tr valign="top"><td><code>spat_enr_names</code></td>
+<td>
+<p>names of spatial enrichment results to include</p>
+</td></tr>
+<tr valign="top"><td><code>show_NN_network</code></td>
+<td>
+<p>show underlying NN network</p>
+</td></tr>
+<tr valign="top"><td><code>nn_network_to_use</code></td>
+<td>
+<p>type of NN network to use (kNN vs sNN)</p>
+</td></tr>
+<tr valign="top"><td><code>network_name</code></td>
+<td>
+<p>name of NN network to use, if show_NN_network = TRUE</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color</code></td>
+<td>
+<p>color for cells (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>color_as_factor</code></td>
+<td>
+<p>convert color column to factor</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_code</code></td>
+<td>
+<p>named vector with colors</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_gradient</code></td>
+<td>
+<p>vector with 3 colors for numeric data</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_midpoint</code></td>
+<td>
+<p>midpoint for color gradient</p>
+</td></tr>
+<tr valign="top"><td><code>gradient_limits</code></td>
+<td>
+<p>vector with lower and upper limits</p>
+</td></tr>
+<tr valign="top"><td><code>select_cell_groups</code></td>
+<td>
+<p>select subset of cells/clusters based on cell_color parameter</p>
+</td></tr>
+<tr valign="top"><td><code>select_cells</code></td>
+<td>
+<p>select subset of cells based on cell IDs</p>
+</td></tr>
+<tr valign="top"><td><code>show_other_cells</code></td>
+<td>
+<p>display not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_cell_color</code></td>
+<td>
+<p>color of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>other_point_size</code></td>
+<td>
+<p>size of not selected cells</p>
+</td></tr>
+<tr valign="top"><td><code>show_cluster_center</code></td>
+<td>
+<p>plot center of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>show_center_label</code></td>
+<td>
+<p>plot label of selected clusters</p>
+</td></tr>
+<tr valign="top"><td><code>center_point_size</code></td>
+<td>
+<p>size of center points</p>
+</td></tr>
+<tr valign="top"><td><code>label_size</code></td>
+<td>
+<p>size of labels</p>
+</td></tr>
+<tr valign="top"><td><code>label_fontface</code></td>
+<td>
+<p>font of labels</p>
+</td></tr>
+<tr valign="top"><td><code>edge_alpha</code></td>
+<td>
+<p>column to use for alpha of the edges</p>
+</td></tr>
+<tr valign="top"><td><code>point_shape</code></td>
+<td>
+<p>point with border or not (border or no_border)</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_col</code></td>
+<td>
+<p>color of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>point_border_stroke</code></td>
+<td>
+<p>stroke size of border around points</p>
+</td></tr>
+<tr valign="top"><td><code>title</code></td>
+<td>
+<p>title for plot, defaults to cell_color parameter</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>legend_text</code></td>
+<td>
+<p>size of legend text</p>
+</td></tr>
+<tr valign="top"><td><code>legend_symbol_size</code></td>
+<td>
+<p>size of legend symbols</p>
+</td></tr>
+<tr valign="top"><td><code>background_color</code></td>
+<td>
+<p>color of plot background</p>
+</td></tr>
+<tr valign="top"><td><code>axis_text</code></td>
+<td>
+<p>size of axis text</p>
+</td></tr>
+<tr valign="top"><td><code>axis_title</code></td>
+<td>
+<p>size of axis title</p>
+</td></tr>
+<tr valign="top"><td><code>cow_n_col</code></td>
+<td>
+<p>cowplot param: how many columns</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_h</code></td>
+<td>
+<p>cowplot param: relative height</p>
+</td></tr>
+<tr valign="top"><td><code>cow_rel_w</code></td>
+<td>
+<p>cowplot param: relative width</p>
+</td></tr>
+<tr valign="top"><td><code>cow_align</code></td>
+<td>
+<p>cowplot param: how to align</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from <code>all_plots_save_function</code></p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+<tr valign="top"><td><code>groub_by</code></td>
+<td>
+<p>create multiple plots based on cell annotation column</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters. For 3D plots see <code>dimPlot3D</code>
+</p>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    dimPlot2D(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

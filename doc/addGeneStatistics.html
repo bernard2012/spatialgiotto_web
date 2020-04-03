@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: addGeneStatistics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for addGeneStatistics {Giotto}"><tr><td>addGeneStatistics {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>addGeneStatistics</h2>
+
+<h3>Description</h3>
+
+<p>adds gene statistics to the giotto object
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+addGeneStatistics(
+  gobject,
+  expression_values = c("normalized", "scaled", "custom"),
+  detection_threshold = 0,
+  return_gobject = TRUE
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>expression_values</code></td>
+<td>
+<p>expression values to use</p>
+</td></tr>
+<tr valign="top"><td><code>detection_threshold</code></td>
+<td>
+<p>detection threshold to consider a gene detected</p>
+</td></tr>
+<tr valign="top"><td><code>return_gobject</code></td>
+<td>
+<p>boolean: return giotto object (default = TRUE)</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>This function will add the following statistics to gene metadata:
+</p>
+
+<ul>
+<li><p>nr_cells: Denotes in how many cells the gene is detected
+</p>
+</li>
+<li><p>per_cells: Denotes in what percentage of cells the gene is detected
+</p>
+</li>
+<li><p>total_expr: Shows the total sum of gene expression in all cells
+</p>
+</li>
+<li><p>mean_expr: Average gene expression in all cells
+</p>
+</li>
+<li><p>mean_expr_det: Average gene expression in cells with detectable levels of the gene
+</p>
+</li></ul>
+
+
+
+<h3>Value</h3>
+
+<p>giotto object if return_gobject = TRUE
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    addGeneStatistics(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

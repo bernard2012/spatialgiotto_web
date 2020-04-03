@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: showPatternGenes</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for showPatternGenes {Giotto}"><tr><td>showPatternGenes {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>showPatternGenes</h2>
+
+<h3>Description</h3>
+
+<p>show genes correlated with spatial patterns
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+showPatternGenes(
+  gobject,
+  spatPatObj,
+  dimension = 1,
+  top_pos_genes = 5,
+  top_neg_genes = 5,
+  point_size = 1,
+  return_DT = FALSE,
+  show_plot = NA,
+  return_plot = NA,
+  save_plot = NA,
+  save_param = list(),
+  default_save_name = "showPatternGenes"
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>spatPatObj</code></td>
+<td>
+<p>Output from detectSpatialPatterns</p>
+</td></tr>
+<tr valign="top"><td><code>dimension</code></td>
+<td>
+<p>dimension to plot genes for.</p>
+</td></tr>
+<tr valign="top"><td><code>top_pos_genes</code></td>
+<td>
+<p>Top positively correlated genes.</p>
+</td></tr>
+<tr valign="top"><td><code>top_neg_genes</code></td>
+<td>
+<p>Top negatively correlated genes.</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of points</p>
+</td></tr>
+<tr valign="top"><td><code>return_DT</code></td>
+<td>
+<p>if TRUE, it will return the data.table used to generate the plots</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+<tr valign="top"><td><code>return_plot</code></td>
+<td>
+<p>return ggplot object</p>
+</td></tr>
+<tr valign="top"><td><code>save_plot</code></td>
+<td>
+<p>directly save the plot [boolean]</p>
+</td></tr>
+<tr valign="top"><td><code>save_param</code></td>
+<td>
+<p>list of saving parameters from all_plots_save_function()</p>
+</td></tr>
+<tr valign="top"><td><code>default_save_name</code></td>
+<td>
+<p>default save name for saving, don't change, change save_name in save_param</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>ggplot
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    showPatternGenes(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>

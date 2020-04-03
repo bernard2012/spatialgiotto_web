@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: visPlot_2D_plotly</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for visPlot_2D_plotly {Giotto}"><tr><td>visPlot_2D_plotly {Giotto}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>visPlot_2D_plotly</h2>
+
+<h3>Description</h3>
+
+<p>Visualize cells according to spatial coordinates
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+visPlot_2D_plotly(
+  gobject,
+  sdimx = NULL,
+  sdimy = NULL,
+  point_size = 3,
+  cell_color = NULL,
+  cell_color_code = NULL,
+  color_as_factor = T,
+  select_cell_groups = NULL,
+  select_cells = NULL,
+  show_other_cells = T,
+  other_cell_color = "lightgrey",
+  other_point_size = 0.5,
+  show_network = F,
+  network_color = "lightgray",
+  network_alpha = 1,
+  other_cell_alpha = 0.5,
+  spatial_network_name = "spatial_network",
+  show_grid = F,
+  grid_color = NULL,
+  grid_alpha = 1,
+  spatial_grid_name = "spatial_grid",
+  show_legend = T,
+  axis_scale = c("cube", "real", "custom"),
+  custom_ratio = NULL,
+  x_ticks = NULL,
+  y_ticks = NULL,
+  show_plot = F
+)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>gobject</code></td>
+<td>
+<p>giotto object</p>
+</td></tr>
+<tr valign="top"><td><code>sdimx</code></td>
+<td>
+<p>x-axis dimension name (default = 'sdimx')</p>
+</td></tr>
+<tr valign="top"><td><code>sdimy</code></td>
+<td>
+<p>y-axis dimension name (default = 'sdimy')</p>
+</td></tr>
+<tr valign="top"><td><code>point_size</code></td>
+<td>
+<p>size of point (cell)</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color</code></td>
+<td>
+<p>color for cells (see details)</p>
+</td></tr>
+<tr valign="top"><td><code>cell_color_code</code></td>
+<td>
+<p>named vector with colors</p>
+</td></tr>
+<tr valign="top"><td><code>color_as_factor</code></td>
+<td>
+<p>convert color column to factor</p>
+</td></tr>
+<tr valign="top"><td><code>select_cell_groups</code></td>
+<td>
+<p>select a subset of the groups from cell_color</p>
+</td></tr>
+<tr valign="top"><td><code>show_network</code></td>
+<td>
+<p>show underlying spatial network</p>
+</td></tr>
+<tr valign="top"><td><code>network_color</code></td>
+<td>
+<p>color of spatial network</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_network_name</code></td>
+<td>
+<p>name of spatial network to use</p>
+</td></tr>
+<tr valign="top"><td><code>show_grid</code></td>
+<td>
+<p>show spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>grid_color</code></td>
+<td>
+<p>color of spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>grid_alpha</code></td>
+<td>
+<p>alpha of spatial grid</p>
+</td></tr>
+<tr valign="top"><td><code>spatial_grid_name</code></td>
+<td>
+<p>name of spatial grid to use</p>
+</td></tr>
+<tr valign="top"><td><code>show_legend</code></td>
+<td>
+<p>show legend</p>
+</td></tr>
+<tr valign="top"><td><code>show_plot</code></td>
+<td>
+<p>show plot</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>Description of parameters.
+</p>
+
+
+<h3>Value</h3>
+
+<p>plotly
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+    visPlot_2D_plotly(gobject)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>Giotto</em> version 0.1.4 ]</div>
+</body></html>
